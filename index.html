@@ -27,53 +27,177 @@
         .about-content {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 30px;
+            gap: 2rem;
         }
 
         .about-text p {
-            margin-bottom: 20px;
-            font-size: 1.1em;
-            line-height: 1.8;
-            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            font-size: 1.125rem;
+            line-height: 1.9;
+            color: var(--text-secondary);
         }
 
         .about-text a {
-            color: var(--accent-color);
+            color: var(--primary-color);
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
             transition: all 0.3s ease;
             position: relative;
-            border-bottom: 2px solid transparent;
+            background: linear-gradient(to right, var(--primary-color) 0%, var(--primary-color) 100%);
+            background-size: 0% 2px;
+            background-repeat: no-repeat;
+            background-position: left bottom;
+            padding-bottom: 2px;
         }
 
         .about-text a:hover,
         .about-text a:focus-visible {
-            border-bottom-color: var(--accent-color);
+            background-size: 100% 2px;
+            color: var(--secondary-color);
         }
         
         .highlight {
-            background: linear-gradient(120deg, #f0f9ff 0%, #e0f2fe 100%);
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-weight: 600;
+            background: linear-gradient(120deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-weight: 700;
+            color: var(--primary-color);
         }
         
         .education-section {
-            margin-top: 40px;
-            padding-top: 40px;
-            border-top: 1px solid #e2e8f0;
+            margin-top: 3rem;
+            padding-top: 3rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .education-section h3 {
+            font-size: 1.75rem;
+            color: var(--text-primary);
+            margin-bottom: 2rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .education-section h3::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 5px;
+            height: 70%;
+            background: var(--primary-gradient);
+            border-radius: 3px;
         }
         
         .education-item {
-            margin-bottom: 20px;
-            padding-left: 20px;
-            border-left: 3px solid var(--accent-color);
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-secondary) 100%);
+            border-radius: 1rem;
+            border-left: 4px solid;
+            border-image: var(--primary-gradient);
+            border-image-slice: 1;
+            transition: all 0.3s ease;
+        }
+
+        .education-item:hover {
+            transform: translateX(8px);
+            box-shadow: var(--shadow-lg);
         }
         
         .education-item strong {
-            color: var(--secondary-color);
+            color: var(--primary-color);
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 0.75rem;
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .education-item p {
+            margin: 0.5rem 0;
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        .education-item a {
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        /* Intro animation */
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .about-card {
+            animation: slideUp 0.6s ease-out;
+        }
+
+        .education-item {
+            animation: slideUp 0.6s ease-out;
+        }
+
+        .education-item:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        .education-item:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+
+        /* Resources link special styling */
+        .resources-link {
+            display: inline-flex;
+            align-items: center;
+            margin-top: 2rem;
+            padding: 1rem 1.5rem;
+            background: var(--primary-gradient);
+            color: white;
+            text-decoration: none;
+            border-radius: 2rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .resources-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Dark mode adjustments */
+        @media (prefers-color-scheme: dark) {
+            .education-item {
+                background: linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-primary) 100%);
+            }
+
+            .highlight {
+                background: linear-gradient(120deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%);
+                color: var(--accent-color);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .education-section h3 {
+                font-size: 1.5rem;
+            }
+
+            .education-item {
+                padding: 1.25rem;
+            }
+
+            .education-item strong {
+                font-size: 1.125rem;
+            }
         }
     </style>
 </head>
@@ -120,9 +244,11 @@
                             </div>
                         </div>
                         
-                        <p style="margin-top: 30px;">I am passionate about leveraging mathematical optimization approaches to solve real-world problems in machine learning. My research focuses on developing theoretically grounded and practically efficient optimization algorithms for training neural networks.</p>
+                        <p style="margin-top: 2.5rem;">I am passionate about leveraging mathematical optimization approaches to solve real-world problems in machine learning. My research focuses on developing theoretically grounded and practically efficient optimization algorithms for training neural networks.</p>
                         
-                        <p>📚 Check out this <a href="https://mathematical-optimization.github.io/github.io/" target="_blank" rel="noopener noreferrer" aria-label="Mathematical Optimization Resources">collection of resources</a> I've curated to help others learn about mathematical optimization in AI.</p>
+                        <a href="https://mathematical-optimization.github.io/github.io/" target="_blank" rel="noopener noreferrer" class="resources-link" aria-label="Mathematical Optimization Resources">
+                            📚 Explore My Curated Resources
+                        </a>
                     </div>
                 </div>
             </div>
@@ -130,7 +256,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2025 Kyunghun Nam. All rights reserved. | <a href="mailto:baptist0214@gmail.com" style="color: var(--accent-color); text-decoration: none;">Contact</a></p>
+        <p>&copy; 2025 Kyunghun Nam. All rights reserved. | <a href="mailto:baptist0214@gmail.com">Contact</a></p>
     </footer>
 
     <script src="common.js"></script>
