@@ -3,197 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kyunghun Nam's academic publications and research papers in AI optimization">
+    <meta name="keywords" content="Publications, Research Papers, AI, Machine Learning, Optimization">
+    <meta name="author" content="Kyunghun Nam">
+    
+    <!-- Open Graph meta tags -->
+    <meta property="og:title" content="Publications - Kyunghun Nam">
+    <meta property="og:description" content="Academic publications in AI optimization and machine learning">
+    <meta property="og:type" content="website">
+    
     <title>Publications - Kyunghun Nam</title>
+    
+    <link rel="stylesheet" href="styles.css">
+    
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary-color: #2563eb;
-            --secondary-color: #1e40af;
-            --accent-color: #3b82f6;
-            --dark-bg: #0f172a;
-            --light-bg: #f8fafc;
-            --text-dark: #1e293b;
-            --text-light: #64748b;
-            --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --hover-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-            background-color: var(--light-bg);
-            overflow-x: hidden;
-        }
-
-        /* Header with gradient animation */
-        header {
-            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--secondary-color) 100%);
-            color: white;
-            padding: 60px 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 2px, transparent 2px);
-            background-size: 50px 50px;
-            animation: moveGrid 20s linear infinite;
-            opacity: 0.3;
-        }
-
-        @keyframes moveGrid {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
-        }
-
-        .header-content {
-            position: relative;
-            z-index: 1;
-            text-align: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        header h1 {
-            font-size: 3.5em;
-            font-weight: 700;
-            margin-bottom: 10px;
-            animation: fadeInUp 0.8s ease-out;
-        }
-
-        header p {
-            font-size: 1.4em;
-            opacity: 0.9;
-            animation: fadeInUp 0.8s ease-out 0.2s both;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Navigation */
-        nav {
-            background: white;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 0;
-            margin: 0;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        nav li {
-            margin: 0;
-        }
-
-        nav a {
-            display: block;
-            color: var(--text-dark);
-            text-decoration: none;
-            padding: 20px 30px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            width: 0;
-            height: 3px;
-            background: var(--accent-color);
-            transform: translateX(-50%);
-            transition: width 0.3s ease;
-        }
-
-        nav a:hover {
-            color: var(--accent-color);
-        }
-
-        nav a:hover::after,
-        nav a.active::after {
-            width: 80%;
-        }
-
-        nav a.active {
-            color: var(--accent-color);
-        }
-
-        /* Main content */
-        main {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 60px 20px;
-        }
-
-        section {
-            margin-bottom: 80px;
-            animation: fadeIn 0.8s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        section h2 {
-            font-size: 2.5em;
-            color: var(--text-dark);
-            margin-bottom: 30px;
-            position: relative;
-            display: inline-block;
-        }
-
-        section h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 60px;
-            height: 4px;
-            background: var(--accent-color);
-            border-radius: 2px;
-        }
-
-        /* Publications with enhanced styling */
+        /* Page specific styles */
         .publication {
             background: white;
             padding: 35px;
@@ -202,11 +26,33 @@
             box-shadow: var(--card-shadow);
             transition: all 0.3s ease;
             border-left: 5px solid var(--accent-color);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .publication::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, var(--accent-color) 0%, transparent 70%);
+            opacity: 0.05;
+            transform: translate(50%, -50%);
         }
 
         .publication:hover {
             transform: translateX(10px);
             box-shadow: var(--hover-shadow);
+        }
+        
+        .publication.journal {
+            border-left-color: var(--primary-color);
+        }
+        
+        .publication.workshop {
+            border-left-color: #10b981;
         }
 
         .publication h3 {
@@ -221,21 +67,51 @@
             margin-bottom: 8px;
             font-style: italic;
         }
+        
+        .publication .authors .me {
+            font-weight: 600;
+            color: var(--text-dark);
+            font-style: normal;
+        }
 
         .publication .venue {
             color: var(--accent-color);
             font-weight: 500;
             margin-bottom: 15px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .venue-badge {
+            background: var(--accent-color);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.75em;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .journal .venue-badge {
+            background: var(--primary-color);
+        }
+        
+        .workshop .venue-badge {
+            background: #10b981;
         }
 
         .publication-links {
             display: flex;
             gap: 15px;
             flex-wrap: wrap;
+            margin-top: 20px;
         }
 
         .publication-links a {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
             padding: 8px 20px;
             background: var(--accent-color);
             color: white;
@@ -246,144 +122,243 @@
             font-size: 0.9em;
         }
 
-        .publication-links a:hover {
+        .publication-links a:hover,
+        .publication-links a:focus-visible {
             background: var(--secondary-color);
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+            outline: none;
         }
-
-        /* Footer */
-        footer {
-            background: var(--dark-bg);
-            color: white;
+        
+        .publication-links a.secondary {
+            background: #e2e8f0;
+            color: var(--text-dark);
+        }
+        
+        .publication-links a.secondary:hover {
+            background: #cbd5e1;
+        }
+        
+        .stats-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
             text-align: center;
-            padding: 40px 20px;
-            margin-top: 80px;
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
         }
-
-        footer p {
-            opacity: 0.8;
+        
+        .stat-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--hover-shadow);
         }
-
-        /* Responsive design */
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2.5em;
-            }
-            
-            nav ul {
-                flex-wrap: wrap;
-            }
-            
-            nav a {
-                padding: 15px 20px;
-            }
-            
-            section h2 {
-                font-size: 2em;
-            }
+        
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 5px;
         }
-
-        /* Smooth scroll behavior */
-        html {
-            scroll-behavior: smooth;
+        
+        .stat-label {
+            color: var(--text-light);
+            font-size: 0.95em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
-
-        /* Selection styling */
-        ::selection {
+        
+        .filter-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 8px 20px;
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 0.9em;
+        }
+        
+        .filter-btn:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+        }
+        
+        .filter-btn.active {
             background: var(--accent-color);
             color: white;
+            border-color: var(--accent-color);
+        }
+        
+        .intro-text {
+            font-size: 1.1em;
+            color: var(--text-light);
+            margin-bottom: 40px;
+            line-height: 1.8;
         }
     </style>
 </head>
 <body>
+    <a href="#main" class="skip-to-main">Skip to main content</a>
+    
     <header>
         <div class="header-content">
             <h1>Kyunghun Nam</h1>
-            <p>Graduate student in Artificial Intelligence</p>
+            <p>Graduate Student in Artificial Intelligence</p>
         </div>
     </header>
 
-    <nav>
+    <nav role="navigation" aria-label="Main navigation">
         <ul>
             <li><a href="index.html">About Me</a></li>
             <li><a href="research.html">Research</a></li>
-            <li><a href="publications.html" class="active">Publications</a></li>
+            <li><a href="publications.html" class="active" aria-current="page">Publications</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
 
-    <main>
-        <section id="publications">
-            <h2>Publications</h2>
-            <p style="font-size: 1.1em; color: var(--text-light); margin-bottom: 30px;">
-                Below is a list of my current publications. More to come!
+    <main id="main">
+        <section id="publications" aria-labelledby="publications-heading">
+            <h2 id="publications-heading">Publications</h2>
+            
+            <p class="intro-text">
+                My research contributions span theoretical optimization analysis and practical algorithm development. Below are my peer-reviewed publications and workshop presentations.
             </p>
             
-            <div class="publication">
-                <h3>Dimension-Independent Convergence Rate for Adagrad with Heavy-ball Momentum</h3>
-                <p class="authors">Kyunghun Nam, Sejun Park</p>
-                <p class="venue">MDPI Mathematics 2025 (Published)</p>
-                <div class="publication-links">
-                    <a href="https://www.mdpi.com/2227-7390/13/4/681" target="_blank">📄 PDF</a>
-                    <a href="https://www.mdpi.com/2227-7390/13/4/681" target="_blank">🔗 Journal Link</a>
+            <div class="stats-section">
+                <div class="stat-card">
+                    <div class="stat-number">2</div>
+                    <div class="stat-label">Publications</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">1</div>
+                    <div class="stat-label">Journal Papers</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">1</div>
+                    <div class="stat-label">Workshop Papers</div>
                 </div>
             </div>
             
-            <div class="publication">
-                <h3>Almost Sure Last Iterate Convergence of Sharpness-Aware Minimization</h3>
-                <p class="authors">Kyunghun Nam, Jinseok Chung, Namhoon Lee</p>
-                <p class="venue">ICLR 2023 Workshop</p>
-                <div class="publication-links">
-                    <a href="https://openreview.net/forum?id=IcDTYTI0Nx" target="_blank">📄 PDF</a>
-                    <a href="https://openreview.net/forum?id=IcDTYTI0Nx" target="_blank">💬 OpenReview</a>
+            <div class="filter-buttons">
+                <button class="filter-btn active" onclick="filterPublications('all')">All</button>
+                <button class="filter-btn" onclick="filterPublications('journal')">Journal Papers</button>
+                <button class="filter-btn" onclick="filterPublications('workshop')">Workshop Papers</button>
+            </div>
+            
+            <div id="publications-list">
+                <div class="publication journal" data-type="journal">
+                    <h3>Dimension-Independent Convergence Rate for AdaGrad with Heavy-Ball Momentum</h3>
+                    <p class="authors"><span class="me">Kyunghun Nam</span>, Sejun Park</p>
+                    <p class="venue">
+                        <span class="venue-badge">Journal</span>
+                        MDPI Mathematics, 2025 (Volume 13, Issue 4)
+                    </p>
+                    <p style="color: var(--text-light); margin-top: 10px; line-height: 1.6;">
+                        We establish the first dimension-independent convergence rate for AdaGrad when combined with heavy-ball momentum, demonstrating improved optimization efficiency for high-dimensional problems.
+                    </p>
+                    <div class="publication-links">
+                        <a href="https://www.mdpi.com/2227-7390/13/4/681" target="_blank" rel="noopener noreferrer" aria-label="Download PDF of AdaGrad paper">
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+                                <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                                <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+                            </svg>
+                            PDF
+                        </a>
+                        <a href="https://www.mdpi.com/2227-7390/13/4/681" target="_blank" rel="noopener noreferrer" aria-label="View journal article page">
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+                                <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855A7.97 7.97 0 0 0 5.145 4H7.5V1.077zM4.09 4a9.267 9.267 0 0 1 .64-1.539 6.7 6.7 0 0 1 .597-.933A7.025 7.025 0 0 0 2.255 4H4.09zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a6.958 6.958 0 0 0-.656 2.5h2.49zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5H4.847zM8.5 5v2.5h2.99a12.495 12.495 0 0 0-.337-2.5H8.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5H4.51zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5H8.5zM5.145 12c.138.386.295.744.468 1.068.552 1.035 1.218 1.65 1.887 1.855V12H5.145zm.182 2.472a6.696 6.696 0 0 1-.597-.933A9.268 9.268 0 0 1 4.09 12H2.255a7.024 7.024 0 0 0 3.072 2.472zM3.82 11a13.652 13.652 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5H3.82zm6.853 3.472A7.024 7.024 0 0 0 13.745 12H11.91a9.27 9.27 0 0 1-.64 1.539 6.688 6.688 0 0 1-.597.933zM8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855.173-.324.33-.682.468-1.068H8.5zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.65 13.65 0 0 1-.312 2.5zm2.802-3.5a6.959 6.959 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5h2.49zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7.024 7.024 0 0 0-3.072-2.472c.218.284.418.598.597.933zM10.855 4a7.966 7.966 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4h2.355z"/>
+                            </svg>
+                            Journal Link
+                        </a>
+                        <a href="https://scholar.google.com/citations?user=2K1cMuQAAAAJ&hl=ko" target="_blank" rel="noopener noreferrer" class="secondary" aria-label="View citations on Google Scholar">
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+                                <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm14.5 0a.5.5 0 0 0-.5-.5H2a.5.5 0 0 0-.5.5v12a.5.5 0 0 0 .5.5h12a.5.5 0 0 0 .5-.5V2z"/>
+                            </svg>
+                            Citations
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="publication workshop" data-type="workshop">
+                    <h3>Almost Sure Last Iterate Convergence of Sharpness-Aware Minimization</h3>
+                    <p class="authors"><span class="me">Kyunghun Nam</span>, Jinseok Chung, Namhoon Lee</p>
+                    <p class="venue">
+                        <span class="venue-badge">Workshop</span>
+                        ICLR 2023 Workshop on Mathematical and Empirical Understanding of Foundation Models
+                    </p>
+                    <p style="color: var(--text-light); margin-top: 10px; line-height: 1.6;">
+                        We provide theoretical analysis proving the almost sure convergence of the Sharpness-Aware Minimization (SAM) algorithm's last iterate, addressing a key gap in understanding this popular optimization method.
+                    </p>
+                    <div class="publication-links">
+                        <a href="https://openreview.net/forum?id=IcDTYTI0Nx" target="_blank" rel="noopener noreferrer" aria-label="Download PDF from OpenReview">
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+                                <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                                <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+                            </svg>
+                            PDF
+                        </a>
+                        <a href="https://openreview.net/forum?id=IcDTYTI0Nx" target="_blank" rel="noopener noreferrer" aria-label="View discussion on OpenReview">
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+                                <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.293a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                            </svg>
+                            OpenReview
+                        </a>
+                        <a href="https://scholar.google.com/citations?user=2K1cMuQAAAAJ&hl=ko" target="_blank" rel="noopener noreferrer" class="secondary" aria-label="View citations on Google Scholar">
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+                                <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm14.5 0a.5.5 0 0 0-.5-.5H2a.5.5 0 0 0-.5.5v12a.5.5 0 0 0 .5.5h12a.5.5 0 0 0 .5-.5V2z"/>
+                            </svg>
+                            Citations
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 Kyunghun Nam. All rights reserved.</p>
+        <p>&copy; 2025 Kyunghun Nam. All rights reserved. | <a href="https://scholar.google.com/citations?user=2K1cMuQAAAAJ&hl=ko" target="_blank" rel="noopener noreferrer" style="color: var(--accent-color); text-decoration: none;">Google Scholar</a></p>
     </footer>
 
+    <script src="common.js"></script>
     <script>
-        // Add scroll effect to navigation
-        let lastScroll = 0;
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            const currentScroll = window.pageYOffset;
+        function filterPublications(type) {
+            const buttons = document.querySelectorAll('.filter-btn');
+            const publications = document.querySelectorAll('.publication');
             
-            if (currentScroll > lastScroll && currentScroll > 100) {
-                nav.style.transform = 'translateY(-100%)';
-            } else {
-                nav.style.transform = 'translateY(0)';
-            }
-            
-            lastScroll = currentScroll;
-        });
-
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+            // Update button states
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+                if ((type === 'all' && btn.textContent === 'All') ||
+                    (type === 'journal' && btn.textContent === 'Journal Papers') ||
+                    (type === 'workshop' && btn.textContent === 'Workshop Papers')) {
+                    btn.classList.add('active');
                 }
             });
-        }, observerOptions);
-
-        // Observe all sections
-        document.querySelectorAll('section').forEach(section => {
-            section.style.opacity = '0';
-            section.style.transform = 'translateY(20px)';
-            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(section);
-        });
+            
+            // Filter publications
+            publications.forEach(pub => {
+                if (type === 'all' || pub.dataset.type === type) {
+                    pub.style.display = 'block';
+                    pub.style.animation = 'fadeIn 0.5s ease-out';
+                } else {
+                    pub.style.display = 'none';
+                }
+            });
+        }
     </script>
 </body>
 </html>
