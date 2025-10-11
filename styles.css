@@ -1,345 +1,262 @@
-/* styles.css - Common Styles for All Pages */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가독성 개선된 스타일</title>
+    <style>
+        /* ===== 가독성 개선을 위한 색상 변수 수정 ===== */
+        :root {
+            /* 기존 색상을 더 진하고 대비가 높은 색상으로 변경 */
+            --primary-color: #1d4ed8;      /* 더 진한 파란색 (기존: #2563eb) */
+            --secondary-color: #1e3a8a;    /* 더 진한 네이비 (기존: #1e40af) */
+            --accent-color: #2563eb;       /* 링크 색상 진하게 (기존: #3b82f6) */
+            --dark-bg: #0f172a;
+            --light-bg: #ffffff;           /* 순수 흰색으로 변경 (기존: #f8fafc) */
+            --text-dark: #0f172a;          /* 거의 검정에 가깝게 (기존: #1e293b) */
+            --text-light: #475569;         /* 보조 텍스트도 진하게 (기존: #64748b) */
+            --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --hover-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --transition-base: cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-:root {
-    --primary-color: #2563eb;
-    --secondary-color: #1e40af;
-    --accent-color: #3b82f6;
-    --dark-bg: #0f172a;
-    --light-bg: #f8fafc;
-    --text-dark: #1e293b;
-    --text-light: #64748b;
-    --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    --hover-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    --transition-base: cubic-bezier(0.4, 0, 0.2, 1);
-}
+        /* ===== 전역 텍스트 가독성 개선 ===== */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.7;  /* 줄 간격 증가 */
+            color: var(--text-dark);
+            background-color: var(--light-bg);
+            font-size: 16px;  /* 기본 폰트 크기 명시 */
+            -webkit-font-smoothing: antialiased;  /* 폰트 렌더링 개선 */
+            -moz-osx-font-smoothing: grayscale;
+        }
 
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --light-bg: #1e293b;
-        --text-dark: #f1f5f9;
-        --text-light: #cbd5e1;
-    }
-}
+        /* ===== About Me 페이지 특별 스타일 개선 ===== */
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.125em;  /* 약간 크게 */
+            line-height: 1.8;
+            color: var(--text-dark);
+            font-weight: 400;  /* 일반 텍스트 굵기 */
+        }
 
-body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    line-height: 1.6;
-    color: var(--text-dark);
-    background-color: var(--light-bg);
-    overflow-x: hidden;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
+        /* 하이라이트 텍스트 개선 */
+        .highlight {
+            background: linear-gradient(120deg, #fef3c7 0%, #fde68a 100%);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: 700;  /* 더 굵게 */
+            color: var(--text-dark);  /* 명시적으로 진한 색상 */
+        }
 
-/* Header with gradient animation */
-header {
-    background: linear-gradient(135deg, var(--dark-bg) 0%, var(--secondary-color) 100%);
-    color: white;
-    padding: 60px 0;
-    position: relative;
-    overflow: hidden;
-}
+        /* 교육 섹션 링크 특별 스타일 */
+        .education-item a {
+            color: #1e40af !important;  /* 진한 파란색으로 강제 */
+            text-decoration: none;
+            font-weight: 600;  /* 굵게 */
+            transition: all 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
 
-header::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.1) 2px, transparent 2px);
-    background-size: 50px 50px;
-    animation: moveGrid 20s linear infinite;
-    opacity: 0.3;
-}
+        .education-item a:hover,
+        .education-item a:focus-visible {
+            color: #1d4ed8 !important;
+            border-bottom-color: #1d4ed8;
+            text-decoration: none;
+        }
 
-header::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at 20% 80%, transparent 50%, rgba(59, 130, 246, 0.1) 100%),
-                radial-gradient(circle at 80% 20%, transparent 50%, rgba(37, 99, 235, 0.1) 100%);
-    pointer-events: none;
-}
+        /* 교육 항목 제목 강조 */
+        .education-item strong {
+            color: #0f172a;  /* 거의 검정색 */
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+            font-weight: 700;
+        }
 
-@keyframes moveGrid {
-    0% { transform: translate(0, 0); }
-    100% { transform: translate(50px, 50px); }
-}
+        /* 교육 항목 본문 */
+        .education-item p {
+            color: var(--text-dark);
+            line-height: 1.6;
+            margin-bottom: 8px;
+            font-size: 1.05em;
+        }
 
-.header-content {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
+        /* ===== 일반 링크 스타일 개선 ===== */
+        a {
+            color: #2563eb;  /* 기본 링크 색상 진하게 */
+            font-weight: 500;
+        }
 
-header h1 {
-    font-size: clamp(2.5rem, 5vw, 3.5rem);
-    font-weight: 700;
-    margin-bottom: 10px;
-    animation: fadeInUp 0.8s ease-out;
-    letter-spacing: -0.02em;
-}
+        a:hover {
+            color: #1d4ed8;
+        }
 
-header p {
-    font-size: clamp(1.1rem, 2vw, 1.4rem);
-    opacity: 0.9;
-    animation: fadeInUp 0.8s ease-out 0.2s both;
-    font-weight: 300;
-}
+        /* ===== 섹션 제목 가독성 개선 ===== */
+        section h2 {
+            font-size: clamp(2rem, 3vw, 2.5rem);
+            color: var(--text-dark);
+            margin-bottom: 35px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
 
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+        section h3 {
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
 
-/* Navigation */
-nav {
-    background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    transition: all 0.3s ease;
-}
+        /* ===== 네비게이션 텍스트 개선 ===== */
+        nav a {
+            color: var(--text-dark);
+            font-weight: 600;  /* 더 굵게 */
+            font-size: 1rem;
+            letter-spacing: 0;
+        }
 
-nav.scrolled {
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
+        nav a:hover,
+        nav a:focus-visible {
+            color: var(--accent-color);
+        }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-    margin: 0;
-    max-width: 1200px;
-    margin: 0 auto;
-}
+        nav a.active {
+            color: var(--accent-color);
+            font-weight: 700;
+        }
 
-nav li {
-    margin: 0;
-}
+        /* ===== 카드 내부 텍스트 ===== */
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        }
 
-nav a {
-    display: block;
-    color: var(--text-dark);
-    text-decoration: none;
-    padding: 20px 30px;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    position: relative;
-    font-size: 0.95rem;
-    letter-spacing: 0.01em;
-}
+        .card p {
+            color: var(--text-dark);
+            font-size: 1.05em;
+            line-height: 1.7;
+        }
 
-nav a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 3px;
-    background: var(--accent-color);
-    transform: translateX(-50%);
-    transition: width 0.3s ease;
-    border-radius: 2px;
-}
+        /* ===== 모바일 가독성 ===== */
+        @media (max-width: 768px) {
+            body {
+                font-size: 17px;  /* 모바일에서 더 큰 폰트 */
+            }
+            
+            .about-text p {
+                font-size: 1.1em;
+                line-height: 1.8;
+            }
+            
+            .education-item strong {
+                font-size: 1.15em;
+            }
+        }
 
-nav a:hover,
-nav a:focus-visible {
-    color: var(--accent-color);
-    outline: none;
-}
+        /* ===== 다크 모드 대응 (선택사항) ===== */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --light-bg: #1e293b;
+                --text-dark: #f1f5f9;
+                --text-light: #cbd5e1;
+                --accent-color: #60a5fa;  /* 다크모드에서는 밝은 파란색 */
+            }
+            
+            .education-item a {
+                color: #60a5fa !important;
+            }
+            
+            .education-item a:hover {
+                color: #93c5fd !important;
+            }
+            
+            .card {
+                background: #334155;
+            }
+            
+            .highlight {
+                background: rgba(254, 243, 199, 0.2);
+                color: #f1f5f9;
+            }
+        }
 
-nav a:hover::after,
-nav a.active::after,
-nav a:focus-visible::after {
-    width: 80%;
-}
+        /* ===== 접근성 개선 ===== */
+        *:focus-visible {
+            outline: 3px solid var(--accent-color);
+            outline-offset: 2px;
+        }
 
-nav a.active {
-    color: var(--accent-color);
-}
+        /* 고대비 모드 지원 */
+        @media (prefers-contrast: high) {
+            :root {
+                --accent-color: #1d4ed8;
+                --text-dark: #000000;
+                --text-light: #374151;
+            }
+            
+            .education-item a {
+                color: #1e3a8a !important;
+                text-decoration: underline;
+            }
+        }
 
-/* Main content */
-main {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 60px 20px;
-    flex: 1;
-}
+        /* ===== 프린트 스타일 ===== */
+        @media print {
+            body {
+                color: black;
+                background: white;
+            }
+            
+            a {
+                color: black;
+                text-decoration: underline;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div style="max-width: 800px; margin: 40px auto; padding: 0 20px;">
+        <h1 style="margin-bottom: 30px;">가독성 개선 사항</h1>
+        
+        <div style="background: #f0f9ff; padding: 20px; border-radius: 8px; margin-bottom: 30px;">
+            <h2 style="margin-bottom: 15px; font-size: 1.3em;">🎨 주요 개선 내용</h2>
+            <ul style="line-height: 1.8; color: var(--text-dark);">
+                <li><strong>색상 대비 강화:</strong> 모든 텍스트 색상을 더 진하게 조정</li>
+                <li><strong>링크 가독성:</strong> 특히 교수님 이름 링크를 진한 파란색(#1e40af)으로 변경</li>
+                <li><strong>폰트 굵기:</strong> 중요한 텍스트의 font-weight 증가</li>
+                <li><strong>폰트 크기:</strong> 기본 폰트 크기를 16px로 명시, 모바일은 17px</li>
+                <li><strong>줄 간격:</strong> line-height를 1.7~1.8로 증가</li>
+                <li><strong>배경색:</strong> 순수 흰색(#ffffff)으로 변경하여 대비 극대화</li>
+            </ul>
+        </div>
 
-section {
-    margin-bottom: 80px;
-    animation: fadeIn 0.8s ease-out;
-}
+        <div style="background: white; padding: 30px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+            <h3 style="margin-bottom: 20px;">적용 방법</h3>
+            <ol style="line-height: 1.8; color: var(--text-dark);">
+                <li style="margin-bottom: 15px;">
+                    <strong>styles.css 파일 수정:</strong><br>
+                    위의 CSS 코드에서 <code>:root</code> 변수들과 관련 스타일을 기존 styles.css에 덮어쓰기
+                </li>
+                <li style="margin-bottom: 15px;">
+                    <strong>index.html의 인라인 스타일 수정:</strong><br>
+                    교육 섹션의 링크 스타일을 위 코드처럼 수정
+                </li>
+                <li style="margin-bottom: 15px;">
+                    <strong>테스트:</strong><br>
+                    브라우저에서 새로고침 후 가독성 확인 (Ctrl+F5로 캐시 클리어)
+                </li>
+            </ol>
+        </div>
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-section h2 {
-    font-size: clamp(2rem, 3vw, 2.5rem);
-    color: var(--text-dark);
-    margin-bottom: 30px;
-    position: relative;
-    display: inline-block;
-    letter-spacing: -0.01em;
-}
-
-section h2::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 0;
-    width: 60px;
-    height: 4px;
-    background: var(--accent-color);
-    border-radius: 2px;
-    transition: width 0.3s ease;
-}
-
-section h2:hover::after {
-    width: 100px;
-}
-
-/* Cards */
-.card {
-    background: white;
-    border-radius: 20px;
-    padding: 40px;
-    box-shadow: var(--card-shadow);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--hover-shadow);
-}
-
-/* Footer */
-footer {
-    background: var(--dark-bg);
-    color: white;
-    text-align: center;
-    padding: 40px 20px;
-    margin-top: auto;
-    position: relative;
-}
-
-footer::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
-}
-
-footer p {
-    opacity: 0.8;
-    font-size: 0.95rem;
-}
-
-/* Skip to main content for accessibility */
-.skip-to-main {
-    position: absolute;
-    top: -40px;
-    left: 0;
-    background: var(--accent-color);
-    color: white;
-    padding: 8px;
-    z-index: 100;
-    text-decoration: none;
-    border-radius: 0 0 4px 0;
-}
-
-.skip-to-main:focus {
-    top: 0;
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 2.5em;
-    }
-    
-    nav ul {
-        flex-wrap: wrap;
-    }
-    
-    nav a {
-        padding: 15px 20px;
-    }
-    
-    section h2 {
-        font-size: 2em;
-    }
-    
-    .card {
-        padding: 30px;
-    }
-}
-
-/* Smooth scroll behavior */
-html {
-    scroll-behavior: smooth;
-}
-
-/* Focus visible for better accessibility */
-*:focus-visible {
-    outline: 2px solid var(--accent-color);
-    outline-offset: 2px;
-}
-
-/* Selection styling */
-::selection {
-    background: var(--accent-color);
-    color: white;
-}
-
-/* Print styles */
-@media print {
-    header, nav, footer {
-        display: none;
-    }
-    
-    main {
-        padding: 0;
-    }
-    
-    .card {
-        box-shadow: none;
-        border: 1px solid #ddd;
-    }
-}
+        <div style="margin-top: 30px; padding: 20px; background: #fef3c7; border-radius: 8px;">
+            <p style="margin: 0; color: var(--text-dark);">
+                <strong>💡 팁:</strong> 웹 접근성 가이드라인(WCAG)에 따르면, 일반 텍스트는 최소 4.5:1, 큰 텍스트는 3:1의 색상 대비를 권장합니다. 
+                위 수정사항은 이 기준을 충족하도록 설계되었습니다.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
