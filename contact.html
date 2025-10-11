@@ -1,434 +1,508 @@
-<style>
-/* Contact Page - Modern & Elegant Design */
-.contact-container {
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-/* Main Contact Card - Glassmorphism Effect */
-.contact-card {
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.9));
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    color: white;
-    padding: 4rem;
-    border-radius: 2rem;
-    text-align: center;
-    box-shadow: 
-        0 30px 60px -15px rgba(0, 0, 0, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    margin-bottom: 3rem;
-    position: relative;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.18);
-}
-
-/* Animated Background Pattern */
-.contact-card::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: 
-        radial-gradient(circle at 30% 70%, rgba(79, 172, 254, 0.3) 0%, transparent 50%),
-        radial-gradient(circle at 70% 30%, rgba(245, 101, 101, 0.2) 0%, transparent 50%),
-        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-    animation: floatingGradient 20s ease-in-out infinite;
-}
-
-@keyframes floatingGradient {
-    0%, 100% { transform: rotate(0deg) scale(1); }
-    33% { transform: rotate(120deg) scale(1.1); }
-    66% { transform: rotate(240deg) scale(0.95); }
-}
-
-.contact-card h2 {
-    color: white;
-    margin-bottom: 2rem;
-    font-size: 3rem;
-    font-weight: 800;
-    position: relative;
-    z-index: 1;
-    letter-spacing: -0.02em;
-    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-.contact-card h2::after {
-    content: '';
-    display: block;
-    width: 80px;
-    height: 5px;
-    background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
-    margin: 1.5rem auto 0;
-    border-radius: 3px;
-    box-shadow: 0 2px 10px rgba(79, 172, 254, 0.5);
-}
-
-.contact-info {
-    font-size: 1.25rem;
-    margin-bottom: 2rem;
-    position: relative;
-    z-index: 1;
-}
-
-.contact-info p {
-    margin-bottom: 1.5rem;
-    line-height: 1.8;
-    opacity: 0.95;
-}
-
-.contact-info a {
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 0.75rem 1.5rem;
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 2rem;
-    backdrop-filter: blur(10px);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.contact-info a:hover {
-    background: rgba(255, 255, 255, 0.25);
-    transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
-
-/* Availability Badge - Enhanced Design */
-.availability-status {
-    background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
-    color: white;
-    padding: 0.5rem 1.5rem;
-    border-radius: 2rem;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
-    font-size: 0.95rem;
-    font-weight: 600;
-    margin-top: 1.5rem;
-    position: relative;
-    z-index: 1;
-    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
-    animation: pulse-shadow 2s ease-in-out infinite;
-}
-
-@keyframes pulse-shadow {
-    0%, 100% { box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4); }
-    50% { box-shadow: 0 4px 25px rgba(16, 185, 129, 0.6); }
-}
-
-.availability-status::before {
-    content: '';
-    width: 10px;
-    height: 10px;
-    background: white;
-    border-radius: 50%;
-    animation: pulse-dot 2s ease-in-out infinite;
-    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
-}
-
-@keyframes pulse-dot {
-    0% {
-        transform: scale(0.95);
-        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
-    }
-    70% {
-        transform: scale(1);
-        box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
-    }
-    100% {
-        transform: scale(0.95);
-        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
-    }
-}
-
-/* Social Links - Modern Pills */
-.social-links {
-    display: flex;
-    justify-content: center;
-    gap: 1.25rem;
-    margin-top: 2.5rem;
-    position: relative;
-    z-index: 1;
-}
-
-.social-links a {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 0.875rem 2rem;
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
-    text-decoration: none;
-    border-radius: 2rem;
-    font-weight: 600;
-    font-size: 0.95rem;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    position: relative;
-    overflow: hidden;
-}
-
-.social-links a::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: width 0.6s ease, height 0.6s ease;
-}
-
-.social-links a:hover::before {
-    width: 300px;
-    height: 300px;
-}
-
-.social-links a:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-}
-
-/* Info Cards Grid - Bento Box Style */
-.additional-info {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-    margin-top: 3rem;
-}
-
-.info-card {
-    background: white;
-    padding: 2.5rem;
-    border-radius: 1.5rem;
-    box-shadow: 
-        0 4px 6px -1px rgba(0, 0, 0, 0.1),
-        0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    text-align: left;
-    position: relative;
-    overflow: hidden;
-}
-
-.info-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s ease;
-}
-
-.info-card:hover::before {
-    transform: scaleX(1);
-}
-
-.info-card:hover {
-    transform: translateY(-6px) scale(1.02);
-    box-shadow: 
-        0 20px 25px -5px rgba(0, 0, 0, 0.1),
-        0 10px 10px -5px rgba(0, 0, 0, 0.04);
-}
-
-.info-card h3 {
-    color: #1a202c;
-    margin-bottom: 1.25rem;
-    font-size: 1.5rem;
-    font-weight: 700;
-    letter-spacing: -0.01em;
-}
-
-.info-card p {
-    color: #4a5568;
-    line-height: 1.8;
-    font-size: 1rem;
-}
-
-.info-card a {
-    color: #667eea;
-    text-decoration: none;
-    font-weight: 600;
-    position: relative;
-    transition: all 0.2s ease;
-    display: inline-block;
-}
-
-.info-card a::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, #667eea, #764ba2);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s ease;
-}
-
-.info-card a:hover::after {
-    transform: scaleX(1);
-}
-
-/* Contact Form Note - Modern Alert Style */
-.contact-form-note {
-    background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
-    border-left: 5px solid #667eea;
-    padding: 2rem;
-    border-radius: 1rem;
-    margin-top: 3rem;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-}
-
-.contact-form-note::before {
-    content: '💡';
-    position: absolute;
-    top: 2rem;
-    right: 2rem;
-    font-size: 2rem;
-    opacity: 0.2;
-}
-
-.contact-form-note p {
-    margin: 0;
-    color: #2d3748;
-    line-height: 1.8;
-    font-size: 1.05rem;
-}
-
-.contact-form-note strong {
-    color: #667eea;
-    font-weight: 700;
-}
-
-/* Icon Styling */
-.icon {
-    width: 22px;
-    height: 22px;
-    display: inline-block;
-    vertical-align: middle;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
-}
-
-/* Dark mode adjustments */
-@media (prefers-color-scheme: dark) {
-    .info-card {
-        background: #1a202c;
-        border-color: #2d3748;
-    }
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Kyunghun Nam - AI Researcher and Graduate Student">
+    <meta name="keywords" content="Contact, Email, Kyunghun Nam, AI Research">
+    <meta name="author" content="Kyunghun Nam">
     
-    .info-card h3 {
-        color: #f7fafc;
-    }
+    <!-- Open Graph meta tags -->
+    <meta property="og:title" content="Contact - Kyunghun Nam">
+    <meta property="og:description" content="Get in touch for research collaborations and inquiries">
+    <meta property="og:type" content="website">
     
-    .info-card p {
-        color: #cbd5e0;
-    }
+    <title>Contact - Kyunghun Nam</title>
     
-    .contact-form-note {
-        background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
-        border-left-color: #667eea;
-    }
+    <link rel="stylesheet" href="styles.css">
     
-    .contact-form-note p {
-        color: #e2e8f0;
-    }
-}
+    <style>
+        /* Contact Page - Modern & Elegant Design */
+        .contact-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .contact-card {
-        padding: 3rem 2rem;
-    }
-    
-    .contact-card h2 {
-        font-size: 2.5rem;
-    }
-    
-    .social-links {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .social-links a {
-        width: 100%;
-        max-width: 250px;
-        justify-content: center;
-    }
-    
-    .additional-info {
-        grid-template-columns: 1fr;
-        gap: 1.25rem;
-    }
-    
-    .info-card {
-        padding: 2rem;
-    }
-}
+        /* Main Contact Card - Glassmorphism Effect */
+        .contact-card {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.9));
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            color: white;
+            padding: 4rem;
+            border-radius: 2rem;
+            text-align: center;
+            box-shadow: 
+                0 30px 60px -15px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
 
-@media (max-width: 480px) {
-    .contact-card {
-        padding: 2.5rem 1.5rem;
-        border-radius: 1.5rem;
-    }
+        /* Animated Background Pattern */
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(circle at 30% 70%, rgba(79, 172, 254, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 70% 30%, rgba(245, 101, 101, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: floatingGradient 20s ease-in-out infinite;
+        }
+
+        @keyframes floatingGradient {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            33% { transform: rotate(120deg) scale(1.1); }
+            66% { transform: rotate(240deg) scale(0.95); }
+        }
+
+        .contact-card h2 {
+            color: white;
+            margin-bottom: 2rem;
+            font-size: 3rem;
+            font-weight: 800;
+            position: relative;
+            z-index: 1;
+            letter-spacing: -0.02em;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-card h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 5px;
+            background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+            margin: 1.5rem auto 0;
+            border-radius: 3px;
+            box-shadow: 0 2px 10px rgba(79, 172, 254, 0.5);
+        }
+
+        .contact-info {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-info p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1.5rem;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 2rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-info a:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Availability Badge - Enhanced Design */
+        .availability-status {
+            background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+            animation: pulse-shadow 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-shadow {
+            0%, 100% { box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4); }
+            50% { box-shadow: 0 4px 25px rgba(16, 185, 129, 0.6); }
+        }
+
+        .availability-status::before {
+            content: '';
+            width: 10px;
+            height: 10px;
+            background: white;
+            border-radius: 50%;
+            animation: pulse-dot 2s ease-in-out infinite;
+            box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+        }
+
+        @keyframes pulse-dot {
+            0% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+            }
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+            }
+            100% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+            }
+        }
+
+        /* Social Links - Modern Pills */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.25rem;
+            margin-top: 2.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.875rem 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            text-decoration: none;
+            border-radius: 2rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-links a::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+
+        .social-links a:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Info Cards Grid - Bento Box Style */
+        .additional-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .info-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 1.5rem;
+            box-shadow: 
+                0 4px 6px -1px rgba(0, 0, 0, 0.1),
+                0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .info-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .info-card:hover {
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 
+                0 20px 25px -5px rgba(0, 0, 0, 0.1),
+                0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .info-card h3 {
+            color: var(--text-primary);
+            margin-bottom: 1.25rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        .info-card p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        .info-card a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            position: relative;
+            transition: all 0.2s ease;
+            display: inline-block;
+        }
+
+        .info-card a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .info-card a:hover::after {
+            transform: scaleX(1);
+        }
+
+        /* Contact Form Note - Modern Alert Style */
+        .contact-form-note {
+            background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
+            border-left: 5px solid #667eea;
+            padding: 2rem;
+            border-radius: 1rem;
+            margin-top: 3rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form-note::before {
+            content: '💡';
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            font-size: 2rem;
+            opacity: 0.2;
+        }
+
+        .contact-form-note p {
+            margin: 0;
+            color: #2d3748;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .contact-form-note strong {
+            color: #667eea;
+            font-weight: 700;
+        }
+
+        /* Icon Styling */
+        .icon {
+            width: 22px;
+            height: 22px;
+            display: inline-block;
+            vertical-align: middle;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+        }
+
+        /* Dark mode adjustments */
+        @media (prefers-color-scheme: dark) {
+            .info-card {
+                background: var(--bg-primary);
+                border-color: var(--border-color);
+            }
+            
+            .contact-form-note {
+                background: linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-primary) 100%);
+                border-left-color: var(--primary-color);
+            }
+            
+            .contact-form-note p {
+                color: var(--text-secondary);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .contact-card {
+                padding: 3rem 2rem;
+            }
+            
+            .contact-card h2 {
+                font-size: 2.5rem;
+            }
+            
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .social-links a {
+                width: 100%;
+                max-width: 250px;
+                justify-content: center;
+            }
+            
+            .additional-info {
+                grid-template-columns: 1fr;
+                gap: 1.25rem;
+            }
+            
+            .info-card {
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-card {
+                padding: 2.5rem 1.5rem;
+                border-radius: 1.5rem;
+            }
+            
+            .contact-card h2 {
+                font-size: 2rem;
+            }
+            
+            .contact-info {
+                font-size: 1.1rem;
+            }
+            
+            .contact-form-note {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main" class="skip-to-main">Skip to main content</a>
     
-    .contact-card h2 {
-        font-size: 2rem;
-    }
-    
-    .contact-info {
-        font-size: 1.1rem;
-    }
-    
-    .contact-form-note {
-        padding: 1.5rem;
-    }
-}
+    <header>
+        <div class="header-content">
+            <h1>Kyunghun Nam</h1>
+            <p>Graduate Student in Artificial Intelligence</p>
+        </div>
+    </header>
 
-/* Animation on scroll */
-.fade-in-up {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-}
+    <nav role="navigation" aria-label="Main navigation">
+        <ul>
+            <li><a href="index.html">About Me</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="contact.html" class="active" aria-current="page">Contact</a></li>
+        </ul>
+    </nav>
 
-.fade-in-up.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
+    <main id="main">
+        <section id="contact" aria-labelledby="contact-heading">
+            <div class="contact-container">
+                <div class="contact-card">
+                    <h2 id="contact-heading">Get in Touch</h2>
+                    <div class="contact-info">
+                        <p style="margin-bottom: 25px;">I'm always interested in discussing new research opportunities and collaborations.</p>
+                        <p>
+                            <a href="mailto:baptist0214@gmail.com" aria-label="Send email to baptist0214@gmail.com">
+                                <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+                                    <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/>
+                                </svg>
+                                baptist0214@gmail.com
+                            </a>
+                        </p>
+                    </div>
+                    
+                    <div class="availability-status">
+                        Open to Collaborations
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="https://scholar.google.com/citations?user=2K1cMuQAAAAJ&hl=ko" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar Profile">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+                                <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm9.5 5.5h-3a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5V8a.5.5 0 0 0-.5-.5zm-6-4h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1z"/>
+                            </svg>
+                            Google Scholar
+                        </a>
+                        <a href="https://github.com/kyunghunnam" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+                                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                            </svg>
+                            GitHub
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="additional-info">
+                    <div class="info-card">
+                        <h3>Research Interests</h3>
+                        <p>Mathematical Optimization, Deep Learning Theory, Algorithm Design, Convergence Analysis</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>Current Affiliation</h3>
+                        <p>Ph.D. Student<br>
+                        KENTECH<br>
+                        Supervisor: <a href="https://real.kentech.ac.kr/" target="_blank" rel="noopener noreferrer">Prof. Sumyeong Ahn</a></p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>Office Hours</h3>
+                        <p>Available for virtual meetings<br>
+                        Please email to schedule<br>
+                        Time zone: KST (UTC+9)</p>
+                    </div>
+                </div>
+                
+                <div class="contact-form-note">
+                    <p>
+                        <strong>For prospective collaborators:</strong> I'm particularly interested in projects involving theoretical analysis of optimization algorithms, practical improvements to existing methods, and applications to large-scale machine learning problems. Please include a brief description of your project when reaching out.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
 
-/* Loading animation for contact card */
-@keyframes shimmer-contact {
-    0% { background-position: -1000px 0; }
-    100% { background-position: 1000px 0; }
-}
+    <footer>
+        <p>&copy; 2025 Kyunghun Nam. All rights reserved. | Seoul, South Korea</p>
+    </footer>
 
-.contact-card.loading {
-    background: linear-gradient(
-        90deg,
-        rgba(102, 126, 234, 0.9) 0%,
-        rgba(118, 75, 162, 0.9) 40%,
-        rgba(102, 126, 234, 0.9) 80%,
-        rgba(118, 75, 162, 0.9) 100%
-    );
-    background-size: 1000px 100%;
-    animation: shimmer-contact 2s infinite;
-}
-</style>
+    <script src="common.js"></script>
+</body>
+</html>
