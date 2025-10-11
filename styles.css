@@ -1,179 +1,557 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>텍스트 색상 문제 해결</title>
-    <style>
-        /* ===== 긴급 수정: 흰 배경에 검정 텍스트 ===== */
-        
-        /* About Me 카드 내부 텍스트 - 검정색으로! */
-        .about-card {
-            background: white !important;
-        }
-        
-        .about-card * {
-            color: #1e293b !important;  /* 진한 회색/검정 */
-        }
-        
-        .about-text p {
-            color: #1e293b !important;  /* 본문 텍스트 검정색 */
-            font-size: 1.1em;
-            line-height: 1.8;
-        }
-        
-        /* 교육 섹션 - 텍스트를 검정색으로! */
-        .education-section {
-            color: #1e293b !important;
-        }
-        
-        .education-section h3 {
-            color: #0f172a !important;  /* 제목은 더 진한 검정 */
-            font-weight: 700;
-            font-size: 1.5em;
-        }
-        
-        .education-item {
-            border-left: 3px solid #3b82f6;
-            padding-left: 20px;
-            margin-bottom: 20px;
-        }
-        
-        .education-item strong {
-            color: #0f172a !important;  /* 학위 제목 - 진한 검정 */
-            font-weight: 700;
-            font-size: 1.1em;
-            display: block;
-            margin-bottom: 8px;
-        }
-        
-        .education-item p {
-            color: #334155 !important;  /* 설명 텍스트 - 회색빛 검정 */
-            font-size: 1em;
-            line-height: 1.6;
-            margin: 5px 0;
-        }
-        
-        /* 교수님 이름 링크 - 파란색으로 잘 보이게! */
-        .education-item a {
-            color: #2563eb !important;  /* 선명한 파란색 */
-            text-decoration: none;
-            font-weight: 600;
-            border-bottom: 1px solid transparent;
-            transition: all 0.3s ease;
-        }
-        
-        .education-item a:hover {
-            color: #1d4ed8 !important;  /* 호버시 더 진한 파란색 */
-            border-bottom: 1px solid #1d4ed8;
-        }
-        
-        /* 하이라이트 텍스트 */
-        .highlight {
-            background: #fef3c7;
-            color: #0f172a !important;  /* 검정색 텍스트 */
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-weight: 700;
-        }
-        
-        /* 모든 카드 기본 설정 */
-        .card {
-            background: white;
-            color: #1e293b !important;  /* 카드 안의 모든 텍스트 기본 색상 */
-        }
-        
-        .card h2,
-        .card h3,
-        .card h4 {
-            color: #0f172a !important;  /* 제목들은 더 진하게 */
-        }
-        
-        .card p {
-            color: #334155 !important;  /* 단락은 약간 연한 검정 */
-        }
-        
-        /* ===== 전체 페이지 수정사항 ===== */
-        :root {
-            --primary-color: #2563eb;
-            --secondary-color: #1e40af;
-            --accent-color: #3b82f6;
-            --dark-bg: #0f172a;
-            --light-bg: #ffffff;
-            --text-dark: #0f172a;      /* 진한 검정 */
-            --text-light: #475569;      /* 연한 검정 */
-            --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            --hover-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-        }
-        
-        /* 기본 body 텍스트 색상 */
-        body {
-            color: var(--text-dark) !important;
-            background: #f8fafc;
-        }
-        
-        /* 섹션 제목 */
-        section h2 {
-            color: var(--text-dark) !important;
-            font-weight: 700;
-        }
-    </style>
-</head>
-<body>
-    <div style="max-width: 800px; margin: 40px auto; padding: 0 20px;">
-        <h1 style="color: #0f172a; margin-bottom: 30px;">🚨 긴급 색상 수정</h1>
-        
-        <div style="background: #fee2e2; padding: 20px; border-radius: 8px; margin-bottom: 30px; border-left: 4px solid #dc2626;">
-            <h2 style="color: #991b1b; margin-bottom: 15px; font-size: 1.3em;">문제 해결</h2>
-            <p style="color: #7f1d1d; line-height: 1.6;">
-                <strong>문제:</strong> 흰색 박스 안에 텍스트가 흰색이어서 전혀 보이지 않음<br>
-                <strong>해결:</strong> 모든 카드 내부 텍스트를 검정색 계열로 변경
-            </p>
-        </div>
+/* styles.css - Modern & Professional Design System */
 
-        <div style="background: white; padding: 30px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-            <h3 style="color: #0f172a; margin-bottom: 20px;">📝 index.html 수정 방법</h3>
-            
-            <p style="color: #334155; margin-bottom: 20px;">
-                <strong style="color: #0f172a;">1단계:</strong> index.html 파일의 <code>&lt;style&gt;</code> 섹션에 다음 CSS 추가:
-            </p>
-            
-            <pre style="background: #f1f5f9; padding: 15px; border-radius: 8px; overflow-x: auto; color: #0f172a;">
-/* 긴급 수정 - 텍스트 색상 */
-.about-card,
-.about-card * {
-    color: #1e293b !important;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.education-item strong {
-    color: #0f172a !important;
-}
-
-.education-item p {
-    color: #334155 !important;
-}
-
-.education-item a {
-    color: #2563eb !important;
-    font-weight: 600;
-}</pre>
-
-            <p style="color: #334155; margin-top: 20px;">
-                <strong style="color: #0f172a;">2단계:</strong> styles.css 파일의 <code>:root</code> 변수 수정:
-            </p>
-            
-            <pre style="background: #f1f5f9; padding: 15px; border-radius: 8px; overflow-x: auto; color: #0f172a;">
 :root {
-    --text-dark: #0f172a;   /* 검정색 */
-    --text-light: #475569;  /* 회색 */
-}</pre>
-        </div>
+    /* Modern Color Palette - Subtle and Professional */
+    --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    
+    --primary-color: #667eea;
+    --secondary-color: #764ba2;
+    --accent-color: #4facfe;
+    --success-color: #10b981;
+    --warning-color: #f59e0b;
+    
+    --bg-primary: #ffffff;
+    --bg-secondary: #fafbfc;
+    --bg-tertiary: #f3f4f6;
+    
+    --text-primary: #1a202c;
+    --text-secondary: #4a5568;
+    --text-tertiary: #718096;
+    --text-inverse: #ffffff;
+    
+    --border-color: #e2e8f0;
+    --border-light: #f0f4f8;
+    
+    /* Shadows - More subtle and layered */
+    --shadow-xs: 0 0 0 1px rgba(0, 0, 0, 0.05);
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+    
+    /* Transitions */
+    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slower: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Typography Scale */
+    --font-xs: 0.75rem;
+    --font-sm: 0.875rem;
+    --font-base: 1rem;
+    --font-lg: 1.125rem;
+    --font-xl: 1.25rem;
+    --font-2xl: 1.5rem;
+    --font-3xl: 1.875rem;
+    --font-4xl: 2.25rem;
+    --font-5xl: 3rem;
+    
+    /* Spacing */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-2xl: 3rem;
+    --space-3xl: 4rem;
+    
+    /* Border Radius */
+    --radius-sm: 0.25rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+    --radius-xl: 1rem;
+    --radius-2xl: 1.5rem;
+    --radius-full: 9999px;
+}
 
-        <div style="margin-top: 30px; padding: 20px; background: #dcfce7; border-radius: 8px; border-left: 4px solid #22c55e;">
-            <p style="color: #14532d; margin: 0;">
-                <strong>✅ 결과:</strong> 이제 흰색 박스 안의 모든 텍스트가 검정색으로 표시되어 완벽하게 읽을 수 있습니다!
-            </p>
-        </div>
-    </div>
-</body>
-</html>
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-primary: #0f1419;
+        --bg-secondary: #1a1f2e;
+        --bg-tertiary: #2d3748;
+        
+        --text-primary: #f7fafc;
+        --text-secondary: #e2e8f0;
+        --text-tertiary: #cbd5e0;
+        
+        --border-color: #2d3748;
+        --border-light: #1a202c;
+        
+        --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+    }
+}
+
+/* Base Typography */
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-size: var(--font-base);
+    line-height: 1.7;
+    color: var(--text-primary);
+    background: var(--bg-secondary);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* Header - Minimalist Gradient Hero */
+header {
+    background: var(--primary-gradient);
+    position: relative;
+    padding: 5rem 0;
+    overflow: hidden;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 40% 20%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+header::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 120px;
+    background: linear-gradient(to top, var(--bg-secondary), transparent);
+    pointer-events: none;
+}
+
+.header-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-xl);
+}
+
+header h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 800;
+    margin-bottom: var(--space-md);
+    color: var(--text-inverse);
+    letter-spacing: -0.03em;
+    animation: fadeInUp var(--transition-slower) ease-out;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+header p {
+    font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.9);
+    animation: fadeInUp var(--transition-slower) ease-out 0.2s both;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Modern Navigation Bar */
+nav {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    box-shadow: var(--shadow-sm);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: all var(--transition-base);
+    border-bottom: 1px solid var(--border-light);
+}
+
+nav.scrolled {
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: var(--shadow-lg);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-xs);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-xl);
+}
+
+nav a {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 1.25rem 1.5rem;
+    font-weight: 500;
+    font-size: var(--font-sm);
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    transition: all var(--transition-base);
+    border-radius: var(--radius-md);
+}
+
+nav a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--primary-gradient);
+    transform: translateX(-50%);
+    transition: width var(--transition-base);
+}
+
+nav a:hover {
+    color: var(--primary-color);
+    background: rgba(102, 126, 234, 0.08);
+}
+
+nav a.active {
+    color: var(--primary-color);
+    background: rgba(102, 126, 234, 0.1);
+}
+
+nav a:hover::before,
+nav a.active::before {
+    width: calc(100% - 3rem);
+}
+
+/* Main Content Area */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--space-3xl) var(--space-xl);
+    flex: 1;
+    width: 100%;
+}
+
+/* Section Styling */
+section {
+    margin-bottom: var(--space-3xl);
+    animation: fadeIn var(--transition-slower) ease-out;
+}
+
+section h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--space-2xl);
+    position: relative;
+    letter-spacing: -0.02em;
+}
+
+section h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--primary-gradient);
+    margin-top: var(--space-md);
+    border-radius: var(--radius-full);
+    animation: slideIn var(--transition-slow) ease-out;
+}
+
+/* Card Component */
+.card {
+    background: var(--bg-primary);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-2xl);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-light);
+    transition: all var(--transition-base);
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--primary-gradient);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--transition-base);
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-xl);
+    border-color: rgba(102, 126, 234, 0.2);
+}
+
+.card:hover::before {
+    transform: scaleX(1);
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+    color: var(--text-inverse);
+    text-align: center;
+    padding: var(--space-2xl) var(--space-xl);
+    margin-top: auto;
+    position: relative;
+    overflow: hidden;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+footer p {
+    font-size: var(--font-sm);
+    opacity: 0.9;
+    letter-spacing: 0.01em;
+}
+
+footer a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all var(--transition-fast);
+}
+
+footer a:hover {
+    color: #00f2fe;
+    text-decoration: underline;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: scaleX(0);
+    }
+    to {
+        transform: scaleX(1);
+    }
+}
+
+/* Accessibility */
+.skip-to-main {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--primary-color);
+    color: var(--text-inverse);
+    padding: var(--space-sm) var(--space-md);
+    border-radius: 0 0 var(--radius-md) 0;
+    text-decoration: none;
+    font-weight: 500;
+    z-index: 9999;
+    transition: top var(--transition-fast);
+}
+
+.skip-to-main:focus {
+    top: 0;
+}
+
+*:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 3px;
+    border-radius: var(--radius-sm);
+}
+
+/* Selection */
+::selection {
+    background: rgba(102, 126, 234, 0.3);
+    color: var(--text-primary);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-tertiary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-gradient);
+    border-radius: var(--radius-full);
+    border: 3px solid var(--bg-tertiary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-gradient);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav ul {
+        padding: 0 var(--space-md);
+        gap: 0;
+        flex-wrap: wrap;
+    }
+    
+    nav a {
+        padding: 1rem 1.25rem;
+        font-size: var(--font-xs);
+    }
+    
+    main {
+        padding: var(--space-2xl) var(--space-lg);
+    }
+    
+    .card {
+        padding: var(--space-xl);
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 3rem 0;
+    }
+    
+    nav a {
+        padding: 0.875rem 1rem;
+    }
+    
+    main {
+        padding: var(--space-xl) var(--space-md);
+    }
+}
+
+/* Print Styles */
+@media print {
+    header, nav, footer {
+        display: none;
+    }
+    
+    main {
+        padding: 0;
+    }
+    
+    .card {
+        box-shadow: none;
+        border: 1px solid var(--border-color);
+    }
+}
+
+/* Loading State */
+body.loading {
+    overflow: hidden;
+}
+
+body.loading::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--bg-primary);
+    z-index: 9999;
+}
+
+body.loading::after {
+    content: '';
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    margin: -20px 0 0 -20px;
+    border: 3px solid var(--border-color);
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    z-index: 10000;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom Utility Classes */
+.text-gradient {
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hover-lift {
+    transition: transform var(--transition-base);
+}
+
+.hover-lift:hover {
+    transform: translateY(-4px);
+}
+
+.glass-effect {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
