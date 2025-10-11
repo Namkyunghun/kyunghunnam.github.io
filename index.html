@@ -3,210 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kyunghun Nam - Graduate student in Artificial Intelligence specializing in Mathematical Optimization">
+    <meta name="keywords" content="Kyunghun Nam, AI Research, Mathematical Optimization, Deep Learning, Machine Learning">
+    <meta name="author" content="Kyunghun Nam">
+    
+    <!-- Open Graph meta tags for social media -->
+    <meta property="og:title" content="Kyunghun Nam - AI Researcher">
+    <meta property="og:description" content="Graduate student specializing in Mathematical Optimization in AI">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourwebsite.com">
+    
+    <!-- Twitter Card meta tags -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Kyunghun Nam - AI Researcher">
+    <meta name="twitter:description" content="Graduate student specializing in Mathematical Optimization in AI">
+    
     <title>Kyunghun Nam - AI Researcher</title>
+    
+    <link rel="stylesheet" href="styles.css">
+    
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary-color: #2563eb;
-            --secondary-color: #1e40af;
-            --accent-color: #3b82f6;
-            --dark-bg: #0f172a;
-            --light-bg: #f8fafc;
-            --text-dark: #1e293b;
-            --text-light: #64748b;
-            --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --hover-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-            background-color: var(--light-bg);
-            overflow-x: hidden;
-        }
-
-        /* Header with gradient animation */
-        header {
-            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--secondary-color) 100%);
-            color: white;
-            padding: 60px 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 2px, transparent 2px);
-            background-size: 50px 50px;
-            animation: moveGrid 20s linear infinite;
-            opacity: 0.3;
-        }
-
-        @keyframes moveGrid {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
-        }
-
-        .header-content {
-            position: relative;
-            z-index: 1;
-            text-align: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        header h1 {
-            font-size: 3.5em;
-            font-weight: 700;
-            margin-bottom: 10px;
-            animation: fadeInUp 0.8s ease-out;
-        }
-
-        header p {
-            font-size: 1.4em;
-            opacity: 0.9;
-            animation: fadeInUp 0.8s ease-out 0.2s both;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Navigation */
-        nav {
-            background: white;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 0;
-            margin: 0;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        nav li {
-            margin: 0;
-        }
-
-        nav a {
-            display: block;
-            color: var(--text-dark);
-            text-decoration: none;
-            padding: 20px 30px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            width: 0;
-            height: 3px;
-            background: var(--accent-color);
-            transform: translateX(-50%);
-            transition: width 0.3s ease;
-        }
-
-        nav a:hover {
-            color: var(--accent-color);
-        }
-
-        nav a:hover::after,
-        nav a.active::after {
-            width: 80%;
-        }
-
-        nav a.active {
-            color: var(--accent-color);
-        }
-
-        /* Main content */
-        main {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 60px 20px;
-        }
-
-        section {
-            margin-bottom: 80px;
-            animation: fadeIn 0.8s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        section h2 {
-            font-size: 2.5em;
-            color: var(--text-dark);
-            margin-bottom: 30px;
-            position: relative;
-            display: inline-block;
-        }
-
-        section h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 60px;
-            height: 4px;
-            background: var(--accent-color);
-            border-radius: 2px;
-        }
-
-        /* About section with card design */
-        .about-card {
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: var(--card-shadow);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .about-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--hover-shadow);
-        }
-
+        /* Page specific styles */
         .about-content {
             display: grid;
             grid-template-columns: 1fr;
@@ -214,7 +31,7 @@
         }
 
         .about-text p {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             font-size: 1.1em;
             line-height: 1.8;
             color: var(--text-dark);
@@ -226,88 +43,86 @@
             font-weight: 500;
             transition: all 0.3s ease;
             position: relative;
+            border-bottom: 2px solid transparent;
         }
 
-        .about-text a:hover {
+        .about-text a:hover,
+        .about-text a:focus-visible {
+            border-bottom-color: var(--accent-color);
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, #f0f9ff 0%, #e0f2fe 100%);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        
+        .education-section {
+            margin-top: 40px;
+            padding-top: 40px;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        .education-item {
+            margin-bottom: 20px;
+            padding-left: 20px;
+            border-left: 3px solid var(--accent-color);
+        }
+        
+        .education-item strong {
             color: var(--secondary-color);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--dark-bg);
-            color: white;
-            text-align: center;
-            padding: 40px 20px;
-            margin-top: 80px;
-        }
-
-        footer p {
-            opacity: 0.8;
-        }
-
-        /* Responsive design */
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2.5em;
-            }
-            
-            nav ul {
-                flex-wrap: wrap;
-            }
-            
-            nav a {
-                padding: 15px 20px;
-            }
-            
-            section h2 {
-                font-size: 2em;
-            }
-        }
-
-        /* Smooth scroll behavior */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Selection styling */
-        ::selection {
-            background: var(--accent-color);
-            color: white;
+            display: block;
+            margin-bottom: 5px;
         }
     </style>
 </head>
 <body>
+    <!-- Skip to main content link for accessibility -->
+    <a href="#main" class="skip-to-main">Skip to main content</a>
+    
     <header>
         <div class="header-content">
             <h1>Kyunghun Nam</h1>
-            <p>Graduate student in Artificial Intelligence</p>
+            <p>Graduate Student in Artificial Intelligence</p>
         </div>
     </header>
 
-    <nav>
+    <nav role="navigation" aria-label="Main navigation">
         <ul>
-            <li><a href="index.html" class="active">About Me</a></li>
+            <li><a href="index.html" class="active" aria-current="page">About Me</a></li>
             <li><a href="research.html">Research</a></li>
             <li><a href="publications.html">Publications</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
 
-    <main>
-        <section id="about">
-            <h2>About Me</h2>
-            <div class="about-card">
+    <main id="main">
+        <section id="about" aria-labelledby="about-heading">
+            <h2 id="about-heading">About Me</h2>
+            <div class="card about-card">
                 <div class="about-content">
                     <div class="about-text">
-                        <p>Hello! My name is <strong>Kyunghun Nam</strong>. I am a graduate student passionate about Mathematical Optimization in AI.</p>
+                        <p>Hello! I am <span class="highlight">Kyunghun Nam</span>, a passionate graduate student specializing in <strong>Mathematical Optimization in Artificial Intelligence</strong>.</p>
                         
-                        <p>My PhD course has been ongoing since 09.2025 and is supervised by Professor <strong>Sumyeong Ahn</strong> (<a href="https://real.kentech.ac.kr/" target="_blank">Homepage</a>).</p>
+                        <div class="education-section">
+                            <h3>Education & Supervision</h3>
+                            <div class="education-item">
+                                <strong>Ph.D. in AI (2025 - Present)</strong>
+                                <p>Supervisor: Professor <a href="https://real.kentech.ac.kr/" target="_blank" rel="noopener noreferrer" aria-label="Professor Sumyeong Ahn's homepage">Sumyeong Ahn</a></p>
+                                <p>Focus: Advanced Mathematical Optimization Methods</p>
+                            </div>
+                            
+                            <div class="education-item">
+                                <strong>M.S. in AI (Completed)</strong>
+                                <p>Supervisor: Professor <a href="https://sites.google.com/site/sejunparksite/" target="_blank" rel="noopener noreferrer" aria-label="Professor Sejun Park's homepage">Sejun Park</a></p>
+                                <p>Research Area: Optimization Algorithms for Deep Learning</p>
+                            </div>
+                        </div>
                         
-                        <p>My Master's research was supervised by Professor <strong>Sejun Park</strong> (<a href="https://sites.google.com/site/sejunparksite/" target="_blank">Homepage</a>).</p>
+                        <p style="margin-top: 30px;">I am passionate about leveraging mathematical optimization approaches to solve real-world problems in machine learning. My research focuses on developing theoretically grounded and practically efficient optimization algorithms for training neural networks.</p>
                         
-                        <p>I am passionate about leveraging mathematical optimization approaches to solve real-world problems in machine learning. </p>
-                        <p>This <a href = "https://mathematical-optimization.github.io/github.io/" target="_blank">Webpage</a> is a collection of resources related to mathematical optimization to help you learn.</p> 
-
+                        <p>📚 Check out this <a href="https://mathematical-optimization.github.io/github.io/" target="_blank" rel="noopener noreferrer" aria-label="Mathematical Optimization Resources">collection of resources</a> I've curated to help others learn about mathematical optimization in AI.</p>
                     </div>
                 </div>
             </div>
@@ -315,47 +130,9 @@
     </main>
 
     <footer>
-        <p>&copy; 2025 Kyunghun Nam. All rights reserved.</p>
+        <p>&copy; 2025 Kyunghun Nam. All rights reserved. | <a href="mailto:baptist0214@gmail.com" style="color: var(--accent-color); text-decoration: none;">Contact</a></p>
     </footer>
 
-    <script>
-        // Add scroll effect to navigation
-        let lastScroll = 0;
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            const currentScroll = window.pageYOffset;
-            
-            if (currentScroll > lastScroll && currentScroll > 100) {
-                nav.style.transform = 'translateY(-100%)';
-            } else {
-                nav.style.transform = 'translateY(0)';
-            }
-            
-            lastScroll = currentScroll;
-        });
-
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe all sections
-        document.querySelectorAll('section').forEach(section => {
-            section.style.opacity = '0';
-            section.style.transform = 'translateY(20px)';
-            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(section);
-        });
-    </script>
+    <script src="common.js"></script>
 </body>
 </html>
