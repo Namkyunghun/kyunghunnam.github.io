@@ -3,258 +3,175 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>가독성 개선된 스타일</title>
+    <title>텍스트 색상 문제 해결</title>
     <style>
-        /* ===== 가독성 개선을 위한 색상 변수 수정 ===== */
-        :root {
-            /* 기존 색상을 더 진하고 대비가 높은 색상으로 변경 */
-            --primary-color: #1d4ed8;      /* 더 진한 파란색 (기존: #2563eb) */
-            --secondary-color: #1e3a8a;    /* 더 진한 네이비 (기존: #1e40af) */
-            --accent-color: #2563eb;       /* 링크 색상 진하게 (기존: #3b82f6) */
-            --dark-bg: #0f172a;
-            --light-bg: #ffffff;           /* 순수 흰색으로 변경 (기존: #f8fafc) */
-            --text-dark: #0f172a;          /* 거의 검정에 가깝게 (기존: #1e293b) */
-            --text-light: #475569;         /* 보조 텍스트도 진하게 (기존: #64748b) */
-            --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --hover-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            --transition-base: cubic-bezier(0.4, 0, 0.2, 1);
+        /* ===== 긴급 수정: 흰 배경에 검정 텍스트 ===== */
+        
+        /* About Me 카드 내부 텍스트 - 검정색으로! */
+        .about-card {
+            background: white !important;
         }
-
-        /* ===== 전역 텍스트 가독성 개선 ===== */
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.7;  /* 줄 간격 증가 */
-            color: var(--text-dark);
-            background-color: var(--light-bg);
-            font-size: 16px;  /* 기본 폰트 크기 명시 */
-            -webkit-font-smoothing: antialiased;  /* 폰트 렌더링 개선 */
-            -moz-osx-font-smoothing: grayscale;
+        
+        .about-card * {
+            color: #1e293b !important;  /* 진한 회색/검정 */
         }
-
-        /* ===== About Me 페이지 특별 스타일 개선 ===== */
+        
         .about-text p {
-            margin-bottom: 20px;
-            font-size: 1.125em;  /* 약간 크게 */
+            color: #1e293b !important;  /* 본문 텍스트 검정색 */
+            font-size: 1.1em;
             line-height: 1.8;
-            color: var(--text-dark);
-            font-weight: 400;  /* 일반 텍스트 굵기 */
         }
-
-        /* 하이라이트 텍스트 개선 */
-        .highlight {
-            background: linear-gradient(120deg, #fef3c7 0%, #fde68a 100%);
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-weight: 700;  /* 더 굵게 */
-            color: var(--text-dark);  /* 명시적으로 진한 색상 */
+        
+        /* 교육 섹션 - 텍스트를 검정색으로! */
+        .education-section {
+            color: #1e293b !important;
         }
-
-        /* 교육 섹션 링크 특별 스타일 */
-        .education-item a {
-            color: #1e40af !important;  /* 진한 파란색으로 강제 */
-            text-decoration: none;
-            font-weight: 600;  /* 굵게 */
-            transition: all 0.3s ease;
-            border-bottom: 2px solid transparent;
+        
+        .education-section h3 {
+            color: #0f172a !important;  /* 제목은 더 진한 검정 */
+            font-weight: 700;
+            font-size: 1.5em;
         }
-
-        .education-item a:hover,
-        .education-item a:focus-visible {
-            color: #1d4ed8 !important;
-            border-bottom-color: #1d4ed8;
-            text-decoration: none;
+        
+        .education-item {
+            border-left: 3px solid #3b82f6;
+            padding-left: 20px;
+            margin-bottom: 20px;
         }
-
-        /* 교육 항목 제목 강조 */
+        
         .education-item strong {
-            color: #0f172a;  /* 거의 검정색 */
+            color: #0f172a !important;  /* 학위 제목 - 진한 검정 */
+            font-weight: 700;
+            font-size: 1.1em;
             display: block;
             margin-bottom: 8px;
-            font-size: 1.1em;
-            font-weight: 700;
         }
-
-        /* 교육 항목 본문 */
+        
         .education-item p {
-            color: var(--text-dark);
+            color: #334155 !important;  /* 설명 텍스트 - 회색빛 검정 */
+            font-size: 1em;
             line-height: 1.6;
-            margin-bottom: 8px;
-            font-size: 1.05em;
+            margin: 5px 0;
         }
-
-        /* ===== 일반 링크 스타일 개선 ===== */
-        a {
-            color: #2563eb;  /* 기본 링크 색상 진하게 */
-            font-weight: 500;
-        }
-
-        a:hover {
-            color: #1d4ed8;
-        }
-
-        /* ===== 섹션 제목 가독성 개선 ===== */
-        section h2 {
-            font-size: clamp(2rem, 3vw, 2.5rem);
-            color: var(--text-dark);
-            margin-bottom: 35px;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-        }
-
-        section h3 {
-            color: var(--text-dark);
+        
+        /* 교수님 이름 링크 - 파란색으로 잘 보이게! */
+        .education-item a {
+            color: #2563eb !important;  /* 선명한 파란색 */
+            text-decoration: none;
             font-weight: 600;
-            font-size: 1.5em;
-            margin-bottom: 20px;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease;
         }
-
-        /* ===== 네비게이션 텍스트 개선 ===== */
-        nav a {
-            color: var(--text-dark);
-            font-weight: 600;  /* 더 굵게 */
-            font-size: 1rem;
-            letter-spacing: 0;
+        
+        .education-item a:hover {
+            color: #1d4ed8 !important;  /* 호버시 더 진한 파란색 */
+            border-bottom: 1px solid #1d4ed8;
         }
-
-        nav a:hover,
-        nav a:focus-visible {
-            color: var(--accent-color);
-        }
-
-        nav a.active {
-            color: var(--accent-color);
+        
+        /* 하이라이트 텍스트 */
+        .highlight {
+            background: #fef3c7;
+            color: #0f172a !important;  /* 검정색 텍스트 */
+            padding: 3px 8px;
+            border-radius: 4px;
             font-weight: 700;
         }
-
-        /* ===== 카드 내부 텍스트 ===== */
+        
+        /* 모든 카드 기본 설정 */
         .card {
             background: white;
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+            color: #1e293b !important;  /* 카드 안의 모든 텍스트 기본 색상 */
         }
-
+        
+        .card h2,
+        .card h3,
+        .card h4 {
+            color: #0f172a !important;  /* 제목들은 더 진하게 */
+        }
+        
         .card p {
-            color: var(--text-dark);
-            font-size: 1.05em;
-            line-height: 1.7;
+            color: #334155 !important;  /* 단락은 약간 연한 검정 */
         }
-
-        /* ===== 모바일 가독성 ===== */
-        @media (max-width: 768px) {
-            body {
-                font-size: 17px;  /* 모바일에서 더 큰 폰트 */
-            }
-            
-            .about-text p {
-                font-size: 1.1em;
-                line-height: 1.8;
-            }
-            
-            .education-item strong {
-                font-size: 1.15em;
-            }
+        
+        /* ===== 전체 페이지 수정사항 ===== */
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #3b82f6;
+            --dark-bg: #0f172a;
+            --light-bg: #ffffff;
+            --text-dark: #0f172a;      /* 진한 검정 */
+            --text-light: #475569;      /* 연한 검정 */
+            --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --hover-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
         }
-
-        /* ===== 다크 모드 대응 (선택사항) ===== */
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --light-bg: #1e293b;
-                --text-dark: #f1f5f9;
-                --text-light: #cbd5e1;
-                --accent-color: #60a5fa;  /* 다크모드에서는 밝은 파란색 */
-            }
-            
-            .education-item a {
-                color: #60a5fa !important;
-            }
-            
-            .education-item a:hover {
-                color: #93c5fd !important;
-            }
-            
-            .card {
-                background: #334155;
-            }
-            
-            .highlight {
-                background: rgba(254, 243, 199, 0.2);
-                color: #f1f5f9;
-            }
+        
+        /* 기본 body 텍스트 색상 */
+        body {
+            color: var(--text-dark) !important;
+            background: #f8fafc;
         }
-
-        /* ===== 접근성 개선 ===== */
-        *:focus-visible {
-            outline: 3px solid var(--accent-color);
-            outline-offset: 2px;
-        }
-
-        /* 고대비 모드 지원 */
-        @media (prefers-contrast: high) {
-            :root {
-                --accent-color: #1d4ed8;
-                --text-dark: #000000;
-                --text-light: #374151;
-            }
-            
-            .education-item a {
-                color: #1e3a8a !important;
-                text-decoration: underline;
-            }
-        }
-
-        /* ===== 프린트 스타일 ===== */
-        @media print {
-            body {
-                color: black;
-                background: white;
-            }
-            
-            a {
-                color: black;
-                text-decoration: underline;
-            }
+        
+        /* 섹션 제목 */
+        section h2 {
+            color: var(--text-dark) !important;
+            font-weight: 700;
         }
     </style>
 </head>
 <body>
     <div style="max-width: 800px; margin: 40px auto; padding: 0 20px;">
-        <h1 style="margin-bottom: 30px;">가독성 개선 사항</h1>
+        <h1 style="color: #0f172a; margin-bottom: 30px;">🚨 긴급 색상 수정</h1>
         
-        <div style="background: #f0f9ff; padding: 20px; border-radius: 8px; margin-bottom: 30px;">
-            <h2 style="margin-bottom: 15px; font-size: 1.3em;">🎨 주요 개선 내용</h2>
-            <ul style="line-height: 1.8; color: var(--text-dark);">
-                <li><strong>색상 대비 강화:</strong> 모든 텍스트 색상을 더 진하게 조정</li>
-                <li><strong>링크 가독성:</strong> 특히 교수님 이름 링크를 진한 파란색(#1e40af)으로 변경</li>
-                <li><strong>폰트 굵기:</strong> 중요한 텍스트의 font-weight 증가</li>
-                <li><strong>폰트 크기:</strong> 기본 폰트 크기를 16px로 명시, 모바일은 17px</li>
-                <li><strong>줄 간격:</strong> line-height를 1.7~1.8로 증가</li>
-                <li><strong>배경색:</strong> 순수 흰색(#ffffff)으로 변경하여 대비 극대화</li>
-            </ul>
+        <div style="background: #fee2e2; padding: 20px; border-radius: 8px; margin-bottom: 30px; border-left: 4px solid #dc2626;">
+            <h2 style="color: #991b1b; margin-bottom: 15px; font-size: 1.3em;">문제 해결</h2>
+            <p style="color: #7f1d1d; line-height: 1.6;">
+                <strong>문제:</strong> 흰색 박스 안에 텍스트가 흰색이어서 전혀 보이지 않음<br>
+                <strong>해결:</strong> 모든 카드 내부 텍스트를 검정색 계열로 변경
+            </p>
         </div>
 
         <div style="background: white; padding: 30px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-            <h3 style="margin-bottom: 20px;">적용 방법</h3>
-            <ol style="line-height: 1.8; color: var(--text-dark);">
-                <li style="margin-bottom: 15px;">
-                    <strong>styles.css 파일 수정:</strong><br>
-                    위의 CSS 코드에서 <code>:root</code> 변수들과 관련 스타일을 기존 styles.css에 덮어쓰기
-                </li>
-                <li style="margin-bottom: 15px;">
-                    <strong>index.html의 인라인 스타일 수정:</strong><br>
-                    교육 섹션의 링크 스타일을 위 코드처럼 수정
-                </li>
-                <li style="margin-bottom: 15px;">
-                    <strong>테스트:</strong><br>
-                    브라우저에서 새로고침 후 가독성 확인 (Ctrl+F5로 캐시 클리어)
-                </li>
-            </ol>
+            <h3 style="color: #0f172a; margin-bottom: 20px;">📝 index.html 수정 방법</h3>
+            
+            <p style="color: #334155; margin-bottom: 20px;">
+                <strong style="color: #0f172a;">1단계:</strong> index.html 파일의 <code>&lt;style&gt;</code> 섹션에 다음 CSS 추가:
+            </p>
+            
+            <pre style="background: #f1f5f9; padding: 15px; border-radius: 8px; overflow-x: auto; color: #0f172a;">
+/* 긴급 수정 - 텍스트 색상 */
+.about-card,
+.about-card * {
+    color: #1e293b !important;
+}
+
+.education-item strong {
+    color: #0f172a !important;
+}
+
+.education-item p {
+    color: #334155 !important;
+}
+
+.education-item a {
+    color: #2563eb !important;
+    font-weight: 600;
+}</pre>
+
+            <p style="color: #334155; margin-top: 20px;">
+                <strong style="color: #0f172a;">2단계:</strong> styles.css 파일의 <code>:root</code> 변수 수정:
+            </p>
+            
+            <pre style="background: #f1f5f9; padding: 15px; border-radius: 8px; overflow-x: auto; color: #0f172a;">
+:root {
+    --text-dark: #0f172a;   /* 검정색 */
+    --text-light: #475569;  /* 회색 */
+}</pre>
         </div>
 
-        <div style="margin-top: 30px; padding: 20px; background: #fef3c7; border-radius: 8px;">
-            <p style="margin: 0; color: var(--text-dark);">
-                <strong>💡 팁:</strong> 웹 접근성 가이드라인(WCAG)에 따르면, 일반 텍스트는 최소 4.5:1, 큰 텍스트는 3:1의 색상 대비를 권장합니다. 
-                위 수정사항은 이 기준을 충족하도록 설계되었습니다.
+        <div style="margin-top: 30px; padding: 20px; background: #dcfce7; border-radius: 8px; border-left: 4px solid #22c55e;">
+            <p style="color: #14532d; margin: 0;">
+                <strong>✅ 결과:</strong> 이제 흰색 박스 안의 모든 텍스트가 검정색으로 표시되어 완벽하게 읽을 수 있습니다!
             </p>
         </div>
     </div>
