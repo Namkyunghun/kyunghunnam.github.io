@@ -9,16 +9,18 @@ window.addEventListener('scroll', () => {
     
     // Add scrolled class for enhanced shadow
     if (currentScroll > 50) {
-        nav.classList.add('scrolled');
+        if (nav) nav.classList.add('scrolled');
     } else {
-        nav.classList.remove('scrolled');
+        if (nav) nav.classList.remove('scrolled');
     }
     
     // Hide/show navigation on scroll
-    if (currentScroll > lastScroll && currentScroll > 100) {
-        nav.style.transform = 'translateY(-100%)';
-    } else {
-        nav.style.transform = 'translateY(0)';
+    if (nav) {
+        if (currentScroll > lastScroll && currentScroll > 100) {
+            nav.style.transform = 'translateY(-100%)';
+        } else {
+            nav.style.transform = 'translateY(0)';
+        }
     }
     
     lastScroll = currentScroll <= 0 ? 0 : currentScroll;
@@ -42,7 +44,7 @@ const observer = new IntersectionObserver((entries) => {
 
 // Observe all sections and animated elements
 document.addEventListener('DOMContentLoaded', () => {
-    const animatedElements = document.querySelectorAll('section, .card, .publication, .question-card, .goal-item, .cta-section, .info-card');
+    const animatedElements = document.querySelectorAll('section, .card, .publication, .question-card, .goal-item, .cta-section, .info-card, .education-item, .about-card');
     
     animatedElements.forEach(element => {
         element.style.opacity = '0';
@@ -60,7 +62,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         if (targetId === '#') return;
         
         const target = document.querySelector(targetId);
-        if (target) {
+        if (target && nav) {
             const navHeight = nav.offsetHeight;
             const targetPosition = target.offsetTop - navHeight - 20;
             
@@ -156,7 +158,7 @@ document.querySelectorAll('a[target="_blank"]').forEach(link => {
     });
 });
 
-// Theme detection and application (for future dark mode support)
+// Theme detection and application (Updated for Modern Standards)
 const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
 
 function applyTheme(e) {
@@ -164,16 +166,56 @@ function applyTheme(e) {
     document.documentElement.setAttribute('data-theme', theme);
 }
 
-prefersDarkScheme.addListener(applyTheme);
+// Updated from addListener to addEventListener
+prefersDarkScheme.addEventListener('change', applyTheme);
 applyTheme(prefersDarkScheme);
 
 // Service worker registration (for future PWA support)
 if ('serviceWorker' in navigator && location.protocol === 'https:') {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js').catch(err => {
+        // Ensure sw.js exists before uncommenting or deploying
+        /* navigator.serviceWorker.register('/sw.js').catch(err => {
             console.log('ServiceWorker registration failed:', err);
         });
+        */
     });
 }
+
+// --- Publications Filter Logic (Moved from publications.html) ---
+function filterPublications(type) {
+    const buttons = document.querySelectorAll('.filter-btn');
+    const publications = document.querySelectorAll('.publication');
+    
+    if (buttons.length === 0 || publications.length === 0) return;
+
+    // Update button states
+    buttons.forEach(btn => {
+        btn.classList.remove('active');
+        // Simple text matching for robust button selection
+        if (
+            (type === 'all' && btn.textContent.trim() === 'All') ||
+            (type === 'journal' && btn.textContent.trim() === 'Journal Papers') ||
+            (type === 'workshop' && btn.textContent.trim() === 'Workshop Papers')
+        ) {
+            btn.classList.add('active');
+        }
+    });
+    
+    // Filter publications
+    publications.forEach(pub => {
+        if (type === 'all' || pub.dataset.type === type) {
+            pub.style.display = 'block';
+            // Trigger reflow/animation
+            pub.style.animation = 'none';
+            pub.offsetHeight; /* trigger reflow */
+            pub.style.animation = 'fadeInScale 0.5s ease-out';
+        } else {
+            pub.style.display = 'none';
+        }
+    });
+}
+
+// Expose function to global scope so HTML onclick handlers can find it
+window.filterPublications = filterPublications;
 
 console.log('🚀 Website loaded successfully! Built with passion by Kyunghun Nam.');
