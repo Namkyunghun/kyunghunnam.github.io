@@ -1,140 +1,306 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Kyunghun Nam's research in AI optimization and neural network training">
-    <meta name="keywords" content="AI Research, Optimization, Neural Networks, Deep Learning, Mathematical Optimization">
-    <meta name="author" content="Kyunghun Nam">
-    
-    <meta property="og:title" content="Research - Kyunghun Nam">
-    <meta property="og:description" content="Research on Mathematical Optimization in AI">
-    <meta property="og:type" content="website">
-    
-    <title>Research - Kyunghun Nam</title>
-    
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Research statement and current questions on mathematical optimization for deep learning by Kyunghun Nam.">
+  <meta name="author" content="Kyunghun Nam">
+  <meta name="theme-color" content="#0f172a">
+  <meta name="color-scheme" content="light dark">
+  <meta property="og:title" content="Research — Kyunghun Nam">
+  <meta property="og:description" content="Research questions, methodology, and objectives in optimization for artificial intelligence.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kyunghunnam.github.io/research.html">
+  <meta property="og:image" content="https://kyunghunnam.github.io/assets/og-card.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Research — Kyunghun Nam">
+  <meta name="twitter:description" content="Research questions, methodology, and objectives in optimization for artificial intelligence.">
+  <meta name="twitter:image" content="https://kyunghunnam.github.io/assets/og-card.svg">
+  <link rel="canonical" href="https://kyunghunnam.github.io/research.html">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    (() => {
+      let stored = null;
+      try {
+        stored = localStorage.getItem('theme');
+      } catch {}
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const theme = stored || (prefersDark ? 'dark' : 'light');
+      document.documentElement.dataset.theme = theme;
+    })();
+  </script>
+  <title>Research — Kyunghun Nam</title>
 </head>
-<body>
-    <a href="#main" class="skip-to-main">Skip to main content</a>
-    
-    <header>
-        <div class="header-content">
-            <h1>Kyunghun Nam</h1>
-            <p>Graduate Student in Artificial Intelligence</p>
+
+<body class="page-research">
+  <div class="progress-bar" aria-hidden="true"></div>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header class="site-header site-header--compact">
+    <nav class="site-nav" aria-label="Primary">
+  <div class="container nav-inner">
+    <a class="brand" href="index.html" aria-label="Kyunghun Nam home">
+      <span class="brand-mark" aria-hidden="true">KN</span>
+      <span class="brand-copy">
+        <strong>Kyunghun Nam</strong>
+        <span>Optimization for AI</span>
+      </span>
+    </a>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
+      <span class="sr-only">Toggle navigation</span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </button>
+
+    <div class="nav-panel" id="site-menu">
+      <div class="nav-links">
+        <a href="index.html">About</a>
+        <a href="research.html" class="is-current" aria-current="page">Research</a>
+        <a href="publications.html">Publications</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode">
+        <span class="theme-toggle__icon" aria-hidden="true">◐</span>
+        <span class="theme-toggle__label">Theme</span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+    <section class="page-hero">
+      <div class="container page-hero__inner">
+        <div data-reveal>
+          <p class="eyebrow">Research statement</p>
+          <h1 class="page-title">Toward principled optimization for modern deep learning.</h1>
+          <p class="page-description">
+            I study optimization algorithms as both mathematical objects and practical tools, with the goal
+            of making them easier to analyze, compare, and improve.
+          </p>
         </div>
-    </header>
+      </div>
+    </section>
+  </header>
 
-    <nav role="navigation" aria-label="Main navigation">
-        <ul>
-            <li><a href="index.html">About Me</a></li>
-            <li><a href="research.html" class="active" aria-current="page">Research</a></li>
-            <li><a href="publications.html">Publications</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
+  <main id="main">
+    <section class="section">
+      <div class="container">
+        <div class="callout callout-primary" data-reveal>
+          <p class="callout-label">Core research question</p>
+          <h2>What makes a good optimizer?</h2>
+          <p>
+            The field has no single, widely accepted definition that is simultaneously theoretical,
+            practical, and useful for comparing real optimizers. My work aims to close that gap.
+          </p>
+        </div>
+      </div>
+    </section>
 
-    <main id="main">
-        <section id="research" aria-labelledby="research-heading">
-            <h2 id="research-heading">Research Statement</h2>
-            
-            <div class="research-content">
-                <div class="key-motivation">
-                    <strong>Core Research Question: "What makes a good optimizer?"</strong>
-                </div>
-                
-                <div class="lead-paragraph">
-                    Training neural networks is fundamental to deep learning, and optimization algorithms are the engine that drives this process. My research focuses on understanding and improving these critical algorithms.
-                </div>
-                
-                <div class="content-section">
-                    <h3>The Current Challenge</h3>
-                    <p>
-                        The deep learning community has developed hundreds of optimizers, with new proposals emerging constantly. We've reached a point where determining which algorithm is truly superior—or even what "superior" means—has become increasingly difficult.
-                    </p>
-                    
-                    <div class="highlight-box">
-                        <p>
-                            This confusion stems from our lack of a clear, theoretically grounded, and practically useful definition of what constitutes a "good optimizer."
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="content-section">
-                    <h3>Key Research Questions</h3>
-                    <div class="question-cards">
-                        <div class="question-card">
-                            <p>
-                                <strong>Unified Evaluation Framework:</strong> Can we create a comprehensive criterion that balances convergence rate, empirical performance, hyperparameter robustness, and computational efficiency?
-                            </p>
-                        </div>
-                        
-                        <div class="question-card">
-                            <p>
-                                <strong>Second-Order Information:</strong> How do effective optimizers leverage matrices like the Hessian, Fisher information matrix, and covariance matrices? What patterns emerge in successful algorithms?
-                            </p>
-                        </div>
-                        
-                        <div class="question-card">
-                            <p>
-                                <strong>Practical Implementation:</strong> How can we bridge the gap between theoretical insights and practical algorithms that work efficiently at scale?
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="content-section">
-                    <h3>Research Approach</h3>
-                    <p>
-                        I combine rigorous mathematical analysis with extensive empirical evaluation. This dual approach ensures that our theoretical insights translate into practical improvements for real-world machine learning systems.
-                    </p>
-                    
-                    <p>
-                        The optimization community is actively exploring these fundamental questions. My goal is to contribute meaningful advances to this critical area of AI research.
-                    </p>
-                </div>
-                
-                <div class="research-goals">
-                    <h3>Research Objectives</h3>
-                    <div class="goal-items">
-                        <div class="goal-item">
-                            <div class="goal-number" aria-hidden="true">1</div>
-                            <div class="goal-text">
-                                <strong>Theoretical Foundation:</strong> Develop a mathematically rigorous framework for evaluating and comparing optimization algorithms.
-                            </div>
-                        </div>
-                        <div class="goal-item">
-                            <div class="goal-number" aria-hidden="true">2</div>
-                            <div class="goal-text">
-                                <strong>Algorithm Analysis:</strong> Systematically evaluate existing optimizers under our new framework to identify truly superior methods.
-                            </div>
-                        </div>
-                        <div class="goal-item">
-                            <div class="goal-number" aria-hidden="true">3</div>
-                            <div class="goal-text">
-                                <strong>Innovation:</strong> Design novel optimization algorithms that excel according to both theoretical and practical metrics.
-                            </div>
-                        </div>
-                        <div class="goal-item">
-                            <div class="goal-number" aria-hidden="true">4</div>
-                            <div class="goal-text">
-                                <strong>Open Science:</strong> Share tools, benchmarks, and insights with the community to accelerate progress in optimization research.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="cta-section">
-                    <p>Interested in collaborating on optimization research? <a href="contact.html">Let's connect</a> and explore how we can advance this field together.</p>
-                </div>
+    <section class="section section-muted">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <p class="section-eyebrow">Why this matters</p>
+          <h2 class="section-title">Optimizer design has outpaced optimizer understanding.</h2>
+          <p class="section-subtitle">
+            The community continues to propose new methods, but it is still difficult to explain which method
+            is truly better, under what conditions, and according to which criteria.
+          </p>
+        </div>
+
+        <div class="grid grid-3">
+          <article class="card feature-card" data-reveal>
+            <h3>Too many metrics</h3>
+            <p>Benchmark wins, speed, robustness, memory cost, and convergence guarantees rarely align cleanly.</p>
+          </article>
+          <article class="card feature-card" data-reveal>
+            <h3>Too little unification</h3>
+            <p>Important ingredients such as momentum, adaptivity, and curvature are often studied in isolation.</p>
+          </article>
+          <article class="card feature-card" data-reveal>
+            <h3>Too few bridges</h3>
+            <p>Strong theory often stops before deployment-scale practice, while strong practice can lack explanation.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <p class="section-eyebrow">Research pillars</p>
+          <h2 class="section-title">Three directions that organize my work.</h2>
+        </div>
+
+        <div class="grid grid-3">
+          <article class="card pillar-card" data-reveal>
+            <h3>Unified evaluation</h3>
+            <p>
+              Can we define a framework that compares optimizers using convergence behavior, empirical
+              performance, hyperparameter sensitivity, and computational efficiency together?
+            </p>
+          </article>
+
+          <article class="card pillar-card" data-reveal>
+            <h3>Second-order information</h3>
+            <p>
+              What role do matrices such as the Hessian, Fisher information matrix, and covariance-based
+              structures play in successful optimizer design?
+            </p>
+          </article>
+
+          <article class="card pillar-card" data-reveal>
+            <h3>Scalable implementation</h3>
+            <p>
+              How can theoretically meaningful ideas be turned into algorithms that remain useful when models,
+              datasets, and systems get large?
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-muted">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <p class="section-eyebrow">Current questions</p>
+          <h2 class="section-title">The questions currently driving my reading and experimentation.</h2>
+        </div>
+
+        <div class="question-grid">
+          <article class="card question-card" data-reveal>
+            <h3>Evaluation criteria</h3>
+            <p>What should count as “better” when an optimizer is judged across theory, stability, tuning burden, and compute?</p>
+          </article>
+          <article class="card question-card" data-reveal>
+            <h3>Momentum and adaptivity</h3>
+            <p>When do momentum terms improve adaptive methods in a provable way, and when do they create hidden tradeoffs?</p>
+          </article>
+          <article class="card question-card" data-reveal>
+            <h3>Last-iterate behavior</h3>
+            <p>Can we understand the convergence of actual training trajectories rather than relying only on averaged iterates?</p>
+          </article>
+          <article class="card question-card" data-reveal>
+            <h3>Practical transfer</h3>
+            <p>How can theory-inspired optimizers remain simple enough for real systems and real practitioners to adopt?</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="grid grid-2 align-start">
+          <article class="card" data-reveal>
+            <p class="section-eyebrow">Methodology</p>
+            <h2 class="subsection-title">Rigorous analysis paired with empirical validation</h2>
+            <p>
+              I combine mathematical proof techniques with practical experiments so that theoretical ideas are
+              tested under realistic training settings. This helps ensure that analytical insights translate into
+              usable algorithmic improvements.
+            </p>
+            <ul class="bullets">
+              <li>Convergence analysis for adaptive and momentum-based methods</li>
+              <li>Empirical comparisons under meaningful training regimes</li>
+              <li>Careful attention to robustness, tuning sensitivity, and implementation cost</li>
+            </ul>
+          </article>
+
+          <article class="card" data-reveal>
+            <p class="section-eyebrow">Open science</p>
+            <h2 class="subsection-title">Reusable outputs, not only isolated results</h2>
+            <p>
+              Beyond individual papers, I want to contribute evaluation tools, comparison frameworks, and shared
+              research resources that make optimizer studies easier to reproduce and extend.
+            </p>
+            <ul class="bullets">
+              <li>Benchmarks and evaluation criteria that remain interpretable</li>
+              <li>Readable explanations of why specific optimizer components help</li>
+              <li>Resources that support community progress on optimization research</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <p class="section-eyebrow">Research objectives</p>
+          <h2 class="section-title">A roadmap from foundations to new algorithms.</h2>
+        </div>
+
+        <div class="roadmap">
+          <article class="roadmap-item card" data-reveal>
+            <span class="roadmap-step">01</span>
+            <div>
+              <h3>Theoretical foundation</h3>
+              <p>Develop a mathematically rigorous framework for evaluating and comparing optimization algorithms.</p>
             </div>
-        </section>
-    </main>
+          </article>
+          <article class="roadmap-item card" data-reveal>
+            <span class="roadmap-step">02</span>
+            <div>
+              <h3>Systematic analysis</h3>
+              <p>Study existing optimizers under unified criteria to identify when they are genuinely superior.</p>
+            </div>
+          </article>
+          <article class="roadmap-item card" data-reveal>
+            <span class="roadmap-step">03</span>
+            <div>
+              <h3>Algorithm design</h3>
+              <p>Create new optimization methods that perform well according to both theoretical and practical metrics.</p>
+            </div>
+          </article>
+          <article class="roadmap-item card" data-reveal>
+            <span class="roadmap-step">04</span>
+            <div>
+              <h3>Community impact</h3>
+              <p>Share tools, benchmarks, and explanatory materials that help accelerate progress in optimizer research.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-    <footer>
-        <p>&copy; 2025 Kyunghun Nam. All rights reserved. | <a href="contact.html">Contact</a></p>
-    </footer>
+    <section class="section">
+      <div class="container">
+        <div class="cta-banner card" data-reveal>
+          <div>
+            <p class="section-eyebrow">Collaboration</p>
+            <h2 class="cta-title">Interested in optimization research?</h2>
+            <p class="cta-text">
+              I welcome thoughtful conversations on optimizer theory, benchmark design, and practical methods
+              for large-scale machine learning.
+            </p>
+          </div>
+          <div class="cta-actions">
+            <a class="button" href="contact.html">Contact me</a>
+            <a class="button secondary" href="publications.html">See publications</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
-    <script src="common.js"></script>
+  <footer class="site-footer">
+  <div class="container footer-inner">
+    <p>&copy; <span class="current-year">2026</span> Kyunghun Nam. Built for clarity, accessibility, and collaboration.</p>
+    <div class="footer-links">
+      <a href="mailto:baptist0214@gmail.com">Email</a>
+      <a href="https://scholar.google.com/citations?user=2K1cMuQAAAAJ&hl=ko" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+      <a href="https://github.com/kyunghunnam" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </div>
+  </div>
+</footer>
+<button class="back-to-top" type="button" aria-label="Back to top">↑</button>
+<div class="toast-region" aria-live="polite" aria-atomic="true"></div>
+<script src="common.js" defer></script>
+
 </body>
 </html>
