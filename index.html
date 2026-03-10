@@ -1,88 +1,313 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Kyunghun Nam - Graduate student in Artificial Intelligence specializing in Mathematical Optimization">
-    <meta name="keywords" content="Kyunghun Nam, AI Research, Mathematical Optimization, Deep Learning, Machine Learning">
-    <meta name="author" content="Kyunghun Nam">
-    
-    <meta property="og:title" content="Kyunghun Nam - AI Researcher">
-    <meta property="og:description" content="Graduate student specializing in Mathematical Optimization in AI">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://kyunghunnam.github.io">
-    
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Kyunghun Nam - AI Researcher">
-    <meta name="twitter:description" content="Graduate student specializing in Mathematical Optimization in AI">
-    
-    <link rel="canonical" href="https://kyunghunnam.github.io/">
-
-    <title>Kyunghun Nam - AI Researcher</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Personal website of Kyunghun Nam, a Ph.D. student in artificial intelligence working on mathematical optimization for machine learning.">
+  <meta name="author" content="Kyunghun Nam">
+  <meta name="theme-color" content="#0f172a">
+  <meta name="color-scheme" content="light dark">
+  <meta property="og:title" content="Kyunghun Nam — Optimization Researcher in AI">
+  <meta property="og:description" content="Mathematically grounded optimization research for deep learning, convergence analysis, and algorithm design.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kyunghunnam.github.io/">
+  <meta property="og:image" content="https://kyunghunnam.github.io/assets/og-card.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Kyunghun Nam — Optimization Researcher in AI">
+  <meta name="twitter:description" content="Mathematically grounded optimization research for deep learning, convergence analysis, and algorithm design.">
+  <meta name="twitter:image" content="https://kyunghunnam.github.io/assets/og-card.svg">
+  <link rel="canonical" href="https://kyunghunnam.github.io/">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    (() => {
+      let stored = null;
+      try {
+        stored = localStorage.getItem('theme');
+      } catch {}
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const theme = stored || (prefersDark ? 'dark' : 'light');
+      document.documentElement.dataset.theme = theme;
+    })();
+  </script>
+  <title>Kyunghun Nam — Optimization Researcher in AI</title>
 </head>
-<body>
-    <a href="#main" class="skip-to-main">Skip to main content</a>
-    
-    <header>
-        <div class="header-content">
-            <h1>Kyunghun Nam</h1>
-            <p>Graduate Student in Artificial Intelligence</p>
+
+<body class="page-home">
+  <div class="progress-bar" aria-hidden="true"></div>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Primary">
+  <div class="container nav-inner">
+    <a class="brand" href="index.html" aria-label="Kyunghun Nam home">
+      <span class="brand-mark" aria-hidden="true">KN</span>
+      <span class="brand-copy">
+        <strong>Kyunghun Nam</strong>
+        <span>Optimization for AI</span>
+      </span>
+    </a>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
+      <span class="sr-only">Toggle navigation</span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </button>
+
+    <div class="nav-panel" id="site-menu">
+      <div class="nav-links">
+        <a href="index.html" class="is-current" aria-current="page">About</a>
+        <a href="research.html">Research</a>
+        <a href="publications.html">Publications</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode">
+        <span class="theme-toggle__icon" aria-hidden="true">◐</span>
+        <span class="theme-toggle__label">Theme</span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+    <section class="hero hero-home">
+      <div class="container hero-grid">
+        <div class="hero-copy" data-reveal>
+          <p class="eyebrow">Optimization for trustworthy machine learning</p>
+          <h1 class="hero-title">Kyunghun Nam</h1>
+          <p class="hero-description">
+            Ph.D. student in artificial intelligence building mathematically grounded optimization methods
+            for modern deep learning systems.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="research.html">Explore research</a>
+            <a class="button secondary" href="publications.html">View publications</a>
+            <a class="button ghost" href="contact.html">Get in touch</a>
+          </div>
+          <ul class="chip-list" aria-label="At a glance">
+            <li class="chip">KENTECH</li>
+            <li class="chip">Mathematical Optimization</li>
+            <li class="chip">Deep Learning Theory</li>
+            <li class="chip">Convergence Analysis</li>
+          </ul>
         </div>
-    </header>
 
-    <nav role="navigation" aria-label="Main navigation">
-        <ul>
-            <li><a href="index.html" class="active" aria-current="page">About Me</a></li>
-            <li><a href="research.html">Research</a></li>
-            <li><a href="publications.html">Publications</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
-
-    <main id="main">
-        <section id="about" aria-labelledby="about-heading">
-            <h2 id="about-heading">About Me</h2>
-            <div class="card about-card">
-                <div class="about-content">
-                    <div class="about-text">
-                        <p>Hello! I am <span class="highlight">Kyunghun Nam</span>, a passionate graduate student specializing in <strong>Mathematical Optimization in Artificial Intelligence</strong>.</p>
-                        
-                        <div class="education-section">
-                            <h3>Education & Supervision</h3>
-                            <div class="education-item">
-                                <strong>Ph.D. in AI (2025 - Present)</strong>
-                                <p>Supervisor: Professor <a href="https://real.kentech.ac.kr/" target="_blank" rel="noopener noreferrer" aria-label="Professor Sumyeong Ahn's homepage">Sumyeong Ahn</a></p>
-                                <p>Focus: Advanced Mathematical Optimization Methods</p>
-                            </div>
-                            
-                            <div class="education-item">
-                                <strong>M.S. in AI (Completed)</strong>
-                                <p>Supervisor: Professor <a href="https://sites.google.com/site/sejunparksite/" target="_blank" rel="noopener noreferrer" aria-label="Professor Sejun Park's homepage">Sejun Park</a></p>
-                                <p>Research Area: Optimization Algorithms for Deep Learning</p>
-                            </div>
-                        </div>
-                        
-                        <p style="margin-top: 2.5rem;">I am passionate about leveraging mathematical optimization approaches to solve real-world problems in machine learning. My research focuses on developing theoretically grounded and practically efficient optimization algorithms for training neural networks.</p>
-                        
-                        <a href="https://mathematical-optimization.github.io/github.io/" target="_blank" rel="noopener noreferrer" class="resources-link" aria-label="Mathematical Optimization Resources">
-                            📚 Explore My Curated Resources
-                        </a>
-                    </div>
-                </div>
+        <aside class="hero-panel card" data-reveal>
+          <p class="panel-kicker">Current focus</p>
+          <h2 class="panel-title">What makes a good optimizer?</h2>
+          <p class="panel-text">
+            My work studies how rigorous theory, second-order structure, and strong practical behavior can
+            be combined into optimization algorithms that are easier to trust and easier to use.
+          </p>
+          <dl class="detail-list">
+            <div>
+              <dt>Affiliation</dt>
+              <dd>KENTECH</dd>
             </div>
-        </section>
-    </main>
+            <div>
+              <dt>Supervisor</dt>
+              <dd><a href="https://real.kentech.ac.kr/" target="_blank" rel="noopener noreferrer">Prof. Sumyeong Ahn</a></dd>
+            </div>
+            <div>
+              <dt>Interests</dt>
+              <dd>Optimization algorithms, deep learning theory, algorithm design, large-scale learning</dd>
+            </div>
+            <div>
+              <dt>Location</dt>
+              <dd>Seoul, South Korea · KST (UTC+9)</dd>
+            </div>
+          </dl>
+        </aside>
+      </div>
 
-    <footer>
-        <p>&copy; 2025 Kyunghun Nam. All rights reserved. | <a href="mailto:baptist0214@gmail.com">Contact</a></p>
-    </footer>
+      <div class="container hero-stats" data-reveal>
+        <article class="stat-card">
+          <span class="stat-value" data-counter="2">2</span>
+          <span class="stat-label">Publications listed</span>
+        </article>
+        <article class="stat-card">
+          <span class="stat-value" data-counter="2">2</span>
+          <span class="stat-label">Graduate degrees in AI</span>
+        </article>
+        <article class="stat-card">
+          <span class="stat-value" data-counter="4">4</span>
+          <span class="stat-label">Core research themes</span>
+        </article>
+      </div>
+    </section>
+  </header>
 
-    <script src="common.js"></script>
+  <main id="main">
+    <section class="section">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <p class="section-eyebrow">Overview</p>
+          <h2 class="section-title">A research profile built around clarity, rigor, and useful algorithms.</h2>
+          <p class="section-subtitle">
+            I work at the intersection of mathematical analysis and empirical machine learning, with a focus
+            on optimization methods that can scale without losing theoretical meaning.
+          </p>
+        </div>
+
+        <div class="grid grid-3">
+          <article class="card feature-card" data-reveal>
+            <h3>Research vision</h3>
+            <p>
+              Build principled criteria for evaluating optimizers beyond benchmark wins alone, balancing
+              convergence guarantees, robustness, computational cost, and implementation simplicity.
+            </p>
+          </article>
+
+          <article class="card feature-card" data-reveal>
+            <h3>Selected work</h3>
+            <p>
+              My recent research studies dimension-independent convergence for AdaGrad with heavy-ball
+              momentum and last-iterate convergence properties of sharpness-aware minimization.
+            </p>
+            <a class="text-link" href="publications.html">Browse publications</a>
+          </article>
+
+          <article class="card feature-card" data-reveal>
+            <h3>Collaboration</h3>
+            <p>
+              I am especially interested in collaborations on optimization theory, adaptive methods,
+              second-order information, and practical training improvements for large-scale models.
+            </p>
+            <a class="text-link" href="contact.html">Start a conversation</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-muted">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <p class="section-eyebrow">Academic journey</p>
+          <h2 class="section-title">Graduate training centered on optimization and theory-driven AI.</h2>
+        </div>
+
+        <div class="timeline">
+          <article class="card timeline-item" data-reveal>
+            <div class="timeline-year">2025 — Present</div>
+            <div class="timeline-body">
+              <h3>Ph.D. in Artificial Intelligence</h3>
+              <p>Supervisor: <a href="https://real.kentech.ac.kr/" target="_blank" rel="noopener noreferrer">Prof. Sumyeong Ahn</a></p>
+              <p>Focus: Advanced mathematical optimization methods for neural network training.</p>
+            </div>
+          </article>
+
+          <article class="card timeline-item" data-reveal>
+            <div class="timeline-year">Completed</div>
+            <div class="timeline-body">
+              <h3>M.S. in Artificial Intelligence</h3>
+              <p>Supervisor: <a href="https://sites.google.com/site/sejunparksite/" target="_blank" rel="noopener noreferrer">Prof. Sejun Park</a></p>
+              <p>Research area: Optimization algorithms for deep learning with theoretical and practical impact.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <p class="section-eyebrow">Focus areas</p>
+          <h2 class="section-title">Themes that shape my research program.</h2>
+        </div>
+
+        <div class="grid grid-2">
+          <article class="card topic-card" data-reveal>
+            <h3>Adaptive optimization</h3>
+            <p>
+              Understanding how methods like AdaGrad behave in high-dimensional settings and how momentum
+              changes their convergence properties.
+            </p>
+          </article>
+
+          <article class="card topic-card" data-reveal>
+            <h3>Deep learning theory</h3>
+            <p>
+              Connecting optimization dynamics to practical training behavior so that theory explains, rather
+              than merely describes, what happens in real neural network workloads.
+            </p>
+          </article>
+
+          <article class="card topic-card" data-reveal>
+            <h3>Second-order structure</h3>
+            <p>
+              Studying what useful curvature-related objects such as Hessians, Fisher information, and
+              covariance matrices reveal about effective optimization.
+            </p>
+          </article>
+
+          <article class="card topic-card" data-reveal>
+            <h3>Open, reusable tools</h3>
+            <p>
+              Translating theoretical ideas into benchmarks, evaluation frameworks, and public resources that
+              make optimizer research easier to compare and extend.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="cta-banner card" data-reveal>
+          <div>
+            <p class="section-eyebrow">Beyond this site</p>
+            <h2 class="cta-title">Curated resources for mathematical optimization</h2>
+            <p class="cta-text">
+              I also maintain a separate resource collection for mathematical optimization topics that complement
+              my academic work and ongoing reading.
+            </p>
+          </div>
+          <div class="cta-actions">
+            <a class="button" href="https://mathematical-optimization.github.io/github.io/" target="_blank" rel="noopener noreferrer">Open resources</a>
+            <a class="button secondary" href="contact.html">Collaborate</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+  <div class="container footer-inner">
+    <p>&copy; <span class="current-year">2026</span> Kyunghun Nam. Built for clarity, accessibility, and collaboration.</p>
+    <div class="footer-links">
+      <a href="mailto:baptist0214@gmail.com">Email</a>
+      <a href="https://scholar.google.com/citations?user=2K1cMuQAAAAJ&hl=ko" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+      <a href="https://github.com/kyunghunnam" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </div>
+  </div>
+</footer>
+<button class="back-to-top" type="button" aria-label="Back to top">↑</button>
+<div class="toast-region" aria-live="polite" aria-atomic="true"></div>
+<script src="common.js" defer></script>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Kyunghun Nam",
+  "url": "https://kyunghunnam.github.io/",
+  "email": "mailto:baptist0214@gmail.com",
+  "jobTitle": "Ph.D. Student in Artificial Intelligence",
+  "affiliation": {
+    "@type": "CollegeOrUniversity",
+    "name": "KENTECH"
+  },
+  "sameAs": [
+    "https://scholar.google.com/citations?user=2K1cMuQAAAAJ&hl=ko",
+    "https://github.com/kyunghunnam",
+    "https://mathematical-optimization.github.io/github.io/"
+  ]
+}
+</script>
+
 </body>
 </html>
