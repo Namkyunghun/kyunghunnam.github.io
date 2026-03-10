@@ -1,142 +1,210 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Kyunghun Nam's academic publications and research papers in AI optimization">
-    <meta name="keywords" content="Publications, Research Papers, AI, Machine Learning, Optimization">
-    <meta name="author" content="Kyunghun Nam">
-    
-    <meta property="og:title" content="Publications - Kyunghun Nam">
-    <meta property="og:description" content="Academic publications in AI optimization and machine learning">
-    <meta property="og:type" content="website">
-    
-    <title>Publications - Kyunghun Nam</title>
-    
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Publications and research papers by Kyunghun Nam on optimization, adaptive methods, and deep learning theory.">
+  <meta name="author" content="Kyunghun Nam">
+  <meta name="theme-color" content="#0f172a">
+  <meta name="color-scheme" content="light dark">
+  <meta property="og:title" content="Publications — Kyunghun Nam">
+  <meta property="og:description" content="Peer-reviewed work on optimization algorithms for artificial intelligence and machine learning.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kyunghunnam.github.io/publications.html">
+  <meta property="og:image" content="https://kyunghunnam.github.io/assets/og-card.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Publications — Kyunghun Nam">
+  <meta name="twitter:description" content="Peer-reviewed work on optimization algorithms for artificial intelligence and machine learning.">
+  <meta name="twitter:image" content="https://kyunghunnam.github.io/assets/og-card.svg">
+  <link rel="canonical" href="https://kyunghunnam.github.io/publications.html">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    (() => {
+      let stored = null;
+      try {
+        stored = localStorage.getItem('theme');
+      } catch {}
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const theme = stored || (prefersDark ? 'dark' : 'light');
+      document.documentElement.dataset.theme = theme;
+    })();
+  </script>
+  <title>Publications — Kyunghun Nam</title>
 </head>
-<body>
-    <a href="#main" class="skip-to-main">Skip to main content</a>
-    
-    <header>
-        <div class="header-content">
-            <h1>Kyunghun Nam</h1>
-            <p>Graduate Student in Artificial Intelligence</p>
+
+<body class="page-publications">
+  <div class="progress-bar" aria-hidden="true"></div>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header class="site-header site-header--compact">
+    <nav class="site-nav" aria-label="Primary">
+  <div class="container nav-inner">
+    <a class="brand" href="index.html" aria-label="Kyunghun Nam home">
+      <span class="brand-mark" aria-hidden="true">KN</span>
+      <span class="brand-copy">
+        <strong>Kyunghun Nam</strong>
+        <span>Optimization for AI</span>
+      </span>
+    </a>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
+      <span class="sr-only">Toggle navigation</span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </button>
+
+    <div class="nav-panel" id="site-menu">
+      <div class="nav-links">
+        <a href="index.html">About</a>
+        <a href="research.html">Research</a>
+        <a href="publications.html" class="is-current" aria-current="page">Publications</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode">
+        <span class="theme-toggle__icon" aria-hidden="true">◐</span>
+        <span class="theme-toggle__label">Theme</span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+    <section class="page-hero">
+      <div class="container page-hero__inner">
+        <div data-reveal>
+          <p class="eyebrow">Publications</p>
+          <h1 class="page-title">Research outputs in optimization and learning theory.</h1>
+          <p class="page-description">
+            This page includes my current publication list together with a searchable, filterable interface
+            for quickly browsing topics and venues.
+          </p>
         </div>
-    </header>
+      </div>
+    </section>
+  </header>
 
-    <nav role="navigation" aria-label="Main navigation">
-        <ul>
-            <li><a href="index.html">About Me</a></li>
-            <li><a href="research.html">Research</a></li>
-            <li><a href="publications.html" class="active" aria-current="page">Publications</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
+  <main id="main">
+    <section class="section">
+      <div class="container">
+        <div class="publication-stats grid grid-3" data-reveal>
+          <article class="stat-card">
+            <span class="stat-value" data-count="all" data-counter="2">2</span>
+            <span class="stat-label">Total items</span>
+          </article>
+          <article class="stat-card">
+            <span class="stat-value" data-count="journal" data-counter="1">1</span>
+            <span class="stat-label">Journal papers</span>
+          </article>
+          <article class="stat-card">
+            <span class="stat-value" data-count="workshop" data-counter="1">1</span>
+            <span class="stat-label">Workshop papers</span>
+          </article>
+        </div>
 
-    <main id="main">
-        <section id="publications" aria-labelledby="publications-heading">
-            <h2 id="publications-heading">Publications</h2>
-            
-            <p class="intro-text">
-                My research contributions span theoretical optimization analysis and practical algorithm development. Below are my peer-reviewed publications and workshop presentations.
+        <div class="toolbar card" data-reveal>
+          <div class="search-group">
+            <label for="publication-search">Search publications</label>
+            <input id="publication-search" class="input" type="search" placeholder="Search by title, topic, author, or venue">
+          </div>
+
+          <div class="toolbar-row">
+            <div class="filter-group" role="group" aria-label="Publication type filters">
+              <button class="filter-chip is-active" type="button" data-filter="all">All</button>
+              <button class="filter-chip" type="button" data-filter="journal">Journal</button>
+              <button class="filter-chip" type="button" data-filter="workshop">Workshop</button>
+            </div>
+
+            <div class="sort-group">
+              <label for="publication-sort">Sort</label>
+              <select id="publication-sort" class="select">
+                <option value="year-desc">Newest first</option>
+                <option value="year-asc">Oldest first</option>
+                <option value="title-asc">Title A–Z</option>
+              </select>
+            </div>
+          </div>
+
+          <p class="summary-row" data-publication-summary>Showing 2 of 2 publications.</p>
+        </div>
+
+        <div class="publication-list" id="publication-list">
+          <article class="publication-card card" data-reveal data-type="journal" data-year="2025" data-title="Dimension-Independent Convergence Rate for AdaGrad with Heavy-Ball Momentum">
+            <div class="publication-top">
+              <div class="badge-group">
+                <span class="badge badge--journal">Journal</span>
+                <span class="badge badge--neutral">2025</span>
+              </div>
+              <p class="publication-venue">Mathematics, Volume 13, Issue 4</p>
+            </div>
+            <h2 class="publication-title">Dimension-Independent Convergence Rate for AdaGrad with Heavy-Ball Momentum</h2>
+            <p class="publication-authors"><span class="is-me">Kyunghun Nam</span>, Sejun Park</p>
+            <p class="publication-summary">
+              We establish the first dimension-independent convergence rate for AdaGrad with heavy-ball
+              momentum, clarifying how adaptive optimization and momentum interact in high-dimensional settings.
             </p>
-            
-            <div class="stats-section">
-                <div class="stat-card">
-                    <div class="stat-number">2</div>
-                    <div class="stat-label">Publications</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">1</div>
-                    <div class="stat-label">Journal Papers</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">1</div>
-                    <div class="stat-label">Workshop Papers</div>
-                </div>
+            <ul class="tag-list" aria-label="Topics">
+              <li class="tag">Adaptive optimization</li>
+              <li class="tag">Momentum</li>
+              <li class="tag">Convergence theory</li>
+            </ul>
+            <div class="publication-links">
+              <a class="button small" href="https://www.mdpi.com/2227-7390/13/4/681" target="_blank" rel="noopener noreferrer">Article page</a>
+              <a class="button small secondary" href="https://scholar.google.com/citations?user=2K1cMuQAAAAJ&hl=ko" target="_blank" rel="noopener noreferrer">Google Scholar</a>
             </div>
-            
-            <div class="filter-buttons">
-                <button class="filter-btn active" onclick="filterPublications('all')">All</button>
-                <button class="filter-btn" onclick="filterPublications('journal')">Journal Papers</button>
-                <button class="filter-btn" onclick="filterPublications('workshop')">Workshop Papers</button>
-            </div>
-            
-            <div id="publications-list">
-                <div class="publication journal" data-type="journal">
-                    <h3>Dimension-Independent Convergence Rate for AdaGrad with Heavy-Ball Momentum</h3>
-                    <p class="authors"><span class="me">Kyunghun Nam</span>, Sejun Park</p>
-                    <p class="venue">
-                        <span class="venue-badge">Journal</span>
-                        MDPI Mathematics, 2025 (Volume 13, Issue 4)
-                    </p>
-                    <p style="color: var(--text-secondary); margin-top: 10px; line-height: 1.6;">
-                        We establish the first dimension-independent convergence rate for AdaGrad when combined with heavy-ball momentum, demonstrating improved optimization efficiency for high-dimensional problems.
-                    </p>
-                    <div class="publication-links">
-                        <a href="https://www.mdpi.com/2227-7390/13/4/681" target="_blank" rel="noopener noreferrer" aria-label="Download PDF of AdaGrad paper">
-                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
-                                <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
-                                <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
-                            </svg>
-                            PDF
-                        </a>
-                        <a href="https://www.mdpi.com/2227-7390/13/4/681" target="_blank" rel="noopener noreferrer" aria-label="View journal article page">
-                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
-                                <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855A7.97 7.97 0 0 0 5.145 4H7.5V1.077zM4.09 4a9.267 9.267 0 0 1 .64-1.539 6.7 6.7 0 0 1 .597-.933A7.025 7.025 0 0 0 2.255 4H4.09zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a6.958 6.958 0 0 0-.656 2.5h2.49zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5H4.847zM8.5 5v2.5h2.99a12.495 12.495 0 0 0-.337-2.5H8.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5H4.51zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5H8.5zM5.145 12c.138.386.295.744.468 1.068.552 1.035 1.218 1.65 1.887 1.855V12H5.145zm.182 2.472a6.696 6.696 0 0 1-.597-.933A9.268 9.268 0 0 1 4.09 12H2.255a7.024 7.024 0 0 0 3.072 2.472zM3.82 11a13.652 13.652 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5H3.82zm6.853 3.472A7.024 7.024 0 0 0 13.745 12H11.91a9.27 9.27 0 0 1-.64 1.539 6.688 6.688 0 0 1-.597.933zM8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855.173-.324.33-.682.468-1.068H8.5zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.65 13.65 0 0 1-.312 2.5zm2.802-3.5a6.959 6.959 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5h2.49zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7.024 7.024 0 0 0-3.072-2.472c.218.284.418.598.597.933zM10.855 4a7.966 7.966 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4h2.355z"/>
-                            </svg>
-                            Journal Link
-                        </a>
-                        <a href="https://scholar.google.com/citations?user=2K1cMuQAAAAJ&hl=ko" target="_blank" rel="noopener noreferrer" class="secondary" aria-label="View citations on Google Scholar">
-                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
-                                <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm14.5 0a.5.5 0 0 0-.5-.5H2a.5.5 0 0 0-.5.5v12a.5.5 0 0 0 .5.5h12a.5.5 0 0 0 .5-.5V2z"/>
-                            </svg>
-                            Citations
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="publication workshop" data-type="workshop">
-                    <h3>Almost Sure Last Iterate Convergence of Sharpness-Aware Minimization</h3>
-                    <p class="authors"><span class="me">Kyunghun Nam</span>, Jinseok Chung, Namhoon Lee</p>
-                    <p class="venue">
-                        <span class="venue-badge">Workshop</span>
-                        ICLR 2023 Workshop on Mathematical and Empirical Understanding of Foundation Models
-                    </p>
-                    <p style="color: var(--text-secondary); margin-top: 10px; line-height: 1.6;">
-                        We provide theoretical analysis proving the almost sure convergence of the Sharpness-Aware Minimization (SAM) algorithm's last iterate, addressing a key gap in understanding this popular optimization method.
-                    </p>
-                    <div class="publication-links">
-                        <a href="https://openreview.net/forum?id=IcDTYTI0Nx" target="_blank" rel="noopener noreferrer" aria-label="Download PDF from OpenReview">
-                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
-                                <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
-                                <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
-                            </svg>
-                            PDF
-                        </a>
-                        <a href="https://openreview.net/forum?id=IcDTYTI0Nx" target="_blank" rel="noopener noreferrer" aria-label="View discussion on OpenReview">
-                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
-                                <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.293a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
-                            </svg>
-                            OpenReview
-                        </a>
-                        <a href="https://scholar.google.com/citations?user=2K1cMuQAAAAJ&hl=ko" target="_blank" rel="noopener noreferrer" class="secondary" aria-label="View citations on Google Scholar">
-                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
-                                <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm14.5 0a.5.5 0 0 0-.5-.5H2a.5.5 0 0 0-.5.5v12a.5.5 0 0 0 .5.5h12a.5.5 0 0 0 .5-.5V2z"/>
-                            </svg>
-                            Citations
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+          </article>
 
-    <footer>
-        <p>&copy; 2025 Kyunghun Nam. All rights reserved. | <a href="https://scholar.google.com/citations?user=2K1cMuQAAAAJ&hl=ko" target="_blank" rel="noopener noreferrer">Google Scholar</a></p>
-    </footer>
+          <article class="publication-card card" data-reveal data-type="workshop" data-year="2023" data-title="Almost Sure Last Iterate Convergence of Sharpness-Aware Minimization">
+            <div class="publication-top">
+              <div class="badge-group">
+                <span class="badge badge--workshop">Workshop</span>
+                <span class="badge badge--neutral">2023</span>
+              </div>
+              <p class="publication-venue">ICLR 2023 Workshop on Mathematical and Empirical Understanding of Foundation Models</p>
+            </div>
+            <h2 class="publication-title">Almost Sure Last Iterate Convergence of Sharpness-Aware Minimization</h2>
+            <p class="publication-authors"><span class="is-me">Kyunghun Nam</span>, Jinseok Chung, Namhoon Lee</p>
+            <p class="publication-summary">
+              This work analyzes the almost sure convergence of the last iterate of sharpness-aware minimization,
+              addressing an important theoretical question around a widely used optimization method.
+            </p>
+            <ul class="tag-list" aria-label="Topics">
+              <li class="tag">Sharpness-aware minimization</li>
+              <li class="tag">Last-iterate analysis</li>
+              <li class="tag">Optimization theory</li>
+            </ul>
+            <div class="publication-links">
+              <a class="button small" href="https://openreview.net/forum?id=IcDTYTI0Nx" target="_blank" rel="noopener noreferrer">OpenReview</a>
+              <a class="button small secondary" href="https://scholar.google.com/citations?user=2K1cMuQAAAAJ&hl=ko" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+            </div>
+          </article>
+        </div>
 
-    <script src="common.js"></script>
+        <div class="empty-state card" id="publication-empty" hidden>
+          <h2>No publications matched your search.</h2>
+          <p>Try a broader keyword or reset the type filter.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+  <div class="container footer-inner">
+    <p>&copy; <span class="current-year">2026</span> Kyunghun Nam. Built for clarity, accessibility, and collaboration.</p>
+    <div class="footer-links">
+      <a href="mailto:baptist0214@gmail.com">Email</a>
+      <a href="https://scholar.google.com/citations?user=2K1cMuQAAAAJ&hl=ko" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+      <a href="https://github.com/kyunghunnam" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </div>
+  </div>
+</footer>
+<button class="back-to-top" type="button" aria-label="Back to top">↑</button>
+<div class="toast-region" aria-live="polite" aria-atomic="true"></div>
+<script src="common.js" defer></script>
+
 </body>
 </html>
