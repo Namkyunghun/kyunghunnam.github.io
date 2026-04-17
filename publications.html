@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Publications and research papers by Kyunghun Nam on optimization, adaptive methods, and deep learning theory.">
   <meta name="author" content="Kyunghun Nam">
-  <meta name="theme-color" content="#0f172a">
+  <meta name="theme-color" content="#f4f7fb" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#070d19" media="(prefers-color-scheme: dark)">
   <meta name="color-scheme" content="light dark">
   <meta property="og:title" content="Publications — Kyunghun Nam">
   <meta property="og:description" content="Peer-reviewed work on optimization algorithms for artificial intelligence and machine learning.">
@@ -21,14 +22,12 @@
   <link rel="manifest" href="site.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <script>
     (() => {
       let stored = null;
-      try {
-        stored = localStorage.getItem('theme');
-      } catch {}
+      try { stored = localStorage.getItem('theme'); } catch {}
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
       const theme = stored || (prefersDark ? 'dark' : 'light');
       document.documentElement.dataset.theme = theme;
@@ -42,37 +41,37 @@
   <a href="#main" class="skip-link">Skip to content</a>
   <header class="site-header site-header--compact">
     <nav class="site-nav" aria-label="Primary">
-  <div class="container nav-inner">
-    <a class="brand" href="index.html" aria-label="Kyunghun Nam home">
-      <span class="brand-mark" aria-hidden="true">KN</span>
-      <span class="brand-copy">
-        <strong>Kyunghun Nam</strong>
-        <span>Optimization for AI</span>
-      </span>
-    </a>
+      <div class="container nav-inner">
+        <a class="brand" href="index.html" aria-label="Kyunghun Nam home">
+          <span class="brand-mark" aria-hidden="true">KN</span>
+          <span class="brand-copy">
+            <strong>Kyunghun Nam</strong>
+            <span>Optimization for AI</span>
+          </span>
+        </a>
 
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
-      <span class="sr-only">Toggle navigation</span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </button>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
+          <span class="sr-only">Toggle navigation</span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </button>
 
-    <div class="nav-panel" id="site-menu">
-      <div class="nav-links">
-        <a href="index.html">About</a>
-        <a href="research.html">Research</a>
-        <a href="publications.html" class="is-current" aria-current="page">Publications</a>
-        <a href="contact.html">Contact</a>
+        <div class="nav-panel" id="site-menu">
+          <div class="nav-links">
+            <a href="index.html">About</a>
+            <a href="research.html">Research</a>
+            <a href="publications.html" class="is-current" aria-current="page">Publications</a>
+            <a href="contact.html">Contact</a>
+          </div>
+
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode (press T)">
+            <span class="theme-toggle__icon" aria-hidden="true">◐</span>
+            <span class="theme-toggle__label">Theme</span>
+          </button>
+        </div>
       </div>
-
-      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode">
-        <span class="theme-toggle__icon" aria-hidden="true">◐</span>
-        <span class="theme-toggle__label">Theme</span>
-      </button>
-    </div>
-  </div>
-</nav>
+    </nav>
 
     <section class="page-hero">
       <div class="container page-hero__inner">
@@ -81,7 +80,7 @@
           <h1 class="page-title">Research outputs in optimization and learning theory.</h1>
           <p class="page-description">
             This page includes my current publication list together with a searchable, filterable interface
-            for quickly browsing topics and venues.
+            for quickly browsing topics and venues. Press <kbd>/</kbd> to focus the search box.
           </p>
         </div>
       </div>
@@ -109,14 +108,25 @@
         <div class="toolbar card" data-reveal>
           <div class="search-group">
             <label for="publication-search">Search publications</label>
-            <input id="publication-search" class="input" type="search" placeholder="Search by title, topic, author, or venue">
+            <div class="search-wrap">
+              <input
+                id="publication-search"
+                class="input"
+                type="search"
+                placeholder="Search by title, topic, author, or venue"
+                autocomplete="off"
+                spellcheck="false"
+                aria-describedby="search-hint-text">
+              <span class="search-hint" aria-hidden="true"><kbd>/</kbd></span>
+            </div>
+            <span id="search-hint-text" class="sr-only">Press forward slash to focus this search box. Press Escape to clear.</span>
           </div>
 
           <div class="toolbar-row">
             <div class="filter-group" role="group" aria-label="Publication type filters">
-              <button class="filter-chip is-active" type="button" data-filter="all">All</button>
-              <button class="filter-chip" type="button" data-filter="journal">Journal</button>
-              <button class="filter-chip" type="button" data-filter="workshop">Workshop</button>
+              <button class="filter-chip is-active" type="button" data-filter="all" aria-pressed="true">All</button>
+              <button class="filter-chip" type="button" data-filter="journal" aria-pressed="false">Journal</button>
+              <button class="filter-chip" type="button" data-filter="workshop" aria-pressed="false">Workshop</button>
             </div>
 
             <div class="sort-group">
@@ -129,7 +139,7 @@
             </div>
           </div>
 
-          <p class="summary-row" data-publication-summary>Showing 2 of 2 publications.</p>
+          <p class="summary-row" data-publication-summary role="status" aria-live="polite">Showing 2 of 2 publications.</p>
         </div>
 
         <div class="publication-list" id="publication-list">
@@ -139,7 +149,7 @@
                 <span class="badge badge--journal">Journal</span>
                 <span class="badge badge--neutral">2025</span>
               </div>
-              <p class="publication-venue">Mathematics, Volume 13, Issue 4</p>
+              <p class="publication-venue"><em>Mathematics</em>, Volume 13, Issue 4</p>
             </div>
             <h2 class="publication-title">Dimension-Independent Convergence Rate for AdaGrad with Heavy-Ball Momentum</h2>
             <p class="publication-authors"><span class="is-me">Kyunghun Nam</span>, Sejun Park</p>
@@ -153,9 +163,49 @@
               <li class="tag">Convergence theory</li>
             </ul>
             <div class="publication-links">
-              <a class="button small" href="https://www.mdpi.com/2227-7390/13/4/681" target="_blank" rel="noopener noreferrer">Article page</a>
-              <a class="button small secondary" href="https://scholar.google.com/citations?user=2K1cMuQAAAAJ&hl=ko" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+              <a class="button small" href="https://www.mdpi.com/2227-7390/13/4/681" target="_blank" rel="noopener noreferrer">Article page ↗</a>
+              <a class="button small secondary" href="https://scholar.google.com/citations?user=2K1cMuQAAAAJ&hl=ko" target="_blank" rel="noopener noreferrer">Google Scholar ↗</a>
             </div>
+            <details class="bibtex">
+              <summary>BibTeX</summary>
+              <pre class="bibtex-code"><button type="button" class="bibtex-copy" aria-label="Copy BibTeX to clipboard">Copy</button>@article{nam2025adagrad,
+  title   = {Dimension-Independent Convergence Rate for AdaGrad with Heavy-Ball Momentum},
+  author  = {Nam, Kyunghun and Park, Sejun},
+  journal = {Mathematics},
+  volume  = {13},
+  number  = {4},
+  pages   = {681},
+  year    = {2025},
+  publisher = {MDPI},
+  doi     = {10.3390/math13040681}
+}</pre>
+            </details>
+
+            <script type="application/ld+json">
+            {
+              "@context": "https://schema.org",
+              "@type": "ScholarlyArticle",
+              "headline": "Dimension-Independent Convergence Rate for AdaGrad with Heavy-Ball Momentum",
+              "author": [
+                { "@type": "Person", "name": "Kyunghun Nam" },
+                { "@type": "Person", "name": "Sejun Park" }
+              ],
+              "datePublished": "2025",
+              "isPartOf": {
+                "@type": "PublicationIssue",
+                "issueNumber": "4",
+                "isPartOf": {
+                  "@type": "PublicationVolume",
+                  "volumeNumber": "13",
+                  "isPartOf": {
+                    "@type": "Periodical",
+                    "name": "Mathematics"
+                  }
+                }
+              },
+              "url": "https://www.mdpi.com/2227-7390/13/4/681"
+            }
+            </script>
           </article>
 
           <article class="publication-card card" data-reveal data-type="workshop" data-year="2023" data-title="Almost Sure Last Iterate Convergence of Sharpness-Aware Minimization">
@@ -178,9 +228,34 @@
               <li class="tag">Optimization theory</li>
             </ul>
             <div class="publication-links">
-              <a class="button small" href="https://openreview.net/forum?id=IcDTYTI0Nx" target="_blank" rel="noopener noreferrer">OpenReview</a>
-              <a class="button small secondary" href="https://scholar.google.com/citations?user=2K1cMuQAAAAJ&hl=ko" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+              <a class="button small" href="https://openreview.net/forum?id=IcDTYTI0Nx" target="_blank" rel="noopener noreferrer">OpenReview ↗</a>
+              <a class="button small secondary" href="https://scholar.google.com/citations?user=2K1cMuQAAAAJ&hl=ko" target="_blank" rel="noopener noreferrer">Google Scholar ↗</a>
             </div>
+            <details class="bibtex">
+              <summary>BibTeX</summary>
+              <pre class="bibtex-code"><button type="button" class="bibtex-copy" aria-label="Copy BibTeX to clipboard">Copy</button>@inproceedings{nam2023sam,
+  title     = {Almost Sure Last Iterate Convergence of Sharpness-Aware Minimization},
+  author    = {Nam, Kyunghun and Chung, Jinseok and Lee, Namhoon},
+  booktitle = {ICLR Workshop on Mathematical and Empirical Understanding of Foundation Models},
+  year      = {2023},
+  url       = {https://openreview.net/forum?id=IcDTYTI0Nx}
+}</pre>
+            </details>
+
+            <script type="application/ld+json">
+            {
+              "@context": "https://schema.org",
+              "@type": "ScholarlyArticle",
+              "headline": "Almost Sure Last Iterate Convergence of Sharpness-Aware Minimization",
+              "author": [
+                { "@type": "Person", "name": "Kyunghun Nam" },
+                { "@type": "Person", "name": "Jinseok Chung" },
+                { "@type": "Person", "name": "Namhoon Lee" }
+              ],
+              "datePublished": "2023",
+              "url": "https://openreview.net/forum?id=IcDTYTI0Nx"
+            }
+            </script>
           </article>
         </div>
 
@@ -193,18 +268,20 @@
   </main>
 
   <footer class="site-footer">
-  <div class="container footer-inner">
-    <p>&copy; <span class="current-year">2026</span> Kyunghun Nam. Built for clarity, accessibility, and collaboration.</p>
-    <div class="footer-links">
-      <a href="mailto:baptist0214@gmail.com">Email</a>
-      <a href="https://scholar.google.com/citations?user=2K1cMuQAAAAJ&hl=ko" target="_blank" rel="noopener noreferrer">Google Scholar</a>
-      <a href="https://github.com/kyunghunnam" target="_blank" rel="noopener noreferrer">GitHub</a>
+    <div class="container footer-inner">
+      <p>&copy; <span class="current-year">2026</span> Kyunghun Nam. Built for clarity, accessibility, and collaboration.</p>
+      <div class="footer-links">
+        <a href="mailto:baptist0214@gmail.com">Email</a>
+        <a href="https://scholar.google.com/citations?user=2K1cMuQAAAAJ&hl=ko" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+        <a href="https://github.com/kyunghunnam" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <span class="footer-shortcuts" aria-label="Keyboard shortcuts">
+          <kbd>?</kbd> shortcuts
+        </span>
+      </div>
     </div>
-  </div>
-</footer>
-<button class="back-to-top" type="button" aria-label="Back to top">↑</button>
-<div class="toast-region" aria-live="polite" aria-atomic="true"></div>
-<script src="common.js" defer></script>
-
+  </footer>
+  <button class="back-to-top" type="button" aria-label="Back to top">↑</button>
+  <div class="toast-region" aria-live="polite" aria-atomic="true"></div>
+  <script src="common.js" defer></script>
 </body>
 </html>
