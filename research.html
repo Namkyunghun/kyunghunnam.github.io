@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Research statement on defining good optimizers as total-cost-efficient training recipes for modern deep learning.">
   <meta name="author" content="Kyunghun Nam">
-  <meta name="theme-color" content="#0f172a">
+  <meta name="theme-color" content="#f4f7fb" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#070d19" media="(prefers-color-scheme: dark)">
   <meta name="color-scheme" content="light dark">
   <meta property="og:title" content="Research — Kyunghun Nam">
   <meta property="og:description" content="Research themes on optimizer evaluation, training optimization, systems-aware scaling, and modern deep learning.">
@@ -21,14 +22,12 @@
   <link rel="manifest" href="site.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <script>
     (() => {
       let stored = null;
-      try {
-        stored = localStorage.getItem('theme');
-      } catch {}
+      try { stored = localStorage.getItem('theme'); } catch {}
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
       const theme = stored || (prefersDark ? 'dark' : 'light');
       document.documentElement.dataset.theme = theme;
@@ -42,37 +41,37 @@
   <a href="#main" class="skip-link">Skip to content</a>
   <header class="site-header site-header--compact">
     <nav class="site-nav" aria-label="Primary">
-  <div class="container nav-inner">
-    <a class="brand" href="index.html" aria-label="Kyunghun Nam home">
-      <span class="brand-mark" aria-hidden="true">KN</span>
-      <span class="brand-copy">
-        <strong>Kyunghun Nam</strong>
-        <span>Optimization for AI</span>
-      </span>
-    </a>
+      <div class="container nav-inner">
+        <a class="brand" href="index.html" aria-label="Kyunghun Nam home">
+          <span class="brand-mark" aria-hidden="true">KN</span>
+          <span class="brand-copy">
+            <strong>Kyunghun Nam</strong>
+            <span>Optimization for AI</span>
+          </span>
+        </a>
 
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
-      <span class="sr-only">Toggle navigation</span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </button>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
+          <span class="sr-only">Toggle navigation</span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </button>
 
-    <div class="nav-panel" id="site-menu">
-      <div class="nav-links">
-        <a href="index.html">About</a>
-        <a href="research.html" class="is-current" aria-current="page">Research</a>
-        <a href="publications.html">Publications</a>
-        <a href="contact.html">Contact</a>
+        <div class="nav-panel" id="site-menu">
+          <div class="nav-links">
+            <a href="index.html">About</a>
+            <a href="research.html" class="is-current" aria-current="page">Research</a>
+            <a href="publications.html">Publications</a>
+            <a href="contact.html">Contact</a>
+          </div>
+
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode (press T)">
+            <span class="theme-toggle__icon" aria-hidden="true">◐</span>
+            <span class="theme-toggle__label">Theme</span>
+          </button>
+        </div>
       </div>
-
-      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode">
-        <span class="theme-toggle__icon" aria-hidden="true">◐</span>
-        <span class="theme-toggle__label">Theme</span>
-      </button>
-    </div>
-  </div>
-</nav>
+    </nav>
 
     <section class="page-hero">
       <div class="container page-hero__inner">
@@ -84,21 +83,21 @@
             reaching a target quality with fewer optimization steps, faster step time, and fewer failures
             across realistic systems.
           </p>
+        </div>
 
-          <div class="hero-stats">
-            <article class="stat-card" data-reveal>
-              <div class="stat-value">3</div>
-              <div class="stat-label">evaluation axes: iteration efficiency, wall-clock efficiency, and stability</div>
-            </article>
-            <article class="stat-card" data-reveal>
-              <div class="stat-value">6</div>
-              <div class="stat-label">layers in the training optimization stack, from update rules to automation</div>
-            </article>
-            <article class="stat-card" data-reveal>
-              <div class="stat-value">1</div>
-              <div class="stat-label">core goal: the same quality at lower total cost</div>
-            </article>
-          </div>
+        <div class="hero-stats">
+          <article class="stat-card" data-reveal>
+            <span class="stat-value">3</span>
+            <span class="stat-label">evaluation axes: iteration efficiency, wall-clock efficiency, and stability</span>
+          </article>
+          <article class="stat-card" data-reveal>
+            <span class="stat-value">6</span>
+            <span class="stat-label">layers in the training optimization stack, from update rules to automation</span>
+          </article>
+          <article class="stat-card" data-reveal>
+            <span class="stat-value">1</span>
+            <span class="stat-label">core goal: the same quality at lower total cost</span>
+          </article>
         </div>
       </div>
     </section>
@@ -376,7 +375,7 @@
       </div>
     </section>
 
-    <section class="section">
+    <section class="section section-muted">
       <div class="container">
         <div class="section-header" data-reveal>
           <p class="section-eyebrow">Research objectives</p>
@@ -437,18 +436,20 @@
   </main>
 
   <footer class="site-footer">
-  <div class="container footer-inner">
-    <p>&copy; <span class="current-year">2026</span> Kyunghun Nam. Built for clarity, accessibility, and collaboration.</p>
-    <div class="footer-links">
-      <a href="mailto:baptist0214@gmail.com">Email</a>
-      <a href="https://scholar.google.com/citations?user=2K1cMuQAAAAJ&hl=ko" target="_blank" rel="noopener noreferrer">Google Scholar</a>
-      <a href="https://github.com/kyunghunnam" target="_blank" rel="noopener noreferrer">GitHub</a>
+    <div class="container footer-inner">
+      <p>&copy; <span class="current-year">2026</span> Kyunghun Nam. Built for clarity, accessibility, and collaboration.</p>
+      <div class="footer-links">
+        <a href="mailto:baptist0214@gmail.com">Email</a>
+        <a href="https://scholar.google.com/citations?user=2K1cMuQAAAAJ&hl=ko" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+        <a href="https://github.com/kyunghunnam" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <span class="footer-shortcuts" aria-label="Keyboard shortcuts">
+          <kbd>?</kbd> shortcuts
+        </span>
+      </div>
     </div>
-  </div>
-</footer>
-<button class="back-to-top" type="button" aria-label="Back to top">↑</button>
-<div class="toast-region" aria-live="polite" aria-atomic="true"></div>
-<script src="common.js" defer></script>
-
+  </footer>
+  <button class="back-to-top" type="button" aria-label="Back to top">↑</button>
+  <div class="toast-region" aria-live="polite" aria-atomic="true"></div>
+  <script src="common.js" defer></script>
 </body>
 </html>
