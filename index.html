@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Personal website of Kyunghun Nam, a Ph.D. student in artificial intelligence working on mathematical optimization for machine learning.">
   <meta name="author" content="Kyunghun Nam">
-  <meta name="theme-color" content="#0f172a">
+  <meta name="theme-color" content="#f4f7fb" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#070d19" media="(prefers-color-scheme: dark)">
   <meta name="color-scheme" content="light dark">
   <meta property="og:title" content="Kyunghun Nam — Optimization Researcher in AI">
   <meta property="og:description" content="Mathematically grounded optimization research for deep learning, convergence analysis, and algorithm design.">
@@ -21,14 +22,12 @@
   <link rel="manifest" href="site.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <script>
     (() => {
       let stored = null;
-      try {
-        stored = localStorage.getItem('theme');
-      } catch {}
+      try { stored = localStorage.getItem('theme'); } catch {}
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
       const theme = stored || (prefersDark ? 'dark' : 'light');
       document.documentElement.dataset.theme = theme;
@@ -42,37 +41,37 @@
   <a href="#main" class="skip-link">Skip to content</a>
   <header class="site-header">
     <nav class="site-nav" aria-label="Primary">
-  <div class="container nav-inner">
-    <a class="brand" href="index.html" aria-label="Kyunghun Nam home">
-      <span class="brand-mark" aria-hidden="true">KN</span>
-      <span class="brand-copy">
-        <strong>Kyunghun Nam</strong>
-        <span>Optimization for AI</span>
-      </span>
-    </a>
+      <div class="container nav-inner">
+        <a class="brand" href="index.html" aria-label="Kyunghun Nam home">
+          <span class="brand-mark" aria-hidden="true">KN</span>
+          <span class="brand-copy">
+            <strong>Kyunghun Nam</strong>
+            <span>Optimization for AI</span>
+          </span>
+        </a>
 
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
-      <span class="sr-only">Toggle navigation</span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </button>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
+          <span class="sr-only">Toggle navigation</span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </button>
 
-    <div class="nav-panel" id="site-menu">
-      <div class="nav-links">
-        <a href="index.html" class="is-current" aria-current="page">About</a>
-        <a href="research.html">Research</a>
-        <a href="publications.html">Publications</a>
-        <a href="contact.html">Contact</a>
+        <div class="nav-panel" id="site-menu">
+          <div class="nav-links">
+            <a href="index.html" class="is-current" aria-current="page">About</a>
+            <a href="research.html">Research</a>
+            <a href="publications.html">Publications</a>
+            <a href="contact.html">Contact</a>
+          </div>
+
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode (press T)">
+            <span class="theme-toggle__icon" aria-hidden="true">◐</span>
+            <span class="theme-toggle__label">Theme</span>
+          </button>
+        </div>
       </div>
-
-      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode">
-        <span class="theme-toggle__icon" aria-hidden="true">◐</span>
-        <span class="theme-toggle__label">Theme</span>
-      </button>
-    </div>
-  </div>
-</nav>
+    </nav>
 
     <section class="hero hero-home">
       <div class="container hero-grid">
@@ -81,7 +80,8 @@
           <h1 class="hero-title">Kyunghun Nam</h1>
           <p class="hero-description">
             Ph.D. student in artificial intelligence building mathematically grounded optimization methods
-            for modern deep learning systems.
+            for modern deep learning systems — from adaptive methods and momentum dynamics to second-order
+            structure at scale.
           </p>
           <div class="hero-actions">
             <a class="button" href="research.html">Explore research</a>
@@ -124,16 +124,16 @@
         </aside>
       </div>
 
-      <div class="container hero-stats" data-reveal>
-        <article class="stat-card">
+      <div class="container hero-stats">
+        <article class="stat-card" data-reveal>
           <span class="stat-value" data-counter="2">2</span>
           <span class="stat-label">Publications listed</span>
         </article>
-        <article class="stat-card">
+        <article class="stat-card" data-reveal>
           <span class="stat-value" data-counter="2">2</span>
           <span class="stat-label">Graduate degrees in AI</span>
         </article>
-        <article class="stat-card">
+        <article class="stat-card" data-reveal>
           <span class="stat-value" data-counter="4">4</span>
           <span class="stat-label">Core research themes</span>
         </article>
@@ -142,7 +142,43 @@
   </header>
 
   <main id="main">
+    <!-- NEW: News & Updates -->
     <section class="section">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <p class="section-eyebrow">News &amp; Updates</p>
+          <h2 class="section-title">Recent activity and milestones.</h2>
+        </div>
+
+        <ul class="news-list" data-reveal>
+          <li class="news-item">
+            <span class="news-date">Mar 2026</span>
+            <span class="news-content">
+              <span class="news-badge news-badge--new">New</span>
+              Started Ph.D. studies at KENTECH under the supervision of Prof. Sumyeong Ahn.
+            </span>
+          </li>
+          <li class="news-item">
+            <span class="news-date">2025</span>
+            <span class="news-content">
+              <span class="news-badge news-badge--paper">Paper</span>
+              <strong>Dimension-Independent Convergence Rate for AdaGrad with Heavy-Ball Momentum</strong>
+              published in <em>Mathematics</em>, Volume 13, Issue 4.
+            </span>
+          </li>
+          <li class="news-item">
+            <span class="news-date">2023</span>
+            <span class="news-content">
+              <span class="news-badge news-badge--talk">Workshop</span>
+              Presented <strong>Almost Sure Last Iterate Convergence of Sharpness-Aware Minimization</strong>
+              at the ICLR Workshop on Mathematical and Empirical Understanding of Foundation Models.
+            </span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section section-muted">
       <div class="container">
         <div class="section-header" data-reveal>
           <p class="section-eyebrow">Overview</p>
@@ -183,7 +219,7 @@
       </div>
     </section>
 
-    <section class="section section-muted">
+    <section class="section">
       <div class="container">
         <div class="section-header" data-reveal>
           <p class="section-eyebrow">Academic journey</p>
@@ -192,11 +228,11 @@
 
         <div class="timeline">
           <article class="card timeline-item" data-reveal>
-            <div class="timeline-year">2025 — Present</div>
+            <div class="timeline-year">2026 — Present</div>
             <div class="timeline-body">
               <h3>Ph.D. in Artificial Intelligence</h3>
               <p>Supervisor: <a href="https://real.kentech.ac.kr/" target="_blank" rel="noopener noreferrer">Prof. Sumyeong Ahn</a></p>
-              <p>Focus: Advanced mathematical optimization methods for neural network training.</p>
+              <p>Focus: Advanced mathematical optimization methods for neural network training, including second-order structure and adaptive preconditioning.</p>
             </div>
           </article>
 
@@ -212,7 +248,7 @@
       </div>
     </section>
 
-    <section class="section">
+    <section class="section section-muted">
       <div class="container">
         <div class="section-header" data-reveal>
           <p class="section-eyebrow">Focus areas</p>
@@ -276,38 +312,45 @@
   </main>
 
   <footer class="site-footer">
-  <div class="container footer-inner">
-    <p>&copy; <span class="current-year">2026</span> Kyunghun Nam. Built for clarity, accessibility, and collaboration.</p>
-    <div class="footer-links">
-      <a href="mailto:baptist0214@gmail.com">Email</a>
-      <a href="https://scholar.google.com/citations?user=2K1cMuQAAAAJ&hl=ko" target="_blank" rel="noopener noreferrer">Google Scholar</a>
-      <a href="https://github.com/kyunghunnam" target="_blank" rel="noopener noreferrer">GitHub</a>
+    <div class="container footer-inner">
+      <p>&copy; <span class="current-year">2026</span> Kyunghun Nam. Built for clarity, accessibility, and collaboration.</p>
+      <div class="footer-links">
+        <a href="mailto:baptist0214@gmail.com">Email</a>
+        <a href="https://scholar.google.com/citations?user=2K1cMuQAAAAJ&hl=ko" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+        <a href="https://github.com/kyunghunnam" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <span class="footer-shortcuts" aria-label="Keyboard shortcuts">
+          <kbd>?</kbd> shortcuts
+        </span>
+      </div>
     </div>
-  </div>
-</footer>
-<button class="back-to-top" type="button" aria-label="Back to top">↑</button>
-<div class="toast-region" aria-live="polite" aria-atomic="true"></div>
-<script src="common.js" defer></script>
+  </footer>
+  <button class="back-to-top" type="button" aria-label="Back to top">↑</button>
+  <div class="toast-region" aria-live="polite" aria-atomic="true"></div>
+  <script src="common.js" defer></script>
 
   <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Kyunghun Nam",
-  "url": "https://kyunghunnam.github.io/",
-  "email": "mailto:baptist0214@gmail.com",
-  "jobTitle": "Ph.D. Student in Artificial Intelligence",
-  "affiliation": {
-    "@type": "CollegeOrUniversity",
-    "name": "KENTECH"
-  },
-  "sameAs": [
-    "https://scholar.google.com/citations?user=2K1cMuQAAAAJ&hl=ko",
-    "https://github.com/kyunghunnam",
-    "https://mathematical-optimization.github.io/github.io/"
-  ]
-}
-</script>
-
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Kyunghun Nam",
+    "url": "https://kyunghunnam.github.io/",
+    "email": "mailto:baptist0214@gmail.com",
+    "jobTitle": "Ph.D. Student in Artificial Intelligence",
+    "knowsAbout": ["Mathematical Optimization", "Deep Learning Theory", "Adaptive Optimization", "Convergence Analysis"],
+    "affiliation": {
+      "@type": "CollegeOrUniversity",
+      "name": "Korea Institute of Energy Technology (KENTECH)"
+    },
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "Korea University"
+    },
+    "sameAs": [
+      "https://scholar.google.com/citations?user=2K1cMuQAAAAJ&hl=ko",
+      "https://github.com/kyunghunnam",
+      "https://mathematical-optimization.github.io/github.io/"
+    ]
+  }
+  </script>
 </body>
 </html>
