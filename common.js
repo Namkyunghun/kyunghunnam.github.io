@@ -4,18 +4,10 @@
 
   const storage = {
     get(key) {
-      try {
-        return window.localStorage.getItem(key);
-      } catch {
-        return null;
-      }
+      try { return window.localStorage.getItem(key); } catch { return null; }
     },
     set(key, value) {
-      try {
-        window.localStorage.setItem(key, value);
-      } catch {
-        return null;
-      }
+      try { window.localStorage.setItem(key, value); } catch { return null; }
     }
   };
 
@@ -37,23 +29,31 @@
 
     const toast = document.createElement('div');
     toast.className = 'toast';
+    toast.setAttribute('role', 'status');
     toast.textContent = message;
     region.appendChild(toast);
 
     window.setTimeout(() => {
-      toast.remove();
-    }, 2400);
+      toast.classList.add('is-leaving');
+      window.setTimeout(() => toast.remove(), 260);
+    }, 2200);
   }
 
+  // ===== Theme =====
   function applyTheme(theme) {
     root.dataset.theme = theme;
     const button = document.querySelector('[data-theme-toggle]');
     if (button) {
       const next = theme === 'dark' ? 'light' : 'dark';
-      button.setAttribute('aria-label', `Switch to ${next} mode`);
+      button.setAttribute('aria-label', `Switch to ${next} mode (press T)`);
       button.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
       const icon = button.querySelector('.theme-toggle__icon');
       if (icon) icon.textContent = theme === 'dark' ? '☀︎' : '◐';
+    }
+    // Update theme-color meta for mobile browser chrome
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    if (metaTheme) {
+      metaTheme.setAttribute('content', theme === 'dark' ? '#070d19' : '#f4f7fb');
     }
   }
 
@@ -78,40 +78,41 @@
     });
   }
 
+  // ===== Navigation =====
   function initNavigation() {
     const navToggle = document.querySelector('.nav-toggle');
     const navPanel = document.querySelector('.nav-panel');
     const navLinks = document.querySelectorAll('.nav-links a');
+    if (!navToggle || !navPanel) return;
 
-    if (navToggle && navPanel) {
-      const closeMenu = () => {
-        document.body.classList.remove('nav-open');
-        navToggle.setAttribute('aria-expanded', 'false');
-      };
+    const closeMenu = () => {
+      document.body.classList.remove('nav-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    };
 
-      navToggle.addEventListener('click', () => {
-        const open = document.body.classList.toggle('nav-open');
-        navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-      });
+    navToggle.addEventListener('click', () => {
+      const open = document.body.classList.toggle('nav-open');
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
 
-      navLinks.forEach((link) => link.addEventListener('click', closeMenu));
+    navLinks.forEach((link) => link.addEventListener('click', closeMenu));
 
-      document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape') closeMenu();
-      });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') closeMenu();
+    });
 
-      window.addEventListener('resize', () => {
-        if (window.innerWidth > 840) closeMenu();
-      });
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 840) closeMenu();
+    });
 
-      document.addEventListener('click', (event) => {
-        if (!document.body.classList.contains('nav-open')) return;
-        const clickedInside = navPanel.contains(event.target) || navToggle.contains(event.target);
-        if (!clickedInside) closeMenu();
-      });
-    }
+    document.addEventListener('click', (event) => {
+      if (!document.body.classList.contains('nav-open')) return;
+      const clickedInside = navPanel.contains(event.target) || navToggle.contains(event.target);
+      if (!clickedInside) closeMenu();
+    });
   }
 
+  // ===== Reveal animations =====
   function initReveal() {
     const revealItems = Array.from(document.querySelectorAll('[data-reveal]'));
     if (!revealItems.length || prefersReducedMotion.matches) {
@@ -130,28 +131,29 @@
     revealItems.forEach((item) => observer.observe(item));
   }
 
+  // ===== Scroll UI =====
   function initScrollUI() {
     const progressBar = document.querySelector('.progress-bar');
     const backToTop = document.querySelector('.back-to-top');
 
+    let rafId = null;
     const update = () => {
+      rafId = null;
       const scrollTop = window.scrollY || document.documentElement.scrollTop;
       const maxScroll = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
       const progress = Math.min((scrollTop / maxScroll) * 100, 100);
 
       document.body.classList.toggle('is-scrolled', scrollTop > 10);
+      if (progressBar) progressBar.style.width = `${progress}%`;
+      if (backToTop) backToTop.classList.toggle('is-visible', scrollTop > 500);
+    };
 
-      if (progressBar) {
-        progressBar.style.width = `${progress}%`;
-      }
-
-      if (backToTop) {
-        backToTop.classList.toggle('is-visible', scrollTop > 500);
-      }
+    const onScroll = () => {
+      if (rafId === null) rafId = window.requestAnimationFrame(update);
     };
 
     update();
-    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('scroll', onScroll, { passive: true });
 
     if (backToTop) {
       backToTop.addEventListener('click', () => {
@@ -160,6 +162,7 @@
     }
   }
 
+  // ===== Smooth anchors =====
   function initSmoothAnchors() {
     document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
       anchor.addEventListener('click', (event) => {
@@ -171,10 +174,14 @@
         const navHeight = document.querySelector('.site-nav')?.offsetHeight || 0;
         const top = target.getBoundingClientRect().top + window.scrollY - navHeight - 16;
         window.scrollTo({ top, behavior: prefersReducedMotion.matches ? 'auto' : 'smooth' });
+        // Move focus for accessibility
+        target.setAttribute('tabindex', '-1');
+        target.focus({ preventScroll: true });
       });
     });
   }
 
+  // ===== Copy buttons =====
   function initCopyButtons() {
     document.querySelectorAll('[data-copy-value]').forEach((button) => {
       button.addEventListener('click', async () => {
@@ -188,8 +195,29 @@
         }
       });
     });
+
+    // BibTeX copy
+    document.querySelectorAll('.bibtex-copy').forEach((button) => {
+      button.addEventListener('click', async () => {
+        const wrap = button.closest('.bibtex');
+        if (!wrap) return;
+        const code = wrap.querySelector('.bibtex-code');
+        if (!code) return;
+        // Get text content excluding the button
+        const clone = code.cloneNode(true);
+        clone.querySelectorAll('.bibtex-copy').forEach((el) => el.remove());
+        const value = clone.textContent.trim();
+        try {
+          await navigator.clipboard.writeText(value);
+          showToast('BibTeX copied to clipboard.');
+        } catch {
+          showToast('Clipboard copy was blocked.');
+        }
+      });
+    });
   }
 
+  // ===== Footer year =====
   function initFooterYear() {
     const year = String(new Date().getFullYear());
     document.querySelectorAll('.current-year').forEach((element) => {
@@ -197,6 +225,7 @@
     });
   }
 
+  // ===== Counters =====
   function animateCounter(element) {
     const finalValue = Number(element.dataset.counter || element.textContent.trim());
     if (!Number.isFinite(finalValue)) return;
@@ -214,9 +243,7 @@
       const eased = 1 - Math.pow(1 - progress, 3);
       const value = Math.round(finalValue * eased);
       element.textContent = String(value);
-      if (progress < 1) {
-        requestAnimationFrame(step);
-      }
+      if (progress < 1) requestAnimationFrame(step);
     };
 
     requestAnimationFrame(step);
@@ -227,9 +254,7 @@
     if (!counters.length) return;
 
     if (prefersReducedMotion.matches) {
-      counters.forEach((counter) => {
-        counter.textContent = counter.dataset.counter;
-      });
+      counters.forEach((counter) => { counter.textContent = counter.dataset.counter; });
       return;
     }
 
@@ -244,6 +269,7 @@
     counters.forEach((counter) => observer.observe(counter));
   }
 
+  // ===== Publications =====
   function initPublications() {
     const list = document.querySelector('#publication-list');
     if (!list) return;
@@ -325,21 +351,19 @@
 
     function render() {
       filterButtons.forEach((button) => {
-        button.classList.toggle('is-active', button.dataset.filter === state.filter);
+        const isActive = button.dataset.filter === state.filter;
+        button.classList.toggle('is-active', isActive);
+        button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
       });
 
       const visible = cards.filter(matches);
-      cards.forEach((card) => {
-        card.hidden = !visible.includes(card);
-      });
+      cards.forEach((card) => { card.hidden = !visible.includes(card); });
       sortCards(visible);
 
       if (summary) {
         summary.textContent = `Showing ${visible.length} of ${cards.length} publications.`;
       }
-      if (emptyState) {
-        emptyState.hidden = visible.length > 0;
-      }
+      if (emptyState) emptyState.hidden = visible.length > 0;
       syncUrl();
     }
 
@@ -355,6 +379,15 @@
         state.query = searchInput.value.trim();
         render();
       });
+      // Escape to clear
+      searchInput.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && searchInput.value) {
+          event.preventDefault();
+          searchInput.value = '';
+          state.query = '';
+          render();
+        }
+      });
     }
 
     if (sortSelect) {
@@ -367,9 +400,33 @@
     render();
   }
 
+  // ===== Keyboard shortcuts =====
   function initKeyboardShortcuts() {
+    let gPressed = false;
+    let gTimer = null;
+
     document.addEventListener('keydown', (event) => {
       if (isTypingContext(event.target)) return;
+      if (event.ctrlKey || event.metaKey || event.altKey) return;
+
+      // Two-key page shortcuts: g h / g r / g p / g c
+      if (gPressed) {
+        gPressed = false;
+        if (gTimer) { clearTimeout(gTimer); gTimer = null; }
+        const routes = { h: 'index.html', r: 'research.html', p: 'publications.html', c: 'contact.html' };
+        const route = routes[event.key.toLowerCase()];
+        if (route) {
+          event.preventDefault();
+          window.location.href = route;
+        }
+        return;
+      }
+
+      if (event.key === 'g' || event.key === 'G') {
+        gPressed = true;
+        gTimer = window.setTimeout(() => { gPressed = false; }, 800);
+        return;
+      }
 
       if (event.key === 't' || event.key === 'T') {
         const themeButton = document.querySelector('[data-theme-toggle]');
@@ -385,6 +442,11 @@
           event.preventDefault();
           searchInput.focus();
         }
+      }
+
+      if (event.key === '?') {
+        event.preventDefault();
+        showToast('Shortcuts: T theme · / search · g+h/r/p/c navigate');
       }
     });
   }
