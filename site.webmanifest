@@ -1,16 +1,16 @@
 {
-  "name": "Kyunghun Nam",
+  "name": "Kyunghun Nam — Optimization for AI",
   "short_name": "Kyunghun Nam",
+  "description": "Personal academic website of Kyunghun Nam.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0f172a",
-  "theme_color": "#0f172a",
+  "background_color": "#f4f7fb",
+  "theme_color": "#2563eb",
   "icons": [
     {
-      "src": "/assets/favicon.svg",
+      "src": "assets/favicon.svg",
       "sizes": "any",
-      "type": "image/svg+xml",
-      "purpose": "any maskable"
+      "type": "image/svg+xml"
     }
   ]
 }
