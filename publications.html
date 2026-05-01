@@ -3,20 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Publications and research papers by Kyunghun Nam on optimization, adaptive methods, and deep learning theory.">
+  <meta name="description" content="Publications by Kyunghun Nam on optimization algorithms, adaptive methods, Shampoo, stochastic convergence, and deep learning theory.">
   <meta name="author" content="Kyunghun Nam">
-  <meta name="theme-color" content="#f4f7fb" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#070d19" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f4f7fb">
   <meta name="color-scheme" content="light dark">
   <meta property="og:title" content="Publications — Kyunghun Nam">
-  <meta property="og:description" content="Peer-reviewed work on optimization algorithms for artificial intelligence and machine learning.">
+  <meta property="og:description" content="Publications by Kyunghun Nam on optimization algorithms, adaptive methods, Shampoo, stochastic convergence, and deep learning theory.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://kyunghunnam.github.io/publications.html">
   <meta property="og:image" content="https://kyunghunnam.github.io/assets/og-card.svg">
+  <meta property="og:image:alt" content="Kyunghun Nam — Optimization Researcher in AI">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Publications — Kyunghun Nam">
-  <meta name="twitter:description" content="Peer-reviewed work on optimization algorithms for artificial intelligence and machine learning.">
+  <meta name="twitter:description" content="Publications by Kyunghun Nam on optimization algorithms, adaptive methods, Shampoo, stochastic convergence, and deep learning theory.">
   <meta name="twitter:image" content="https://kyunghunnam.github.io/assets/og-card.svg">
+  <meta name="twitter:image:alt" content="Kyunghun Nam — Optimization Researcher in AI">
   <link rel="canonical" href="https://kyunghunnam.github.io/publications.html">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="manifest" href="site.webmanifest">
@@ -29,8 +30,7 @@
       let stored = null;
       try { stored = localStorage.getItem('theme'); } catch {}
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const theme = stored || (prefersDark ? 'dark' : 'light');
-      document.documentElement.dataset.theme = theme;
+      document.documentElement.dataset.theme = stored || (prefersDark ? 'dark' : 'light');
     })();
   </script>
   <title>Publications — Kyunghun Nam</title>
@@ -64,8 +64,7 @@
             <a href="publications.html" class="is-current" aria-current="page">Publications</a>
             <a href="contact.html">Contact</a>
           </div>
-
-          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode (press T)">
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch theme">
             <span class="theme-toggle__icon" aria-hidden="true">◐</span>
             <span class="theme-toggle__label">Theme</span>
           </button>
@@ -78,10 +77,7 @@
         <div data-reveal>
           <p class="eyebrow">Publications</p>
           <h1 class="page-title">Research outputs in optimization and learning theory.</h1>
-          <p class="page-description">
-            This page includes my current publication list together with a searchable, filterable interface
-            for quickly browsing topics and venues. Press <kbd>/</kbd> to focus the search box.
-          </p>
+          <p class="page-description">A publication list with search, filtering, BibTeX copy buttons, local PDF links, and structured metadata. Press <kbd>/</kbd> to focus the search box.</p>
         </div>
       </div>
     </section>
@@ -90,18 +86,22 @@
   <main id="main">
     <section class="section">
       <div class="container">
-        <div class="publication-stats grid grid-3" data-reveal>
+        <div class="publication-stats grid grid-4" data-reveal>
           <article class="stat-card">
-            <span class="stat-value" data-count="all" data-counter="2">2</span>
+            <span class="stat-value" data-count="all" data-counter="3">3</span>
             <span class="stat-label">Total items</span>
           </article>
           <article class="stat-card">
+            <span class="stat-value" data-count="conference" data-counter="1">1</span>
+            <span class="stat-label">Conference paper</span>
+          </article>
+          <article class="stat-card">
             <span class="stat-value" data-count="journal" data-counter="1">1</span>
-            <span class="stat-label">Journal papers</span>
+            <span class="stat-label">Journal paper</span>
           </article>
           <article class="stat-card">
             <span class="stat-value" data-count="workshop" data-counter="1">1</span>
-            <span class="stat-label">Workshop papers</span>
+            <span class="stat-label">Workshop paper</span>
           </article>
         </div>
 
@@ -109,14 +109,7 @@
           <div class="search-group">
             <label for="publication-search">Search publications</label>
             <div class="search-wrap">
-              <input
-                id="publication-search"
-                class="input"
-                type="search"
-                placeholder="Search by title, topic, author, or venue"
-                autocomplete="off"
-                spellcheck="false"
-                aria-describedby="search-hint-text">
+              <input id="publication-search" class="input" type="search" placeholder="Search by title, topic, author, or venue" autocomplete="off" spellcheck="false" aria-describedby="search-hint-text">
               <span class="search-hint" aria-hidden="true"><kbd>/</kbd></span>
             </div>
             <span id="search-hint-text" class="sr-only">Press forward slash to focus this search box. Press Escape to clear.</span>
@@ -125,6 +118,7 @@
           <div class="toolbar-row">
             <div class="filter-group" role="group" aria-label="Publication type filters">
               <button class="filter-chip is-active" type="button" data-filter="all" aria-pressed="true">All</button>
+              <button class="filter-chip" type="button" data-filter="conference" aria-pressed="false">Conference</button>
               <button class="filter-chip" type="button" data-filter="journal" aria-pressed="false">Journal</button>
               <button class="filter-chip" type="button" data-filter="workshop" aria-pressed="false">Workshop</button>
             </div>
@@ -139,23 +133,83 @@
             </div>
           </div>
 
-          <p class="summary-row" data-publication-summary role="status" aria-live="polite">Showing 2 of 2 publications.</p>
+          <p class="summary-row" data-publication-summary role="status" aria-live="polite">Showing 3 of 3 publications.</p>
         </div>
 
         <div class="publication-list" id="publication-list">
-          <article class="publication-card card" data-reveal data-type="journal" data-year="2025" data-title="Dimension-Independent Convergence Rate for AdaGrad with Heavy-Ball Momentum">
+          <article class="publication-card card publication-card--featured" id="foam" data-reveal data-type="conference" data-year="2026" data-title="FOAM Frequency and Operator Error-Based Adaptive Damping Method for Reducing Staleness-Oriented Error for Shampoo" data-search="foam frequency operator error adaptive damping stale shampoo inverse preconditioner error icml 2026 kyunghun nam sumyeong ahn">
+            <div class="publication-top">
+              <div class="badge-group">
+                <span class="badge badge--conference">Conference</span>
+                <span class="badge badge--acceptance">Accepted</span>
+                <span class="badge badge--neutral">2026</span>
+              </div>
+              <p class="publication-venue">Proceedings of the 43rd International Conference on Machine Learning, Seoul, South Korea · PMLR 306</p>
+            </div>
+            <h2 class="publication-title">FOAM: Frequency and Operator Error-Based Adaptive Damping Method for Reducing Staleness-Oriented Error for Shampoo</h2>
+            <p class="publication-authors"><span class="is-me">Kyunghun Nam</span>, Sumyeong Ahn</p>
+            <p class="publication-summary">
+              FOAM analyzes staleness in Shampoo through inverse-preconditioner error and introduces a proxy-driven controller that adapts both damping and eigendecomposition frequency. Experiments show improved wall-clock/performance trade-offs relative to stale Shampoo baselines.
+            </p>
+            <ul class="tag-list" aria-label="Topics">
+              <li class="tag">Shampoo</li>
+              <li class="tag">Preconditioning</li>
+              <li class="tag">Adaptive damping</li>
+              <li class="tag">Staleness</li>
+              <li class="tag">Wall-clock efficiency</li>
+            </ul>
+            <div class="publication-links">
+              <a class="button small" href="assets/papers/FOAM_ICML2026.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+              <a class="button small secondary" href="https://github.com/REAL-KENTECH/FOAM.git" target="_blank" rel="noopener noreferrer">Code ↗</a>
+              <a class="button small ghost" href="research.html#foam-project">Project context</a>
+            </div>
+            <details class="bibtex">
+              <summary>BibTeX</summary>
+              <pre class="bibtex-code"><button type="button" class="bibtex-copy" aria-label="Copy BibTeX to clipboard">Copy</button>@inproceedings{nam2026foam,
+  title     = {FOAM: Frequency and Operator Error-Based Adaptive Damping Method for Reducing Staleness-Oriented Error for Shampoo},
+  author    = {Nam, Kyunghun and Ahn, Sumyeong},
+  booktitle = {Proceedings of the 43rd International Conference on Machine Learning},
+  series    = {Proceedings of Machine Learning Research},
+  volume    = {306},
+  year      = {2026},
+  note      = {Accepted to ICML 2026},
+  code      = {https://github.com/REAL-KENTECH/FOAM.git}
+}</pre>
+            </details>
+            <script type="application/ld+json">
+            {
+              "@context": "https://schema.org",
+              "@type": "ScholarlyArticle",
+              "headline": "FOAM: Frequency and Operator Error-Based Adaptive Damping Method for Reducing Staleness-Oriented Error for Shampoo",
+              "author": [
+                { "@type": "Person", "name": "Kyunghun Nam" },
+                { "@type": "Person", "name": "Sumyeong Ahn" }
+              ],
+              "datePublished": "2026",
+              "isPartOf": {
+                "@type": "PublicationEvent",
+                "name": "International Conference on Machine Learning 2026",
+                "location": "Seoul, South Korea"
+              },
+              "url": "https://kyunghunnam.github.io/assets/papers/FOAM_ICML2026.pdf",
+              "codeRepository": "https://github.com/REAL-KENTECH/FOAM.git",
+              "keywords": "Shampoo, preconditioning, adaptive damping, staleness, optimization"
+            }
+            </script>
+          </article>
+
+          <article class="publication-card card" data-reveal data-type="journal" data-year="2025" data-title="Dimension-Independent Convergence Rate for AdaGrad with Heavy-Ball Momentum" data-search="dimension independent convergence rate adagrad heavy ball momentum mathematics kyunghun nam sejun park adaptive optimization">
             <div class="publication-top">
               <div class="badge-group">
                 <span class="badge badge--journal">Journal</span>
                 <span class="badge badge--neutral">2025</span>
               </div>
-              <p class="publication-venue"><em>Mathematics</em>, Volume 13, Issue 4</p>
+              <p class="publication-venue"><em>Mathematics</em>, Volume 13, Issue 4, Article 681</p>
             </div>
             <h2 class="publication-title">Dimension-Independent Convergence Rate for AdaGrad with Heavy-Ball Momentum</h2>
             <p class="publication-authors"><span class="is-me">Kyunghun Nam</span>, Sejun Park</p>
             <p class="publication-summary">
-              We establish the first dimension-independent convergence rate for AdaGrad with heavy-ball
-              momentum, clarifying how adaptive optimization and momentum interact in high-dimensional settings.
+              This paper establishes a dimension-independent convergence rate for AdaGrad with heavy-ball momentum, clarifying how adaptive scaling and momentum interact in high-dimensional optimization.
             </p>
             <ul class="tag-list" aria-label="Topics">
               <li class="tag">Adaptive optimization</li>
@@ -164,11 +218,12 @@
             </ul>
             <div class="publication-links">
               <a class="button small" href="https://www.mdpi.com/2227-7390/13/4/681" target="_blank" rel="noopener noreferrer">Article page ↗</a>
-              <a class="button small secondary" href="https://scholar.google.com/citations?user=2K1cMuQAAAAJ&hl=ko" target="_blank" rel="noopener noreferrer">Google Scholar ↗</a>
+              <a class="button small secondary" href="https://doi.org/10.3390/math13040681" target="_blank" rel="noopener noreferrer">DOI ↗</a>
+              <a class="button small ghost" href="https://scholar.google.com/citations?user=2K1cMuQAAAAJ&hl=ko" target="_blank" rel="noopener noreferrer">Google Scholar ↗</a>
             </div>
             <details class="bibtex">
               <summary>BibTeX</summary>
-              <pre class="bibtex-code"><button type="button" class="bibtex-copy" aria-label="Copy BibTeX to clipboard">Copy</button>@article{nam2025adagrad,
+              <pre class="bibtex-code"><button type="button" class="bibtex-copy" aria-label="Copy BibTeX to clipboard">Copy</button>@article{nam2025adagradheavyball,
   title   = {Dimension-Independent Convergence Rate for AdaGrad with Heavy-Ball Momentum},
   author  = {Nam, Kyunghun and Park, Sejun},
   journal = {Mathematics},
@@ -176,11 +231,10 @@
   number  = {4},
   pages   = {681},
   year    = {2025},
-  publisher = {MDPI},
-  doi     = {10.3390/math13040681}
+  doi     = {10.3390/math13040681},
+  url     = {https://www.mdpi.com/2227-7390/13/4/681}
 }</pre>
             </details>
-
             <script type="application/ld+json">
             {
               "@context": "https://schema.org",
@@ -203,12 +257,14 @@
                   }
                 }
               },
-              "url": "https://www.mdpi.com/2227-7390/13/4/681"
+              "doi": "10.3390/math13040681",
+              "url": "https://www.mdpi.com/2227-7390/13/4/681",
+              "sameAs": "https://doi.org/10.3390/math13040681"
             }
             </script>
           </article>
 
-          <article class="publication-card card" data-reveal data-type="workshop" data-year="2023" data-title="Almost Sure Last Iterate Convergence of Sharpness-Aware Minimization">
+          <article class="publication-card card" data-reveal data-type="workshop" data-year="2023" data-title="Almost Sure Last Iterate Convergence of Sharpness-Aware Minimization" data-search="almost sure last iterate convergence sharpness aware minimization sam iclr workshop kyunghun nam jinseok chung namhoon lee">
             <div class="publication-top">
               <div class="badge-group">
                 <span class="badge badge--workshop">Workshop</span>
@@ -219,8 +275,7 @@
             <h2 class="publication-title">Almost Sure Last Iterate Convergence of Sharpness-Aware Minimization</h2>
             <p class="publication-authors"><span class="is-me">Kyunghun Nam</span>, Jinseok Chung, Namhoon Lee</p>
             <p class="publication-summary">
-              This work analyzes the almost sure convergence of the last iterate of sharpness-aware minimization,
-              addressing an important theoretical question around a widely used optimization method.
+              This work analyzes almost sure last-iterate convergence of sharpness-aware minimization, addressing a trajectory-level theoretical question around a widely used optimization method.
             </p>
             <ul class="tag-list" aria-label="Topics">
               <li class="tag">Sharpness-aware minimization</li>
@@ -241,7 +296,6 @@
   url       = {https://openreview.net/forum?id=IcDTYTI0Nx}
 }</pre>
             </details>
-
             <script type="application/ld+json">
             {
               "@context": "https://schema.org",
@@ -266,17 +320,15 @@
       </div>
     </section>
   </main>
-
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>&copy; <span class="current-year">2026</span> Kyunghun Nam. Built for clarity, accessibility, and collaboration.</p>
+      <p>&copy; <span class="current-year">2026</span> Kyunghun Nam. Built for clarity, accessibility, and research collaboration.</p>
       <div class="footer-links">
         <a href="mailto:baptist0214@gmail.com">Email</a>
         <a href="https://scholar.google.com/citations?user=2K1cMuQAAAAJ&hl=ko" target="_blank" rel="noopener noreferrer">Google Scholar</a>
         <a href="https://github.com/kyunghunnam" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <span class="footer-shortcuts" aria-label="Keyboard shortcuts">
-          <kbd>?</kbd> shortcuts
-        </span>
+        <a href="assets/papers/FOAM_ICML2026.pdf" target="_blank" rel="noopener noreferrer">FOAM PDF</a>
+        <span class="footer-shortcuts" aria-label="Keyboard shortcuts"><kbd>?</kbd> shortcuts</span>
       </div>
     </div>
   </footer>
