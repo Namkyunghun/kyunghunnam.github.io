@@ -3,20 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Research statement on defining good optimizers as total-cost-efficient training recipes for modern deep learning.">
+  <meta name="description" content="Research statement of Kyunghun Nam on total-cost optimizer evaluation, adaptive methods, Shampoo-style preconditioning, and scalable training optimization.">
   <meta name="author" content="Kyunghun Nam">
-  <meta name="theme-color" content="#f4f7fb" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#070d19" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f4f7fb">
   <meta name="color-scheme" content="light dark">
   <meta property="og:title" content="Research — Kyunghun Nam">
-  <meta property="og:description" content="Research themes on optimizer evaluation, training optimization, systems-aware scaling, and modern deep learning.">
+  <meta property="og:description" content="Research statement of Kyunghun Nam on total-cost optimizer evaluation, adaptive methods, Shampoo-style preconditioning, and scalable training optimization.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://kyunghunnam.github.io/research.html">
   <meta property="og:image" content="https://kyunghunnam.github.io/assets/og-card.svg">
+  <meta property="og:image:alt" content="Kyunghun Nam — Optimization Researcher in AI">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Research — Kyunghun Nam">
-  <meta name="twitter:description" content="Research themes on optimizer evaluation, training optimization, systems-aware scaling, and modern deep learning.">
+  <meta name="twitter:description" content="Research statement of Kyunghun Nam on total-cost optimizer evaluation, adaptive methods, Shampoo-style preconditioning, and scalable training optimization.">
   <meta name="twitter:image" content="https://kyunghunnam.github.io/assets/og-card.svg">
+  <meta name="twitter:image:alt" content="Kyunghun Nam — Optimization Researcher in AI">
   <link rel="canonical" href="https://kyunghunnam.github.io/research.html">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="manifest" href="site.webmanifest">
@@ -29,8 +30,7 @@
       let stored = null;
       try { stored = localStorage.getItem('theme'); } catch {}
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const theme = stored || (prefersDark ? 'dark' : 'light');
-      document.documentElement.dataset.theme = theme;
+      document.documentElement.dataset.theme = stored || (prefersDark ? 'dark' : 'light');
     })();
   </script>
   <title>Research — Kyunghun Nam</title>
@@ -64,8 +64,7 @@
             <a href="publications.html">Publications</a>
             <a href="contact.html">Contact</a>
           </div>
-
-          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode (press T)">
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch theme">
             <span class="theme-toggle__icon" aria-hidden="true">◐</span>
             <span class="theme-toggle__label">Theme</span>
           </button>
@@ -79,24 +78,22 @@
           <p class="eyebrow">Research statement</p>
           <h1 class="page-title">A good optimizer is a training recipe, not only an update rule.</h1>
           <p class="page-description">
-            I study optimization for modern deep learning through the lens of total training cost:
-            reaching a target quality with fewer optimization steps, faster step time, and fewer failures
-            across realistic systems.
+            I study optimization for modern deep learning through the lens of total training cost: reaching target quality with fewer steps, faster step time, lower memory overhead, and fewer failures across realistic systems.
           </p>
         </div>
 
-        <div class="hero-stats">
+        <div class="hero-stats hero-stats--compact">
+          <article class="stat-card" data-reveal>
+            <span class="stat-value">ICML</span>
+            <span class="stat-label">2026 FOAM accepted paper</span>
+          </article>
           <article class="stat-card" data-reveal>
             <span class="stat-value">3</span>
-            <span class="stat-label">evaluation axes: iteration efficiency, wall-clock efficiency, and stability</span>
+            <span class="stat-label">evaluation axes: iteration, wall-clock, stability</span>
           </article>
           <article class="stat-card" data-reveal>
             <span class="stat-value">6</span>
-            <span class="stat-label">layers in the training optimization stack, from update rules to automation</span>
-          </article>
-          <article class="stat-card" data-reveal>
-            <span class="stat-value">1</span>
-            <span class="stat-label">core goal: the same quality at lower total cost</span>
+            <span class="stat-label">training-stack layers from update rules to automation</span>
           </article>
         </div>
       </div>
@@ -108,16 +105,13 @@
       <div class="container">
         <div class="callout callout-primary" data-reveal>
           <p class="callout-label">Working definition</p>
-          <h2>What makes a good optimizer?</h2>
+          <h2>Optimizer quality should be measured as total training cost.</h2>
           <p>
-            For me, a good optimizer is the combination of update rule, schedule, clipping, normalization,
-            parameterization, precision, and systems choices that reaches the same target quality with lower
-            total cost. That is why I study training optimization as a whole stack rather than as a single
-            algorithmic component.
+            For me, a good optimizer is the combination of update rule, schedule, clipping, normalization, parameterization, precision, and systems choices that reaches the same target quality at lower total cost. This is why I treat training optimization as a stack rather than a single algorithmic component.
           </p>
           <ul class="chip-list" aria-label="Working definition keywords">
             <li class="chip">fewer steps to target</li>
-            <li class="chip">faster step time</li>
+            <li class="chip">faster wall-clock time</li>
             <li class="chip">fewer NaNs / restarts / OOMs</li>
             <li class="chip">lower memory and communication cost</li>
           </ul>
@@ -128,33 +122,67 @@
     <section class="section section-muted">
       <div class="container">
         <div class="section-header" data-reveal>
-          <p class="section-eyebrow">Why this framing matters</p>
-          <h2 class="section-title">Modern training makes optimizer quality a total-cost question.</h2>
-          <p class="section-subtitle">
-            In large-scale deep learning, an optimizer cannot be judged by a single benchmark win.
-            Its value depends on whether the gains survive changes in schedule, batch regime, precision,
-            kernels, sharding, and distributed execution.
-          </p>
+          <p class="section-eyebrow">Selected projects</p>
+          <h2 class="section-title">Concrete problems currently shaping my research.</h2>
         </div>
 
-        <div class="grid grid-3">
-          <article class="card feature-card" data-reveal>
-            <h3>Fair comparison</h3>
+        <div class="grid grid-2">
+          <article class="card project-card project-card--featured" id="foam-project" data-reveal>
+            <div class="badge-group">
+              <span class="badge badge--conference">ICML 2026</span>
+              <span class="badge badge--neutral">Shampoo</span>
+            </div>
+            <h3>FOAM: adaptive damping for stale Shampoo</h3>
             <p>
-              I care about matched step budgets, wall-clock budgets, and token budgets rather than single-number claims.
+              FOAM studies inverse-preconditioner error under stale Shampoo and uses a proxy-driven controller to adapt damping and trigger eigendecomposition refreshes only when needed.
             </p>
+            <ul class="tag-list" aria-label="FOAM topics">
+              <li class="tag">stale preconditioning</li>
+              <li class="tag">operator error</li>
+              <li class="tag">adaptive damping</li>
+              <li class="tag">wall-clock efficiency</li>
+            </ul>
+            <div class="publication-links">
+              <a class="button small" href="publications.html#foam">Publication</a>
+              <a class="button small secondary" href="https://github.com/REAL-KENTECH/FOAM.git" target="_blank" rel="noopener noreferrer">Code ↗</a>
+            </div>
           </article>
-          <article class="card feature-card" data-reveal>
-            <h3>Interaction over isolation</h3>
+
+          <article class="card project-card" data-reveal>
+            <h3>Dimension-independent adaptive optimization</h3>
             <p>
-              Momentum, adaptivity, curvature, schedule, clipping, normalization, and batch size should be studied together.
+              Analyze how adaptive scaling and heavy-ball momentum interact in high-dimensional optimization and when their convergence behavior can be bounded independently of dimension.
             </p>
+            <ul class="tag-list" aria-label="AdaGrad topics">
+              <li class="tag">AdaGrad</li>
+              <li class="tag">heavy-ball momentum</li>
+              <li class="tag">convergence rates</li>
+            </ul>
           </article>
-          <article class="card feature-card" data-reveal>
-            <h3>Systems-aware evidence</h3>
+
+          <article class="card project-card" data-reveal>
+            <h3>Sharpness-aware minimization dynamics</h3>
             <p>
-              Precision, kernels, memory sharding, and parallelism determine whether an algorithmic improvement is real in practice.
+              Study trajectory-level properties of SAM, especially almost sure last-iterate convergence under stochastic gradients and nonconvex learning dynamics.
             </p>
+            <ul class="tag-list" aria-label="SAM topics">
+              <li class="tag">SAM</li>
+              <li class="tag">last iterate</li>
+              <li class="tag">stochastic approximation</li>
+            </ul>
+          </article>
+
+          <article class="card project-card" data-reveal>
+            <h3>Preconditioner spectral analysis</h3>
+            <p>
+              Investigate how the spectrum and eigenspace alignment of preconditioners affect optimization dynamics, noise geometry, and stability in neural network training.
+            </p>
+            <ul class="tag-list" aria-label="Spectral topics">
+              <li class="tag">Shampoo</li>
+              <li class="tag">SOAP</li>
+              <li class="tag">Hessian spectrum</li>
+              <li class="tag">SLQ</li>
+            </ul>
           </article>
         </div>
       </div>
@@ -165,53 +193,33 @@
         <div class="section-header" data-reveal>
           <p class="section-eyebrow">Research themes</p>
           <h2 class="section-title">The main topics that grow out of this definition.</h2>
-          <p class="section-subtitle">
-            My research agenda is organized around the question of how to define, measure, explain, and improve
-            training optimization under realistic constraints.
-          </p>
+          <p class="section-subtitle">My research agenda is organized around how to define, measure, explain, and improve training optimization under realistic constraints.</p>
         </div>
 
         <div class="grid grid-3">
           <article class="card pillar-card" data-reveal>
             <h3>Total-cost evaluation</h3>
-            <p>
-              Build criteria that combine step-to-target, wall-clock time, token efficiency, memory, and failure modes.
-            </p>
+            <p>Build criteria that combine steps-to-target, wall-clock time, token efficiency, memory, and failure modes.</p>
           </article>
-
           <article class="card pillar-card" data-reveal>
-            <h3>Strong baselines and optimizer comparison</h3>
-            <p>
-              Understand when well-tuned AdamW-style baselines already solve most of the problem and what evidence is needed before claiming improvement.
-            </p>
+            <h3>Strong baselines</h3>
+            <p>Understand when well-tuned AdamW-style baselines already solve most of the problem and what evidence is needed before claiming improvement.</p>
           </article>
-
           <article class="card pillar-card" data-reveal>
             <h3>Second-order and geometric methods</h3>
-            <p>
-              Study when curvature-aware or geometry-inspired updates reduce total cost rather than only iteration count.
-            </p>
+            <p>Study when curvature-aware or geometry-inspired updates reduce total cost rather than only iteration count.</p>
           </article>
-
           <article class="card pillar-card" data-reveal>
             <h3>Stability recipes</h3>
-            <p>
-              Analyze warmup, WSD, clipping, EMA, normalization, and residual scaling as central parts of optimization.
-            </p>
+            <p>Analyze warmup, WSD, clipping, EMA, normalization, and residual scaling as central parts of optimization.</p>
           </article>
-
           <article class="card pillar-card" data-reveal>
             <h3>Scale transfer and batch regimes</h3>
-            <p>
-              Connect parameterization, hyperparameter transfer, critical batch size, and compute-efficient scaling across model sizes.
-            </p>
+            <p>Connect parameterization, hyperparameter transfer, critical batch size, and compute-efficient scaling across model sizes.</p>
           </article>
-
           <article class="card pillar-card" data-reveal>
-            <h3>Systems-aware training optimization</h3>
-            <p>
-              Bring together low precision, kernels, distributed sharding, long-context training, and PEFT with optimizer design.
-            </p>
+            <h3>Systems-aware training</h3>
+            <p>Bring together low precision, kernels, distributed sharding, long-context training, and PEFT with optimizer design.</p>
           </article>
         </div>
       </div>
@@ -222,120 +230,50 @@
         <div class="section-header" data-reveal>
           <p class="section-eyebrow">Training optimization stack</p>
           <h2 class="section-title">The optimizer sits inside a larger research map.</h2>
-          <p class="section-subtitle">
-            I am interested in the full stack that determines whether an apparently good optimizer remains good
-            when models, context lengths, and systems become large.
-          </p>
         </div>
 
-        <div class="timeline">
+        <div class="timeline timeline--stack">
           <article class="timeline-item" data-reveal>
             <span class="timeline-year">Layer 1</span>
             <div class="card timeline-body">
               <h3>Update rules and optimizer families</h3>
-              <p>
-                SGD, AdamW, adaptive methods, and newer geometry-aware optimizers define the local update,
-                but they are only the first layer of the problem.
-              </p>
+              <p>SGD, AdamW, adaptive methods, Shampoo, SOAP, Muon-style updates, and geometry-aware optimizers define local training dynamics.</p>
             </div>
           </article>
-
           <article class="timeline-item" data-reveal>
             <span class="timeline-year">Layer 2</span>
             <div class="card timeline-body">
-              <h3>Normalization, initialization, and parameterization</h3>
-              <p>
-                Pre-LN, RMSNorm, residual scaling, and muP-style transfer rules shape the geometry seen by the optimizer.
-              </p>
+              <h3>Schedules and stability controls</h3>
+              <p>Warmup, decay, WSD, clipping, EMA, weight decay, and damping often determine whether an update rule is usable at scale.</p>
             </div>
           </article>
-
           <article class="timeline-item" data-reveal>
             <span class="timeline-year">Layer 3</span>
             <div class="card timeline-body">
-              <h3>Precision, kernels, and compile</h3>
-              <p>
-                BF16, FP8, fused kernels, and FlashAttention change step time, memory behavior, and even which recipes are feasible.
-              </p>
+              <h3>Parameterization and normalization</h3>
+              <p>Scale, initialization, residual structure, normalization, and batch regime determine which hyperparameters transfer.</p>
             </div>
           </article>
-
           <article class="timeline-item" data-reveal>
             <span class="timeline-year">Layer 4</span>
             <div class="card timeline-body">
-              <h3>Distributed systems and memory sharding</h3>
-              <p>
-                FSDP, ZeRO, tensor and pipeline parallelism, context parallelism, and checkpointing determine how ideas scale.
-              </p>
+              <h3>Systems and distributed execution</h3>
+              <p>Precision, kernels, memory sharding, and communication overhead decide whether algorithmic gains are visible in wall-clock time.</p>
             </div>
           </article>
-
           <article class="timeline-item" data-reveal>
             <span class="timeline-year">Layer 5</span>
             <div class="card timeline-body">
               <h3>Adaptation and efficient fine-tuning</h3>
-              <p>
-                LoRA, QLoRA, and related PEFT methods connect optimizer research to low-memory adaptation and deployment constraints.
-              </p>
+              <p>LoRA, QLoRA, and related PEFT methods connect optimizer research to low-memory adaptation and deployment constraints.</p>
             </div>
           </article>
-
           <article class="timeline-item" data-reveal>
             <span class="timeline-year">Layer 6</span>
             <div class="card timeline-body">
               <h3>Automation and meta-optimization</h3>
-              <p>
-                BOHB, PBT, and LLM-assisted experiment design raise new questions about reproducibility, safety, and search efficiency.
-              </p>
+              <p>BOHB, PBT, and LLM-assisted experiment design raise questions about reproducibility, safety, and search efficiency.</p>
             </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="section-header" data-reveal>
-          <p class="section-eyebrow">Current questions</p>
-          <h2 class="section-title">The questions currently guiding my reading and experimentation.</h2>
-        </div>
-
-        <div class="question-grid">
-          <article class="card question-card" data-reveal>
-            <h3>What is the right objective?</h3>
-            <p>
-              When should an optimizer be judged by loss versus step, loss versus wall-clock, or loss versus tokens?
-            </p>
-          </article>
-          <article class="card question-card" data-reveal>
-            <h3>When does a smarter step stay worth it?</h3>
-            <p>
-              Can curvature-aware or geometry-aware updates remain beneficial once systems overhead is accounted for?
-            </p>
-          </article>
-          <article class="card question-card" data-reveal>
-            <h3>Which stability interventions matter most?</h3>
-            <p>
-              How do warmup, WSD, clipping, normalization, and EMA alter the apparent quality of an optimizer?
-            </p>
-          </article>
-          <article class="card question-card" data-reveal>
-            <h3>How should batch size evolve?</h3>
-            <p>
-              When should batch warmup or critical-batch-size reasoning replace simple learning-rate decay heuristics?
-            </p>
-          </article>
-          <article class="card question-card" data-reveal>
-            <h3>How far does transfer really go?</h3>
-            <p>
-              Which optimizer settings and parameterization rules survive changes in width, depth, precision, and distributed scale?
-            </p>
-          </article>
-          <article class="card question-card" data-reveal>
-            <h3>Can automated HPO stay trustworthy?</h3>
-            <p>
-              How can LLM-assisted experiment design search richer optimizer spaces without sacrificing reproducibility and safety?
-            </p>
           </article>
         </div>
       </div>
@@ -347,28 +285,23 @@
           <article class="card" data-reveal>
             <p class="section-eyebrow">Methodology</p>
             <h2 class="subsection-title">Mathematical analysis paired with realistic evaluation</h2>
-            <p>
-              I want theory and practice to constrain each other. My goal is not only to prove convergence or show
-              one benchmark win, but to understand why an optimizer helps and when that help remains visible in real training runs.
-            </p>
-            <ul class="bullets">
-              <li>Convergence and robustness analysis for adaptive, momentum-based, and geometry-aware methods</li>
-              <li>Comparisons under matched step, wall-clock, and token budgets</li>
-              <li>Careful tracking of grad norm, clip rate, overflow, memory, and communication breakdown</li>
+            <p>I want theory and practice to constrain each other. My goal is not only to prove convergence or show one benchmark win, but to understand why an optimizer helps and when that help remains visible in real training runs.</p>
+            <ul class="checklist">
+              <li>State the optimization model and stochastic assumptions explicitly.</li>
+              <li>Separate iteration efficiency from wall-clock efficiency.</li>
+              <li>Report stability failures, sensitivity, and implementation cost.</li>
+              <li>Connect proofs to measurable diagnostics whenever possible.</li>
             </ul>
           </article>
 
           <article class="card" data-reveal>
-            <p class="section-eyebrow">Research outputs</p>
-            <h2 class="subsection-title">Evaluation protocols, benchmarks, and reusable tools</h2>
-            <p>
-              I want optimizer research to become easier to compare, reproduce, and extend. That means producing not only papers,
-              but also reporting standards, baselines, and shared resources for the community.
-            </p>
+            <p class="section-eyebrow">Current questions</p>
+            <h2 class="subsection-title">Questions guiding my reading and experimentation</h2>
             <ul class="bullets">
-              <li>Clear reporting practices for failure modes as well as successes</li>
-              <li>Benchmarks that connect optimizer behavior to systems constraints</li>
-              <li>Resources that make strong baselines and fair comparisons easier to build</li>
+              <li>When does a smarter preconditioned step remain worth its systems overhead?</li>
+              <li>Which optimizer settings transfer across width, depth, precision, and batch size?</li>
+              <li>How should damping, staleness, and eigenspace refreshes be controlled automatically?</li>
+              <li>How can Hessian and preconditioner spectra explain optimizer behavior?</li>
             </ul>
           </article>
         </div>
@@ -377,54 +310,11 @@
 
     <section class="section section-muted">
       <div class="container">
-        <div class="section-header" data-reveal>
-          <p class="section-eyebrow">Research objectives</p>
-          <h2 class="section-title">A roadmap from definition to design.</h2>
-        </div>
-
-        <div class="roadmap">
-          <article class="roadmap-item card" data-reveal>
-            <span class="roadmap-step">01</span>
-            <div>
-              <h3>Define the object of study</h3>
-              <p>Formulate “good optimizer” as a total-cost training objective rather than a single-step update rule.</p>
-            </div>
-          </article>
-          <article class="roadmap-item card" data-reveal>
-            <span class="roadmap-step">02</span>
-            <div>
-              <h3>Measure it fairly</h3>
-              <p>Develop comparison standards that separate iteration gains, throughput gains, and stability gains.</p>
-            </div>
-          </article>
-          <article class="roadmap-item card" data-reveal>
-            <span class="roadmap-step">03</span>
-            <div>
-              <h3>Explain interactions across the stack</h3>
-              <p>Study how schedules, clipping, parameterization, precision, and distributed systems shape optimizer behavior.</p>
-            </div>
-          </article>
-          <article class="roadmap-item card" data-reveal>
-            <span class="roadmap-step">04</span>
-            <div>
-              <h3>Design scalable algorithms and recipes</h3>
-              <p>Create methods that remain meaningful not only in theory, but also in large-scale, failure-prone training settings.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
         <div class="cta-banner card" data-reveal>
           <div>
             <p class="section-eyebrow">Collaboration</p>
             <h2 class="cta-title">Interested in optimizer theory, training systems, or evaluation design?</h2>
-            <p class="cta-text">
-              I welcome collaborations that connect mathematical optimization with large-scale training practice,
-              fair benchmarking, and reliable experimentation.
-            </p>
+            <p class="cta-text">I welcome collaborations that connect mathematical optimization with large-scale training practice, fair benchmarking, and reliable experimentation.</p>
           </div>
           <div class="cta-actions">
             <a class="button" href="contact.html">Contact me</a>
@@ -434,17 +324,15 @@
       </div>
     </section>
   </main>
-
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>&copy; <span class="current-year">2026</span> Kyunghun Nam. Built for clarity, accessibility, and collaboration.</p>
+      <p>&copy; <span class="current-year">2026</span> Kyunghun Nam. Built for clarity, accessibility, and research collaboration.</p>
       <div class="footer-links">
         <a href="mailto:baptist0214@gmail.com">Email</a>
         <a href="https://scholar.google.com/citations?user=2K1cMuQAAAAJ&hl=ko" target="_blank" rel="noopener noreferrer">Google Scholar</a>
         <a href="https://github.com/kyunghunnam" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <span class="footer-shortcuts" aria-label="Keyboard shortcuts">
-          <kbd>?</kbd> shortcuts
-        </span>
+        <a href="assets/papers/FOAM_ICML2026.pdf" target="_blank" rel="noopener noreferrer">FOAM PDF</a>
+        <span class="footer-shortcuts" aria-label="Keyboard shortcuts"><kbd>?</kbd> shortcuts</span>
       </div>
     </div>
   </footer>
