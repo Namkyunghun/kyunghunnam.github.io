@@ -3,20 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Get in touch with Kyunghun Nam for research collaboration, optimization discussions, and academic inquiries.">
+  <meta name="description" content="Contact Kyunghun Nam for research collaboration, optimizer theory discussions, and academic inquiries.">
   <meta name="author" content="Kyunghun Nam">
-  <meta name="theme-color" content="#f4f7fb" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#070d19" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f4f7fb">
   <meta name="color-scheme" content="light dark">
   <meta property="og:title" content="Contact — Kyunghun Nam">
-  <meta property="og:description" content="Contact details, collaboration interests, and affiliation for Kyunghun Nam.">
+  <meta property="og:description" content="Contact Kyunghun Nam for research collaboration, optimizer theory discussions, and academic inquiries.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://kyunghunnam.github.io/contact.html">
   <meta property="og:image" content="https://kyunghunnam.github.io/assets/og-card.svg">
+  <meta property="og:image:alt" content="Kyunghun Nam — Optimization Researcher in AI">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Contact — Kyunghun Nam">
-  <meta name="twitter:description" content="Contact details, collaboration interests, and affiliation for Kyunghun Nam.">
+  <meta name="twitter:description" content="Contact Kyunghun Nam for research collaboration, optimizer theory discussions, and academic inquiries.">
   <meta name="twitter:image" content="https://kyunghunnam.github.io/assets/og-card.svg">
+  <meta name="twitter:image:alt" content="Kyunghun Nam — Optimization Researcher in AI">
   <link rel="canonical" href="https://kyunghunnam.github.io/contact.html">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="manifest" href="site.webmanifest">
@@ -29,8 +30,7 @@
       let stored = null;
       try { stored = localStorage.getItem('theme'); } catch {}
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const theme = stored || (prefersDark ? 'dark' : 'light');
-      document.documentElement.dataset.theme = theme;
+      document.documentElement.dataset.theme = stored || (prefersDark ? 'dark' : 'light');
     })();
   </script>
   <title>Contact — Kyunghun Nam</title>
@@ -64,8 +64,7 @@
             <a href="publications.html">Publications</a>
             <a href="contact.html" class="is-current" aria-current="page">Contact</a>
           </div>
-
-          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode (press T)">
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch theme">
             <span class="theme-toggle__icon" aria-hidden="true">◐</span>
             <span class="theme-toggle__label">Theme</span>
           </button>
@@ -78,10 +77,7 @@
         <div data-reveal>
           <p class="eyebrow">Contact</p>
           <h1 class="page-title">Open to thoughtful research conversations.</h1>
-          <p class="page-description">
-            The fastest way to reach me is by email. I am particularly interested in discussions around
-            optimization theory, adaptive methods, and large-scale machine learning.
-          </p>
+          <p class="page-description">The fastest way to reach me is by email. I am particularly interested in discussions around optimization theory, adaptive methods, Shampoo-style preconditioning, and large-scale machine learning.</p>
         </div>
       </div>
     </section>
@@ -93,9 +89,7 @@
         <article class="contact-primary card" data-reveal>
           <p class="section-eyebrow">Primary contact</p>
           <h2 class="subsection-title">Let’s connect</h2>
-          <p>
-            I welcome messages about research collaboration, academic exchange, reading groups, and optimizer-related questions.
-          </p>
+          <p>I welcome messages about research collaboration, academic exchange, reading groups, optimizer-related questions, and virtual meetings.</p>
 
           <div class="contact-actions">
             <a class="button" href="mailto:baptist0214@gmail.com">Email me</a>
@@ -117,6 +111,10 @@
               <dd>KENTECH · Ph.D. Student in Artificial Intelligence</dd>
             </div>
             <div>
+              <dt>Ph.D. start</dt>
+              <dd>September 2025</dd>
+            </div>
+            <div>
               <dt>Supervisor</dt>
               <dd><a href="https://real.kentech.ac.kr/" target="_blank" rel="noopener noreferrer">Prof. Sumyeong Ahn</a></dd>
             </div>
@@ -135,6 +133,10 @@
               <strong>GitHub ↗</strong>
               <span>Code and projects</span>
             </a>
+            <a class="link-card" href="https://github.com/REAL-KENTECH/FOAM.git" target="_blank" rel="noopener noreferrer">
+              <strong>FOAM code ↗</strong>
+              <span>Official code repository</span>
+            </a>
           </div>
         </article>
 
@@ -143,6 +145,7 @@
             <h2 class="subsection-title">Collaboration interests</h2>
             <ul class="bullets">
               <li>Theoretical analysis of adaptive and momentum-based optimizers</li>
+              <li>Shampoo, SOAP, stale preconditioning, damping, and matrix perturbation</li>
               <li>Practical improvements to training methods for large-scale learning</li>
               <li>Evaluation frameworks for comparing optimization algorithms</li>
               <li>Connections between second-order information and optimizer design</li>
@@ -153,60 +156,33 @@
             <h2 class="subsection-title">What to include in your message</h2>
             <ul class="checklist">
               <li>A short description of your project or question</li>
-              <li>Why you think there may be a good fit</li>
+              <li>Why you think there may be a good research fit</li>
               <li>Any relevant timeline, paper, or repository link</li>
+              <li>Whether you want a quick discussion, detailed feedback, or collaboration</li>
             </ul>
           </article>
 
           <article class="card info-card" data-reveal>
-            <h2 class="subsection-title">Meeting preferences</h2>
-            <p>
-              Virtual meetings are welcome. Email is the easiest way to coordinate time, agenda, and any
-              materials that would be useful to review beforehand.
-            </p>
+            <h2 class="subsection-title">Current paper</h2>
+            <p>My latest accepted work is FOAM, an ICML 2026 paper on adaptive damping and frequency control for stale Shampoo.</p>
+            <div class="publication-links">
+              <a class="button small" href="assets/papers/FOAM_ICML2026.pdf" target="_blank" rel="noopener noreferrer">Open PDF</a>
+              <a class="button small secondary" href="publications.html#foam">Publication entry</a>
+            </div>
           </article>
-
-          <article class="card info-card" data-reveal>
-            <h2 class="subsection-title">Current affiliation</h2>
-            <p>
-              I am currently a Ph.D. student at KENTECH, working on optimization methods for artificial
-              intelligence under the supervision of Prof. Sumyeong Ahn.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="cta-banner card" data-reveal>
-          <div>
-            <p class="section-eyebrow">Prospective collaborators</p>
-            <h2 class="cta-title">Research-first conversations work best.</h2>
-            <p class="cta-text">
-              I am especially interested in projects that combine theoretical analysis with practical
-              algorithmic improvements for machine learning systems.
-            </p>
-          </div>
-          <div class="cta-actions">
-            <a class="button" href="mailto:baptist0214@gmail.com">Write an email</a>
-            <a class="button secondary" href="research.html">See research topics</a>
-          </div>
         </div>
       </div>
     </section>
   </main>
-
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>&copy; <span class="current-year">2026</span> Kyunghun Nam. Built for clarity, accessibility, and collaboration.</p>
+      <p>&copy; <span class="current-year">2026</span> Kyunghun Nam. Built for clarity, accessibility, and research collaboration.</p>
       <div class="footer-links">
         <a href="mailto:baptist0214@gmail.com">Email</a>
         <a href="https://scholar.google.com/citations?user=2K1cMuQAAAAJ&hl=ko" target="_blank" rel="noopener noreferrer">Google Scholar</a>
         <a href="https://github.com/kyunghunnam" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <span class="footer-shortcuts" aria-label="Keyboard shortcuts">
-          <kbd>?</kbd> shortcuts
-        </span>
+        <a href="assets/papers/FOAM_ICML2026.pdf" target="_blank" rel="noopener noreferrer">FOAM PDF</a>
+        <span class="footer-shortcuts" aria-label="Keyboard shortcuts"><kbd>?</kbd> shortcuts</span>
       </div>
     </div>
   </footer>
