@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="404 page for Kyunghun Nam personal website.">
+  <meta name="author" content="Kyunghun Nam">
+  <meta name="theme-color" content="#f4f7fb">
+  <meta name="color-scheme" content="light dark">
+  <meta property="og:title" content="Page not found — Kyunghun Nam">
+  <meta property="og:description" content="404 page for Kyunghun Nam personal website.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kyunghunnam.github.io/404.html">
+  <meta property="og:image" content="https://kyunghunnam.github.io/assets/og-card.svg">
+  <meta property="og:image:alt" content="Kyunghun Nam — Optimization Researcher in AI">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Page not found — Kyunghun Nam">
+  <meta name="twitter:description" content="404 page for Kyunghun Nam personal website.">
+  <meta name="twitter:image" content="https://kyunghunnam.github.io/assets/og-card.svg">
+  <meta name="twitter:image:alt" content="Kyunghun Nam — Optimization Researcher in AI">
+  <link rel="canonical" href="https://kyunghunnam.github.io/404.html">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    (() => {
+      let stored = null;
+      try { stored = localStorage.getItem('theme'); } catch {}
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.dataset.theme = stored || (prefersDark ? 'dark' : 'light');
+    })();
+  </script>
+  <title>Page not found — Kyunghun Nam</title>
+</head>
+
+<body class="page-404">
+  <div class="progress-bar" aria-hidden="true"></div>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header class="site-header site-header--compact">
+    <nav class="site-nav" aria-label="Primary">
+      <div class="container nav-inner">
+        <a class="brand" href="index.html" aria-label="Kyunghun Nam home">
+          <span class="brand-mark" aria-hidden="true">KN</span>
+          <span class="brand-copy">
+            <strong>Kyunghun Nam</strong>
+            <span>Optimization for AI</span>
+          </span>
+        </a>
+
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
+          <span class="sr-only">Toggle navigation</span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </button>
+
+        <div class="nav-panel" id="site-menu">
+          <div class="nav-links">
+            <a href="index.html">About</a>
+            <a href="research.html">Research</a>
+            <a href="publications.html">Publications</a>
+            <a href="contact.html">Contact</a>
+          </div>
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch theme">
+            <span class="theme-toggle__icon" aria-hidden="true">◐</span>
+            <span class="theme-toggle__label">Theme</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <section class="page-hero">
+      <div class="container page-hero__inner">
+        <div data-reveal>
+          <p class="eyebrow">404</p>
+          <h1 class="page-title">This page is not available.</h1>
+          <p class="page-description">The page may have moved, or the URL may be incorrect. Use the links below to return to the main site.</p>
+          <div class="hero-actions">
+            <a class="button" href="index.html">Go home</a>
+            <a class="button secondary" href="publications.html">View publications</a>
+            <a class="button ghost" href="contact.html">Contact</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </header>
+
+  <main id="main"></main>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span class="current-year">2026</span> Kyunghun Nam. Built for clarity, accessibility, and research collaboration.</p>
+      <div class="footer-links">
+        <a href="mailto:baptist0214@gmail.com">Email</a>
+        <a href="https://scholar.google.com/citations?user=2K1cMuQAAAAJ&hl=ko" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+        <a href="https://github.com/kyunghunnam" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="assets/papers/FOAM_ICML2026.pdf" target="_blank" rel="noopener noreferrer">FOAM PDF</a>
+        <span class="footer-shortcuts" aria-label="Keyboard shortcuts"><kbd>?</kbd> shortcuts</span>
+      </div>
+    </div>
+  </footer>
+  <button class="back-to-top" type="button" aria-label="Back to top">↑</button>
+  <div class="toast-region" aria-live="polite" aria-atomic="true"></div>
+  <script src="common.js" defer></script>
+</body>
+</html>
