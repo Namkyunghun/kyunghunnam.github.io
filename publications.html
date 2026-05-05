@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Publications by Kyunghun Nam on optimization algorithms, adaptive methods, Shampoo, stochastic convergence, and deep learning theory.">
+  <meta name="description" content="Publications by Kyunghun Nam on preconditioned optimization, adaptive methods, Shampoo, optimizer theory, curvature diagnostics, and deep learning training.">
   <meta name="author" content="Kyunghun Nam">
   <meta name="theme-color" content="#f4f7fb">
   <meta name="color-scheme" content="light dark">
   <meta property="og:title" content="Publications — Kyunghun Nam">
-  <meta property="og:description" content="Publications by Kyunghun Nam on optimization algorithms, adaptive methods, Shampoo, stochastic convergence, and deep learning theory.">
+  <meta property="og:description" content="Publications by Kyunghun Nam on preconditioned optimization, adaptive methods, Shampoo, optimizer theory, curvature diagnostics, and deep learning training.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://kyunghunnam.github.io/publications.html">
   <meta property="og:image" content="https://kyunghunnam.github.io/assets/og-card.svg">
   <meta property="og:image:alt" content="Kyunghun Nam — Optimization Researcher in AI">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Publications — Kyunghun Nam">
-  <meta name="twitter:description" content="Publications by Kyunghun Nam on optimization algorithms, adaptive methods, Shampoo, stochastic convergence, and deep learning theory.">
+  <meta name="twitter:description" content="Publications by Kyunghun Nam on preconditioned optimization, adaptive methods, Shampoo, optimizer theory, curvature diagnostics, and deep learning training.">
   <meta name="twitter:image" content="https://kyunghunnam.github.io/assets/og-card.svg">
   <meta name="twitter:image:alt" content="Kyunghun Nam — Optimization Researcher in AI">
   <link rel="canonical" href="https://kyunghunnam.github.io/publications.html">
@@ -76,8 +76,8 @@
       <div class="container page-hero__inner">
         <div data-reveal>
           <p class="eyebrow">Publications</p>
-          <h1 class="page-title">Research outputs in optimization and learning theory.</h1>
-          <p class="page-description">A publication list with search, filtering, BibTeX copy buttons, local PDF links, and structured metadata. Press <kbd>/</kbd> to focus the search box.</p>
+          <h1 class="page-title">Research outputs on preconditioned optimization and optimizer theory.</h1>
+          <p class="page-description">A publication list centered on optimizer design, adaptive scaling, preconditioning, and curvature diagnostics. Press <kbd>/</kbd> to focus the search box.</p>
         </div>
       </div>
     </section>
@@ -86,9 +86,9 @@
   <main id="main">
     <section class="section">
       <div class="container">
-        <div class="publication-stats grid grid-4" data-reveal>
+        <div class="publication-stats grid grid-3" data-reveal>
           <article class="stat-card">
-            <span class="stat-value" data-count="all" data-counter="3">3</span>
+            <span class="stat-value" data-count="all" data-counter="2">2</span>
             <span class="stat-label">Total items</span>
           </article>
           <article class="stat-card">
@@ -98,10 +98,6 @@
           <article class="stat-card">
             <span class="stat-value" data-count="journal" data-counter="1">1</span>
             <span class="stat-label">Journal paper</span>
-          </article>
-          <article class="stat-card">
-            <span class="stat-value" data-count="workshop" data-counter="1">1</span>
-            <span class="stat-label">Workshop paper</span>
           </article>
         </div>
 
@@ -120,7 +116,6 @@
               <button class="filter-chip is-active" type="button" data-filter="all" aria-pressed="true">All</button>
               <button class="filter-chip" type="button" data-filter="conference" aria-pressed="false">Conference</button>
               <button class="filter-chip" type="button" data-filter="journal" aria-pressed="false">Journal</button>
-              <button class="filter-chip" type="button" data-filter="workshop" aria-pressed="false">Workshop</button>
             </div>
 
             <div class="sort-group">
@@ -133,7 +128,7 @@
             </div>
           </div>
 
-          <p class="summary-row" data-publication-summary role="status" aria-live="polite">Showing 3 of 3 publications.</p>
+          <p class="summary-row" data-publication-summary role="status" aria-live="polite">Showing 2 of 2 publications.</p>
         </div>
 
         <div class="publication-list" id="publication-list">
@@ -149,7 +144,7 @@
             <h2 class="publication-title">FOAM: Frequency and Operator Error-Based Adaptive Damping Method for Reducing Staleness-Oriented Error for Shampoo</h2>
             <p class="publication-authors"><span class="is-me">Kyunghun Nam</span>, Sumyeong Ahn</p>
             <p class="publication-summary">
-              FOAM analyzes staleness in Shampoo through inverse-preconditioner error and introduces a proxy-driven controller that adapts both damping and eigendecomposition frequency. Experiments show improved wall-clock/performance trade-offs relative to stale Shampoo baselines.
+              FOAM analyzes Shampoo through inverse-preconditioner error and introduces a proxy-driven controller that adapts both damping and eigendecomposition frequency. It is part of a broader research direction on preserving preconditioner quality while reducing numerical cost.
             </p>
             <ul class="tag-list" aria-label="Topics">
               <li class="tag">Shampoo</li>
@@ -209,10 +204,11 @@
             <h2 class="publication-title">Dimension-Independent Convergence Rate for AdaGrad with Heavy-Ball Momentum</h2>
             <p class="publication-authors"><span class="is-me">Kyunghun Nam</span>, Sejun Park</p>
             <p class="publication-summary">
-              This paper establishes a dimension-independent convergence rate for AdaGrad with heavy-ball momentum, clarifying how adaptive scaling and momentum interact in high-dimensional optimization.
+              This paper studies AdaGrad with heavy-ball momentum as an adaptive scaling method, clarifying how diagonal preconditioning and momentum interact in high-dimensional optimization.
             </p>
             <ul class="tag-list" aria-label="Topics">
               <li class="tag">Adaptive optimization</li>
+              <li class="tag">Diagonal preconditioning</li>
               <li class="tag">Momentum</li>
               <li class="tag">Convergence theory</li>
             </ul>
@@ -263,55 +259,7 @@
             }
             </script>
           </article>
-
-          <article class="publication-card card" data-reveal data-type="workshop" data-year="2023" data-title="Almost Sure Last Iterate Convergence of Sharpness-Aware Minimization" data-search="almost sure last iterate convergence sharpness aware minimization sam iclr workshop kyunghun nam jinseok chung namhoon lee">
-            <div class="publication-top">
-              <div class="badge-group">
-                <span class="badge badge--workshop">Workshop</span>
-                <span class="badge badge--neutral">2023</span>
-              </div>
-              <p class="publication-venue">ICLR 2023 Workshop on Mathematical and Empirical Understanding of Foundation Models</p>
-            </div>
-            <h2 class="publication-title">Almost Sure Last Iterate Convergence of Sharpness-Aware Minimization</h2>
-            <p class="publication-authors"><span class="is-me">Kyunghun Nam</span>, Jinseok Chung, Namhoon Lee</p>
-            <p class="publication-summary">
-              This work analyzes almost sure last-iterate convergence of sharpness-aware minimization, addressing a trajectory-level theoretical question around a widely used optimization method.
-            </p>
-            <ul class="tag-list" aria-label="Topics">
-              <li class="tag">Sharpness-aware minimization</li>
-              <li class="tag">Last-iterate analysis</li>
-              <li class="tag">Optimization theory</li>
-            </ul>
-            <div class="publication-links">
-              <a class="button small" href="https://openreview.net/forum?id=IcDTYTI0Nx" target="_blank" rel="noopener noreferrer">OpenReview ↗</a>
-              <a class="button small secondary" href="https://scholar.google.com/citations?user=2K1cMuQAAAAJ&hl=ko" target="_blank" rel="noopener noreferrer">Google Scholar ↗</a>
-            </div>
-            <details class="bibtex">
-              <summary>BibTeX</summary>
-              <pre class="bibtex-code"><button type="button" class="bibtex-copy" aria-label="Copy BibTeX to clipboard">Copy</button>@inproceedings{nam2023sam,
-  title     = {Almost Sure Last Iterate Convergence of Sharpness-Aware Minimization},
-  author    = {Nam, Kyunghun and Chung, Jinseok and Lee, Namhoon},
-  booktitle = {ICLR Workshop on Mathematical and Empirical Understanding of Foundation Models},
-  year      = {2023},
-  url       = {https://openreview.net/forum?id=IcDTYTI0Nx}
-}</pre>
-            </details>
-            <script type="application/ld+json">
-            {
-              "@context": "https://schema.org",
-              "@type": "ScholarlyArticle",
-              "headline": "Almost Sure Last Iterate Convergence of Sharpness-Aware Minimization",
-              "author": [
-                { "@type": "Person", "name": "Kyunghun Nam" },
-                { "@type": "Person", "name": "Jinseok Chung" },
-                { "@type": "Person", "name": "Namhoon Lee" }
-              ],
-              "datePublished": "2023",
-              "url": "https://openreview.net/forum?id=IcDTYTI0Nx"
-            }
-            </script>
-          </article>
-        </div>
+</div>
 
         <div class="empty-state card" id="publication-empty" hidden>
           <h2>No publications matched your search.</h2>
