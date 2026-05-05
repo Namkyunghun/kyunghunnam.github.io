@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Personal academic website of Kyunghun Nam, a Ph.D. student in artificial intelligence working on mathematical optimization for machine learning.">
+  <meta name="description" content="Personal academic website of Kyunghun Nam, a Ph.D. student in artificial intelligence studying preconditioned optimization methods for deep learning, including AdamW, Shampoo, SOAP, curvature diagnostics, and scalable preconditioner computation.">
   <meta name="author" content="Kyunghun Nam">
   <meta name="theme-color" content="#f4f7fb">
   <meta name="color-scheme" content="light dark">
   <meta property="og:title" content="Kyunghun Nam — Optimization Researcher in AI">
-  <meta property="og:description" content="Personal academic website of Kyunghun Nam, a Ph.D. student in artificial intelligence working on mathematical optimization for machine learning.">
+  <meta property="og:description" content="Personal academic website of Kyunghun Nam, a Ph.D. student in artificial intelligence studying preconditioned optimization methods for deep learning, including AdamW, Shampoo, SOAP, curvature diagnostics, and scalable preconditioner computation.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://kyunghunnam.github.io/">
   <meta property="og:image" content="https://kyunghunnam.github.io/assets/og-card.svg">
   <meta property="og:image:alt" content="Kyunghun Nam — Optimization Researcher in AI">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Kyunghun Nam — Optimization Researcher in AI">
-  <meta name="twitter:description" content="Personal academic website of Kyunghun Nam, a Ph.D. student in artificial intelligence working on mathematical optimization for machine learning.">
+  <meta name="twitter:description" content="Personal academic website of Kyunghun Nam, a Ph.D. student in artificial intelligence studying preconditioned optimization methods for deep learning, including AdamW, Shampoo, SOAP, curvature diagnostics, and scalable preconditioner computation.">
   <meta name="twitter:image" content="https://kyunghunnam.github.io/assets/og-card.svg">
   <meta name="twitter:image:alt" content="Kyunghun Nam — Optimization Researcher in AI">
   <link rel="canonical" href="https://kyunghunnam.github.io/">
@@ -75,10 +75,10 @@
     <section class="hero hero-home">
       <div class="container hero-grid">
         <div class="hero-copy" data-reveal>
-          <p class="eyebrow">Optimization for reliable and efficient training</p>
+          <p class="eyebrow">Preconditioned optimization for deep learning</p>
           <h1 class="hero-title">Kyunghun Nam</h1>
           <p class="hero-description">
-            Ph.D. student in artificial intelligence at KENTECH, working on mathematically grounded optimization methods for modern deep learning — with emphasis on adaptive methods, stochastic convergence, and scalable preconditioning.
+            Ph.D. student in artificial intelligence at KENTECH, studying what makes a good optimizer. My current focus is preconditioned optimization: designing, analyzing, and implementing gradient transformations that make deep learning training more stable and efficient.
           </p>
           <div class="hero-actions">
             <a class="button" href="publications.html#foam">ICML 2026 paper</a>
@@ -88,9 +88,9 @@
           <ul class="chip-list" aria-label="At a glance">
             <li class="chip">KENTECH</li>
             <li class="chip">Ph.D. Student</li>
-            <li class="chip">Mathematical Optimization</li>
-            <li class="chip">Deep Learning Theory</li>
+            <li class="chip">Good Optimizer Question</li>
             <li class="chip">Preconditioned Optimization</li>
+            <li class="chip">AdamW · Shampoo · SOAP</li>
           </ul>
         </div>
 
@@ -98,7 +98,7 @@
           <p class="panel-kicker">Current highlight</p>
           <h2 class="panel-title">FOAM accepted to ICML 2026</h2>
           <p class="panel-text">
-            FOAM studies staleness in Shampoo through inverse-preconditioner error and adapts both damping and eigendecomposition frequency to improve the wall-clock/performance trade-off.
+            FOAM studies Shampoo through inverse-preconditioner error and treats damping and eigendecomposition frequency as control variables for preserving preconditioner quality under computational constraints.
           </p>
           <dl class="detail-list">
             <div>
@@ -119,7 +119,7 @@
 
       <div class="container hero-stats">
         <article class="stat-card" data-reveal>
-          <span class="stat-value" data-counter="3">3</span>
+          <span class="stat-value" data-counter="2">2</span>
           <span class="stat-label">publications listed</span>
         </article>
         <article class="stat-card" data-reveal>
@@ -165,13 +165,6 @@
               <strong>Dimension-Independent Convergence Rate for AdaGrad with Heavy-Ball Momentum</strong> published in <em>Mathematics</em>.
             </span>
           </li>
-          <li class="news-item">
-            <span class="news-date">2023</span>
-            <span class="news-content">
-              <span class="news-badge news-badge--talk">Workshop</span>
-              Presented <strong>Almost Sure Last Iterate Convergence of Sharpness-Aware Minimization</strong> at an ICLR workshop.
-            </span>
-          </li>
         </ol>
       </div>
     </section>
@@ -180,28 +173,28 @@
       <div class="container">
         <div class="section-header" data-reveal>
           <p class="section-eyebrow">Overview</p>
-          <h2 class="section-title">A research profile built around theory, evidence, and useful algorithms.</h2>
+          <h2 class="section-title">A research profile centered on one question: what makes a good optimizer?</h2>
           <p class="section-subtitle">
-            I work at the intersection of mathematical optimization and empirical machine learning, focusing on optimizer behavior that remains meaningful under realistic training costs.
+            I approach this question through preconditioning: how curvature, covariance, noise geometry, and loss-landscape structure should transform gradients in modern deep learning.
           </p>
         </div>
 
         <div class="grid grid-3">
           <article class="card feature-card" data-reveal>
             <h3>Research vision</h3>
-            <p>Develop optimizer criteria beyond benchmark wins alone: convergence behavior, robustness, wall-clock cost, memory overhead, and implementation reliability.</p>
+            <p>Understand optimizer quality through the design of preconditioners that reshape difficult training geometry into more stable and efficient update directions.</p>
             <a class="text-link" href="research.html">Read research statement</a>
           </article>
 
           <article class="card feature-card" data-reveal>
             <h3>Selected work</h3>
-            <p>Recent work studies stale Shampoo, adaptive damping, dimension-independent AdaGrad with momentum, and last-iterate convergence of SAM.</p>
+            <p>Recent work connects stale Shampoo, adaptive damping, AdaGrad-style scaling, and numerical preconditioner design to the broader goal of building better optimizers.</p>
             <a class="text-link" href="publications.html">Browse publications</a>
           </article>
 
           <article class="card feature-card" data-reveal>
             <h3>Collaboration</h3>
-            <p>I am especially interested in optimizer theory, adaptive and second-order methods, spectral analysis, and practical training improvements for large-scale models.</p>
+            <p>I am especially interested in preconditioned optimizers, Hessian/Fisher/covariance/Gauss–Newton analysis, numerical linear algebra, and loss-landscape diagnostics.</p>
             <a class="text-link" href="contact.html">Start a conversation</a>
           </article>
         </div>
@@ -221,7 +214,7 @@
             <div class="timeline-body">
               <h3>Ph.D. in Artificial Intelligence</h3>
               <p>Korea Institute of Energy Technology, supervised by <a href="https://real.kentech.ac.kr/" target="_blank" rel="noopener noreferrer">Prof. Sumyeong Ahn</a>.</p>
-              <p>Focus: scalable mathematical optimization for neural network training, including adaptive preconditioning and second-order structure.</p>
+              <p>Focus: preconditioned optimization for neural network training, including AdamW/Shampoo/SOAP-style methods, curvature diagnostics, and scalable matrix computation.</p>
             </div>
           </article>
 
@@ -241,25 +234,25 @@
       <div class="container">
         <div class="section-header" data-reveal>
           <p class="section-eyebrow">Focus areas</p>
-          <h2 class="section-title">Themes that shape my research program.</h2>
+          <h2 class="section-title">A unified research map around preconditioner design.</h2>
         </div>
 
         <div class="grid grid-4">
           <article class="card mini-card" data-reveal>
-            <h3>Adaptive methods</h3>
-            <p>AdaGrad, Adam-family methods, momentum dynamics, and stability-sensitive hyperparameters.</p>
+            <h3>Preconditioned optimizers</h3>
+            <p>AdamW, Shampoo, SOAP, and related methods that transform gradients using diagonal, Kronecker, or spectral structure.</p>
           </article>
           <article class="card mini-card" data-reveal>
-            <h3>Preconditioning</h3>
-            <p>Shampoo-style Kronecker structure, stale statistics, damping, and inverse-root computation.</p>
+            <h3>Curvature and covariance</h3>
+            <p>Hessian, Fisher, Gauss–Newton, gradient covariance, and empirical second-moment analyses for optimizer design.</p>
           </article>
           <article class="card mini-card" data-reveal>
-            <h3>Stochastic convergence</h3>
-            <p>Almost sure behavior, last-iterate analysis, and trajectory-level optimization guarantees.</p>
+            <h3>Efficient matrix computation</h3>
+            <p>Inverse roots, eigendecomposition frequency, stale reuse, damping, and low-cost numerical routines for scalable preconditioning.</p>
           </article>
           <article class="card mini-card" data-reveal>
-            <h3>Training cost</h3>
-            <p>Wall-clock efficiency, failure modes, memory overhead, and reproducible optimizer comparisons.</p>
+            <h3>Loss-landscape diagnostics</h3>
+            <p>Ill-conditioning, anisotropy, eigenspace drift, and training barriers that motivate targeted preconditioner design.</p>
           </article>
         </div>
       </div>
@@ -296,10 +289,11 @@
     },
     "knowsAbout": [
       "Mathematical optimization",
-      "Machine learning optimization",
-      "Adaptive methods",
       "Preconditioned optimization",
-      "Stochastic convergence"
+      "AdamW, Shampoo, and SOAP optimizers",
+      "Hessian, Fisher, covariance, and Gauss-Newton analysis",
+      "Numerical linear algebra for scalable preconditioning",
+      "Loss landscape analysis"
     ],
     "sameAs": [
       "https://scholar.google.com/citations?user=2K1cMuQAAAAJ&hl=ko",
