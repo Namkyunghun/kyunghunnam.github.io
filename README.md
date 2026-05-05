@@ -1,16 +1,16 @@
-# Personal Website — ICML 2026 Upgrade
+# Personal Website — Preconditioned Optimizer Research Update
 
 A static personal academic website for Kyunghun Nam, designed for GitHub Pages and implemented with vanilla HTML/CSS/JS.
 
 ## Main updates
 
-- Corrected Ph.D. start timing to **September 2025**.
-- Added **FOAM: Frequency and Operator Error-Based Adaptive Damping Method for Reducing Staleness-Oriented Error for Shampoo** as an **ICML 2026 accepted paper**.
-- Added local PDF at `assets/papers/FOAM_ICML2026.pdf` and linked the official code repository: `https://github.com/REAL-KENTECH/FOAM.git`.
-- Updated homepage news, hero highlight, publication counts, publication filtering, BibTeX, and JSON-LD metadata.
-- Added a stronger Research page with selected projects, including FOAM, AdaGrad with heavy-ball momentum, SAM, and preconditioner spectral analysis.
-- Added `sitemap.xml` and `404.html`.
-- Preserved the no-build static deployment model.
+- Unified the research narrative around the question: **“What makes a good optimizer?”**
+- Reframed the research agenda around the working hypothesis that **good preconditioners can make good optimizers**.
+- Updated the homepage and Research page to emphasize **preconditioned optimization methods** such as AdamW, Shampoo, SOAP, and related optimizer families.
+- Added a coherent analysis pipeline: loss-landscape diagnosis → Hessian/Fisher/covariance/Gauss–Newton analysis → preconditioner design → low-cost numerical implementation → optimizer validation.
+- Removed the prior workshop-topic material from the homepage, Research page, and Publications page.
+- Removed scattered topics such as training-stack layers, PEFT, automation, and generic stability recipes from the main research framing.
+- Preserved the ICML 2026 FOAM paper, local PDF link, publication filtering/search behavior, JavaScript behavior, CSS styling, sitemap, and static GitHub Pages deployment model.
 
 ## Files
 
@@ -61,5 +61,5 @@ No build step is required.
 ## Recommended next manual additions
 
 - Add an updated CV PDF once available and link it from the hero/contact sections.
-- Replace `assets/og-card.svg` with a `1200x630` PNG/JPG social preview image if you want more robust LinkedIn/Twitter previews.
 - Add ORCID, OpenReview, Semantic Scholar, and DBLP links when ready.
+- Consider adding a short downloadable research statement once the preconditioner-centered agenda is finalized.
