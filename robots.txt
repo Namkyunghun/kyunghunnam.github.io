@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://kyunghunnam.github.io/sitemap.xml
+Sitemap: https://namkyunghun.github.io/kyunghunnam.github.io/sitemap.xml

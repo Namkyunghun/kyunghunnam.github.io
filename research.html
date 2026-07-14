@@ -3,331 +3,112 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Research statement of Kyunghun Nam on what makes a good optimizer, preconditioned optimization methods, Hessian/Fisher/covariance/Gauss-Newton analysis, efficient preconditioner computation, and loss-landscape diagnostics.">
+  <meta name="description" content="Kyunghun Nam's research on Transformer block Hessians, gradient second moments, AdamW–Shampoo spectra, and efficient matrix functions.">
   <meta name="author" content="Kyunghun Nam">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="theme-color" content="#f4f7fb">
   <meta name="color-scheme" content="light dark">
+  <meta property="og:site_name" content="Kyunghun Nam — Optimization for AI">
+  <meta property="og:locale" content="en_US">
   <meta property="og:title" content="Research — Kyunghun Nam">
-  <meta property="og:description" content="Research statement of Kyunghun Nam on what makes a good optimizer, preconditioned optimization methods, Hessian/Fisher/covariance/Gauss-Newton analysis, efficient preconditioner computation, and loss-landscape diagnostics.">
+  <meta property="og:description" content="Kyunghun Nam's research on Transformer block Hessians, gradient second moments, AdamW–Shampoo spectra, and efficient matrix functions.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://kyunghunnam.github.io/research.html">
-  <meta property="og:image" content="https://kyunghunnam.github.io/assets/og-card.svg">
-  <meta property="og:image:alt" content="Kyunghun Nam — Optimization Researcher in AI">
+  <meta property="og:url" content="https://namkyunghun.github.io/kyunghunnam.github.io/research.html">
+  <meta property="og:image" content="https://namkyunghun.github.io/kyunghunnam.github.io/assets/og-card.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Kyunghun Nam — matrix-aware optimization researcher">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Research — Kyunghun Nam">
-  <meta name="twitter:description" content="Research statement of Kyunghun Nam on what makes a good optimizer, preconditioned optimization methods, Hessian/Fisher/covariance/Gauss-Newton analysis, efficient preconditioner computation, and loss-landscape diagnostics.">
-  <meta name="twitter:image" content="https://kyunghunnam.github.io/assets/og-card.svg">
-  <meta name="twitter:image:alt" content="Kyunghun Nam — Optimization Researcher in AI">
-  <link rel="canonical" href="https://kyunghunnam.github.io/research.html">
+  <meta name="twitter:description" content="Kyunghun Nam's research on Transformer block Hessians, gradient second moments, AdamW–Shampoo spectra, and efficient matrix functions.">
+  <meta name="twitter:image" content="https://namkyunghun.github.io/kyunghunnam.github.io/assets/og-card.png">
+  <meta name="twitter:image:alt" content="Kyunghun Nam — matrix-aware optimization researcher">
+  <link rel="canonical" href="https://namkyunghun.github.io/kyunghunnam.github.io/research.html">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon-192.png" sizes="192x192" type="image/png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
   <script>
     (() => {
+      document.documentElement.classList.add('js');
       let stored = null;
       try { stored = localStorage.getItem('theme'); } catch {}
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
       document.documentElement.dataset.theme = stored || (prefersDark ? 'dark' : 'light');
     })();
   </script>
+  <link rel="stylesheet" href="styles.css">
   <title>Research — Kyunghun Nam</title>
 </head>
-
 <body class="page-research">
-  <div class="progress-bar" aria-hidden="true"></div>
-  <a href="#main" class="skip-link">Skip to content</a>
-  <header class="site-header site-header--compact">
-    <nav class="site-nav" aria-label="Primary">
+  <div class="progress-bar" aria-hidden="true"></div><a href="#main" class="skip-link">Skip to content</a>
+  <header class="site-header site-header--compact"><nav class="site-nav" aria-label="Primary">
       <div class="container nav-inner">
         <a class="brand" href="index.html" aria-label="Kyunghun Nam home">
           <span class="brand-mark" aria-hidden="true">KN</span>
-          <span class="brand-copy">
-            <strong>Kyunghun Nam</strong>
-            <span>Optimization for AI</span>
-          </span>
+          <span class="brand-copy"><strong>Kyunghun Nam</strong><span>Optimization for AI</span></span>
         </a>
-
         <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
           <span class="sr-only">Toggle navigation</span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
         </button>
-
         <div class="nav-panel" id="site-menu">
-          <div class="nav-links">
-            <a href="index.html">About</a>
-            <a href="research.html" class="is-current" aria-current="page">Research</a>
-            <a href="publications.html">Publications</a>
-            <a href="contact.html">Contact</a>
-          </div>
+          <div class="nav-links"><a href="index.html">About</a><a href="research.html" class="is-current" aria-current="page">Research</a><a href="publications.html">Publications</a><a href="notes.html">Notes</a><a href="contact.html">Contact</a></div>
           <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch theme">
-            <span class="theme-toggle__icon" aria-hidden="true">◐</span>
-            <span class="theme-toggle__label">Theme</span>
+            <span class="theme-toggle__icon" aria-hidden="true">◐</span><span class="theme-toggle__label">Theme</span>
           </button>
         </div>
       </div>
     </nav>
-
-    <section class="page-hero">
-      <div class="container page-hero__inner">
-        <div data-reveal>
-          <p class="eyebrow">Research statement</p>
-          <h1 class="page-title">What makes a good optimizer?</h1>
-          <p class="page-description">
-            I study this question through preconditioned optimization. My current view is that a good preconditioner can make a good optimizer by reshaping gradients according to curvature, covariance, noise geometry, and loss-landscape structure.
-          </p>
-        </div>
-
-        <div class="hero-stats hero-stats--compact">
-          <article class="stat-card" data-reveal>
-            <span class="stat-value">ICML</span>
-            <span class="stat-label">2026 FOAM accepted paper</span>
-          </article>
-          <article class="stat-card" data-reveal>
-            <span class="stat-value">3</span>
-            <span class="stat-label">optimizer families: AdamW, Shampoo, SOAP</span>
-          </article>
-          <article class="stat-card" data-reveal>
-            <span class="stat-value">4</span>
-            <span class="stat-label">analysis objects: Hessian, Fisher, covariance, Gauss–Newton</span>
-          </article>
-        </div>
+    <section class="page-hero"><div class="container page-hero__inner"><div data-reveal><p class="eyebrow">Research statement</p><h1 class="page-title">What makes a good matrix-aware optimizer?</h1><p class="page-description">My working view is that optimizer quality is a joint property of geometry, numerical linear algebra, and training dynamics. A useful method must capture the right blockwise structure, apply it through a stable preconditioner, and compute the required matrix functions cheaply enough for real training.</p></div>
+      <div class="publication-stats hero-stats--compact">
+        <article class="stat-card" data-reveal><span class="stat-value" data-counter="2">2</span><span class="stat-label">optimizer families under direct study: AdamW and Shampoo</span></article>
+        <article class="stat-card" data-reveal><span class="stat-value" data-counter="2">2</span><span class="stat-label">primary objects: Hessian and gradient second moment</span></article>
+        <article class="stat-card" data-reveal><span class="stat-value" data-counter="3">3</span><span class="stat-label">numerical concerns: accuracy, stability, throughput</span></article>
       </div>
-    </section>
+    </div></section>
   </header>
-
   <main id="main">
-    <section class="section">
-      <div class="container">
-        <div class="callout callout-primary" data-reveal>
-          <p class="callout-label">Working hypothesis</p>
-          <h2>A good optimizer is largely a good preconditioner.</h2>
-          <p>
-            My central research question is: <strong>what makes a good optimizer?</strong> I currently study this through the hypothesis that optimizer quality depends strongly on how well a method constructs and applies a preconditioner: a transformation that rescales gradients using curvature, covariance, noise, or structured second-moment information so that training becomes better conditioned, more stable, and more computationally efficient.
-          </p>
-          <ul class="chip-list" aria-label="Working definition keywords">
-            <li class="chip">AdamW · Shampoo · SOAP</li>
-            <li class="chip">Hessian / Fisher / covariance</li>
-            <li class="chip">Gauss–Newton structure</li>
-            <li class="chip">low-cost matrix computation</li>
-            <li class="chip">loss-landscape diagnostics</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+    <section class="section"><div class="container"><div class="callout callout-primary" data-reveal><p class="callout-label">Working thesis</p><h2>Optimizer quality is not determined by the update formula alone.</h2><p>A matrix-aware optimizer succeeds only when three components align: the statistical or curvature structure encoded by its preconditioner, the numerical quality of the matrix functions used to realize that preconditioner, and the resulting dynamics across optimization steps. This is the lens connecting my theory, numerical, and empirical work.</p><ul class="chip-list" aria-label="Working thesis components"><li class="chip">blockwise geometry</li><li class="chip">preconditioned Hessian</li><li class="chip">preconditioned second moment</li><li class="chip">matrix-function error</li><li class="chip">training dynamics</li></ul></div></div></section>
 
-    <section class="section section-muted">
-      <div class="container">
-        <div class="section-header" data-reveal>
-          <p class="section-eyebrow">Selected directions</p>
-          <h2 class="section-title">Concrete problems under the single theme of preconditioner design.</h2>
-        </div>
+    <section class="section section-muted"><div class="container"><div class="section-header" data-reveal><p class="section-eyebrow">Current directions</p><h2 class="section-title">A research program organized around explicit structure.</h2></div><div class="grid grid-2 align-start">
+      <article id="exact-structure" class="project-card project-card--featured card" data-reveal><div class="badge-group"><span class="badge badge--conference">Theory</span><span class="badge badge--neutral">Current project</span></div><h3>Exact block curvature and second moments in modern Transformers</h3><p>Build a mathematically complete decoder-only Transformer model including causal masking, Pre-RMSNorm, RoPE, GQA, output projection, SwiGLU, cross-entropy, and residual scaling. Derive explicit matrix formulas for parameter-block Hessians and stochastic-gradient second moments for single samples and mini-batches.</p><ul class="tag-list"><li class="tag">explicit matrix formulas</li><li class="tag">block Hessian</li><li class="tag">gradient outer products</li><li class="tag">mini-batch structure</li></ul></article>
+      <article id="preconditioned-spectra" class="project-card card" data-reveal><h3>How AdamW and Shampoo reshape spectra</h3><p>Analyze both the preconditioned Hessian and the preconditioned stochastic-gradient second moment. The target is a blockwise account of condition numbers, dominant eigenspaces, scale heterogeneity, and the mismatch between curvature and gradient statistics.</p><ul class="tag-list"><li class="tag">AdamW</li><li class="tag">Shampoo</li><li class="tag">block heterogeneity</li><li class="tag">spectral alignment</li></ul></article>
+      <article id="matrix-functions" class="project-card card" data-reveal><h3>GPU-efficient matrix functions</h3><p>Study inverse roots, eigendecompositions, polynomial and Newton-type iterations, batched block computation, and refresh schedules. The objective is not merely lower kernel time, but lower total training time without materially changing the intended preconditioner or destabilizing the optimization trajectory.</p><ul class="tag-list"><li class="tag">inverse roots</li><li class="tag">EVD</li><li class="tag">polynomial iterations</li><li class="tag">GPU utilization</li></ul></article>
+      <article id="foam-project" class="project-card card" data-reveal><div class="badge-group"><span class="badge badge--acceptance">ICML 2026</span><span class="badge badge--conference">Shampoo</span></div><h3>FOAM: damping and refresh control under staleness</h3><p>FOAM studies stale Shampoo preconditioners through convergence, stability, and inverse-preconditioner error. It adapts damping and eigendecomposition frequency based on a proxy for the staleness-oriented error.</p><div class="publication-links"><a class="button small" href="publications.html#foam">Publication</a><a class="button small secondary" href="https://github.com/REAL-KENTECH/FOAM" target="_blank" rel="noopener noreferrer">Code ↗</a></div></article>
+    </div></div></section>
 
-        <div class="grid grid-2">
-          <article class="card project-card project-card--featured" id="foam-project" data-reveal>
-            <div class="badge-group">
-              <span class="badge badge--conference">ICML 2026</span>
-              <span class="badge badge--neutral">Shampoo</span>
-            </div>
-            <h3>FOAM: preserving preconditioner quality under staleness</h3>
-            <p>
-              FOAM studies inverse-preconditioner error in Shampoo and uses a proxy-driven controller to adapt damping and eigendecomposition refreshes. It treats computational frequency and preconditioner fidelity as coupled design variables.
-            </p>
-            <ul class="tag-list" aria-label="FOAM topics">
-              <li class="tag">stale preconditioning</li>
-              <li class="tag">inverse-root error</li>
-              <li class="tag">adaptive damping</li>
-              <li class="tag">EVD frequency</li>
-            </ul>
-            <div class="publication-links">
-              <a class="button small" href="publications.html#foam">Publication</a>
-              <a class="button small secondary" href="https://github.com/REAL-KENTECH/FOAM.git" target="_blank" rel="noopener noreferrer">Code ↗</a>
-            </div>
-          </article>
+    <section class="section"><div class="container"><div class="section-header" data-reveal><p class="section-eyebrow">Theoretical objects</p><h2 class="section-title">Curvature and gradient statistics must be analyzed together.</h2><p class="section-subtitle">A preconditioner changes the local optimization geometry and the stochastic update distribution simultaneously. Studying only one of them can give a misleading account of stability or efficiency.</p></div><div class="grid grid-3">
+      <article class="pillar-card card" data-reveal><h3>Block Hessian</h3><p>Local curvature determines deterministic contraction, stiffness, and the spectral difficulty seen by each parameter block.</p></article>
+      <article class="pillar-card card" data-reveal><h3>Gradient second moment</h3><p>The uncentered second moment combines mean-gradient signal and stochastic variability, directly matching the statistics accumulated by adaptive methods.</p></article>
+      <article class="pillar-card card" data-reveal><h3>Joint preconditioning</h3><p>The transformed pair reveals whether a preconditioner improves conditioning while amplifying noise, or suppresses noise while distorting useful curvature directions.</p></article>
+    </div></div></section>
 
-          <article class="card project-card" data-reveal>
-            <h3>Preconditioned optimizer families</h3>
-            <p>
-              Compare and analyze AdamW, Shampoo, SOAP, and related methods as different ways of constructing a usable preconditioner: diagonal scaling, Kronecker structure, eigenspace rotation, or hybrid approximations.
-            </p>
-            <ul class="tag-list" aria-label="Optimizer family topics">
-              <li class="tag">AdamW</li>
-              <li class="tag">Shampoo</li>
-              <li class="tag">SOAP</li>
-              <li class="tag">structured preconditioning</li>
-            </ul>
-          </article>
+    <section class="section section-muted"><div class="container"><div class="section-header" data-reveal><p class="section-eyebrow">Workflow</p><h2 class="section-title">From an exact model to a measured training effect.</h2></div><div class="timeline timeline--stack">
+      <article class="timeline-item card" data-reveal><div class="timeline-year">Step 1</div><div class="timeline-body"><h3>Specify the architecture exactly</h3><p>Fix tensor orientations, dimensions, normalization placement, attention grouping, positional rotations, residual paths, nonlinearities, and loss.</p></div></article>
+      <article class="timeline-item card" data-reveal><div class="timeline-year">Step 2</div><div class="timeline-body"><h3>Derive blockwise formulas</h3><p>Compute Jacobians, Hessian blocks, gradient outer products, and mini-batch decompositions without hiding architecture-dependent terms.</p></div></article>
+      <article class="timeline-item card" data-reveal><div class="timeline-year">Step 3</div><div class="timeline-body"><h3>Apply the optimizer geometry</h3><p>Express AdamW and Shampoo transformations consistently and form the corresponding preconditioned curvature and second-moment operators.</p></div></article>
+      <article class="timeline-item card" data-reveal><div class="timeline-year">Step 4</div><div class="timeline-body"><h3>Control matrix-function error</h3><p>Track approximation error, damping, staleness, precision, and refresh frequency as parts of the optimizer rather than isolated implementation details.</p></div></article>
+      <article class="timeline-item card" data-reveal><div class="timeline-year">Step 5</div><div class="timeline-body"><h3>Validate the full dynamics</h3><p>Measure spectral heterogeneity, convergence, stability, wall-clock time, memory, and sensitivity on Transformer and vision workloads.</p></div></article>
+    </div></div></section>
 
-          <article class="card project-card" data-reveal>
-            <h3>Curvature, covariance, and noise geometry</h3>
-            <p>
-              Use Hessian, Fisher, covariance, and Gauss–Newton analyses to identify which geometric or statistical structure a preconditioner should capture, and which structure is too expensive or too noisy to use directly.
-            </p>
-            <ul class="tag-list" aria-label="Curvature topics">
-              <li class="tag">Hessian</li>
-              <li class="tag">Fisher</li>
-              <li class="tag">Covariance</li>
-              <li class="tag">Gauss–Newton</li>
-            </ul>
-          </article>
+    <section class="section"><div class="container grid grid-2 align-start"><article class="card info-card" data-reveal><p class="section-eyebrow">Current questions</p><h2 class="subsection-title">Questions guiding the work</h2><ul class="bullets"><li>Which architectural operations create the largest blockwise curvature and second-moment disparities?</li><li>When do AdamW and Shampoo reduce the same heterogeneity, and when do they act on fundamentally different structures?</li><li>How should curvature and gradient second moments be compared after preconditioning?</li><li>How much matrix-function approximation error can training tolerate before the optimizer changes qualitatively?</li><li>Can refresh schedules and damping be controlled from observable proxies rather than fixed heuristics?</li></ul></article><article class="card info-card" data-reveal><p class="section-eyebrow">Field perspective</p><h2 class="subsection-title">The matrix-function bottleneck</h2><p>Recent work such as DASH and PRISM reinforces a broader point: matrix-aware optimization increasingly depends on GPU-efficient inverse roots and orthogonalization. My interest is in connecting those numerical kernels to the geometry and dynamics they are supposed to preserve.</p><div class="publication-links"><a class="button small" href="notes.html#beyond-adamw">Read perspective</a><a class="button small secondary" href="https://arxiv.org/abs/2602.02016" target="_blank" rel="noopener noreferrer">DASH ↗</a><a class="button small ghost" href="https://arxiv.org/abs/2601.22137" target="_blank" rel="noopener noreferrer">PRISM ↗</a></div></article></div></section>
 
-          <article class="card project-card" data-reveal>
-            <h3>Loss-landscape diagnostics for optimizer design</h3>
-            <p>
-              Analyze ill-conditioning, anisotropy, eigenspace drift, and gradient-noise structure to understand what makes training difficult, then design preconditioners that directly mitigate those bottlenecks.
-            </p>
-            <ul class="tag-list" aria-label="Landscape topics">
-              <li class="tag">ill-conditioning</li>
-              <li class="tag">eigenspace drift</li>
-              <li class="tag">spectral analysis</li>
-              <li class="tag">training stability</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="section-header" data-reveal>
-          <p class="section-eyebrow">Research themes</p>
-          <h2 class="section-title">The main topics all serve the same optimizer question.</h2>
-          <p class="section-subtitle">Each theme supports the design of preconditioned optimization methods that are geometrically meaningful, computationally feasible, and useful in real training.</p>
-        </div>
-
-        <div class="grid grid-3">
-          <article class="card pillar-card" data-reveal>
-            <h3>Preconditioner construction</h3>
-            <p>Study how diagonal, block, Kronecker, low-rank, and spectral approximations turn gradient information into effective update directions.</p>
-          </article>
-          <article class="card pillar-card" data-reveal>
-            <h3>Curvature and statistical structure</h3>
-            <p>Analyze Hessian, Fisher, Gauss–Newton, empirical covariance, and gradient second moments to decide what a preconditioner should approximate.</p>
-          </article>
-          <article class="card pillar-card" data-reveal>
-            <h3>Numerical efficiency</h3>
-            <p>Reduce the cost of inverse roots, eigendecompositions, matrix updates, damping schedules, and stale-preconditioner reuse.</p>
-          </article>
-          <article class="card pillar-card" data-reveal>
-            <h3>Loss-landscape difficulty</h3>
-            <p>Diagnose ill-conditioning, anisotropic curvature, eigenspace drift, and noisy gradient geometry that slow training.</p>
-          </article>
-          <article class="card pillar-card" data-reveal>
-            <h3>Stability and robustness</h3>
-            <p>Understand when preconditioning destabilizes training and how damping, normalization, clipping, and refresh rules can control that risk.</p>
-          </article>
-          <article class="card pillar-card" data-reveal>
-            <h3>Training-cost validation</h3>
-            <p>Evaluate whether a better preconditioner actually improves wall-clock performance, memory use, sensitivity, and reproducibility.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-muted">
-      <div class="container">
-        <div class="section-header" data-reveal>
-          <p class="section-eyebrow">From diagnosis to design</p>
-          <h2 class="section-title">The research workflow is organized around preconditioning.</h2>
-        </div>
-
-        <div class="timeline timeline--stack">
-          <article class="timeline-item" data-reveal>
-            <span class="timeline-year">Step 1</span>
-            <div class="card timeline-body">
-              <h3>Diagnose why training is hard</h3>
-              <p>Start from loss-landscape and gradient diagnostics: ill-conditioning, anisotropy, eigenspace drift, stochastic noise, and unstable update scales.</p>
-            </div>
-          </article>
-          <article class="timeline-item" data-reveal>
-            <span class="timeline-year">Step 2</span>
-            <div class="card timeline-body">
-              <h3>Identify useful structure</h3>
-              <p>Use Hessian, Fisher, covariance, Gauss–Newton, and second-moment analyses to isolate structure that can plausibly improve optimization.</p>
-            </div>
-          </article>
-          <article class="timeline-item" data-reveal>
-            <span class="timeline-year">Step 3</span>
-            <div class="card timeline-body">
-              <h3>Design the preconditioner</h3>
-              <p>Translate the structure into an implementable gradient transformation: diagonal AdamW-style scaling, Kronecker Shampoo factors, SOAP-style eigenspaces, or hybrid approximations.</p>
-            </div>
-          </article>
-          <article class="timeline-item" data-reveal>
-            <span class="timeline-year">Step 4</span>
-            <div class="card timeline-body">
-              <h3>Make the computation cheap enough</h3>
-              <p>Reduce the cost of inverse roots, eigendecompositions, refresh schedules, damping, factor updates, and stale reuse so that the method remains practical.</p>
-            </div>
-          </article>
-          <article class="timeline-item" data-reveal>
-            <span class="timeline-year">Step 5</span>
-            <div class="card timeline-body">
-              <h3>Validate optimizer quality</h3>
-              <p>Check whether the preconditioner improves convergence, stability, hyperparameter sensitivity, wall-clock time, and memory behavior rather than only one isolated metric.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="grid grid-2 align-start">
-          <article class="card" data-reveal>
-            <p class="section-eyebrow">Methodology</p>
-            <h2 class="subsection-title">Mathematical analysis paired with numerical design</h2>
-            <p>I want optimizer theory, matrix computation, and empirical diagnostics to constrain each other. A preconditioner should be mathematically motivated, numerically affordable, and visibly useful in real training runs.</p>
-            <ul class="checklist">
-              <li>State what geometry or statistic the preconditioner is meant to approximate.</li>
-              <li>Analyze Hessian, Fisher, covariance, Gauss–Newton, or second-moment structure explicitly.</li>
-              <li>Track the computational cost of inverse roots, eigendecompositions, damping, and refresh rules.</li>
-              <li>Connect loss-landscape diagnostics to concrete preconditioner design choices.</li>
-            </ul>
-          </article>
-
-          <article class="card" data-reveal>
-            <p class="section-eyebrow">Current questions</p>
-            <h2 class="subsection-title">Questions guiding my reading and experimentation</h2>
-            <ul class="bullets">
-              <li>What mathematical property makes a preconditioner good for deep learning?</li>
-              <li>When are diagonal, Kronecker, spectral, or covariance-based preconditioners worth their cost?</li>
-              <li>How can Hessian/Fisher/Gauss–Newton spectra explain difficult training regimes?</li>
-              <li>How can inverse-root and eigendecomposition costs be reduced without destroying preconditioner fidelity?</li>
-              <li>How should damping, staleness, and eigenspace refreshes be controlled automatically?</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-muted">
-      <div class="container">
-        <div class="cta-banner card" data-reveal>
-          <div>
-            <p class="section-eyebrow">Collaboration</p>
-            <h2 class="cta-title">Interested in preconditioned optimization or curvature diagnostics?</h2>
-            <p class="cta-text">I welcome collaborations on AdamW/Shampoo/SOAP-style methods, Hessian/Fisher/covariance/Gauss–Newton analysis, efficient matrix computation, and loss-landscape diagnostics for optimizer design.</p>
-          </div>
-          <div class="cta-actions">
-            <a class="button" href="contact.html">Contact me</a>
-            <a class="button secondary" href="publications.html">See publications</a>
-          </div>
-        </div>
-      </div>
-    </section>
+    <section class="section section-muted"><div class="container"><div class="cta-banner card" data-reveal><div><p class="section-eyebrow">Collaboration</p><h2 class="cta-title">Interested in Transformer curvature, preconditioned spectra, or matrix-function systems?</h2><p class="cta-text">I welcome technically focused conversations connecting optimization theory, numerical linear algebra, and large-scale training.</p></div><div class="cta-actions"><a class="button" href="contact.html">Contact me</a><a class="button secondary" href="publications.html">See publications</a></div></div></div></section>
   </main>
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>&copy; <span class="current-year">2026</span> Kyunghun Nam. Built for clarity, accessibility, and research collaboration.</p>
+      <p>&copy; <span class="current-year">2026</span> Kyunghun Nam. Research in matrix-aware optimization and numerical linear algebra.</p>
       <div class="footer-links">
         <a href="mailto:baptist0214@gmail.com">Email</a>
-        <a href="https://scholar.google.com/citations?user=2K1cMuQAAAAJ&hl=ko" target="_blank" rel="noopener noreferrer">Google Scholar</a>
-        <a href="https://github.com/kyunghunnam" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://scholar.google.com/citations?user=2K1cMuQAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+        <a href="https://github.com/namkyunghun" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="notes.html">Research Notes</a>
         <a href="assets/papers/FOAM_ICML2026.pdf" target="_blank" rel="noopener noreferrer">FOAM PDF</a>
         <span class="footer-shortcuts" aria-label="Keyboard shortcuts"><kbd>?</kbd> shortcuts</span>
       </div>
@@ -336,5 +117,4 @@
   <button class="back-to-top" type="button" aria-label="Back to top">↑</button>
   <div class="toast-region" aria-live="polite" aria-atomic="true"></div>
   <script src="common.js" defer></script>
-</body>
-</html>
+</body></html>

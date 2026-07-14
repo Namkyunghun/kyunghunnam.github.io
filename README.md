@@ -1,16 +1,32 @@
-# Personal Website — Preconditioned Optimizer Research Update
+# Kyunghun Nam — Personal Academic Website
 
-A static personal academic website for Kyunghun Nam, designed for GitHub Pages and implemented with vanilla HTML/CSS/JS.
+Static GitHub Pages website for Kyunghun Nam. The site is implemented in vanilla HTML, CSS, and JavaScript and requires no build step.
 
-## Main updates
+## Research narrative
 
-- Unified the research narrative around the question: **“What makes a good optimizer?”**
-- Reframed the research agenda around the working hypothesis that **good preconditioners can make good optimizers**.
-- Updated the homepage and Research page to emphasize **preconditioned optimization methods** such as AdamW, Shampoo, SOAP, and related optimizer families.
-- Added a coherent analysis pipeline: loss-landscape diagnosis → Hessian/Fisher/covariance/Gauss–Newton analysis → preconditioner design → low-cost numerical implementation → optimizer validation.
-- Removed the prior workshop-topic material from the homepage, Research page, and Publications page.
-- Removed scattered topics such as training-stack layers, PEFT, automation, and generic stability recipes from the main research framing.
-- Preserved the ICML 2026 FOAM paper, local PDF link, publication filtering/search behavior, JavaScript behavior, CSS styling, sitemap, and static GitHub Pages deployment model.
+The website now presents one coherent research pipeline:
+
+1. **Exact model structure** — modern decoder-only Transformers with causal masking, Pre-RMSNorm, RoPE, GQA, output projection, SwiGLU, cross-entropy, and residual scaling.
+2. **Explicit second-order formulas** — parameter-block Hessians and stochastic-gradient second moments for single samples and mini-batches.
+3. **Optimizer transformations** — how AdamW and Shampoo alter blockwise curvature and gradient statistics.
+4. **Matrix-function systems** — inverse roots, eigendecompositions, damping, staleness, refresh schedules, polynomial iterations, and GPU utilization.
+5. **End-to-end validation** — spectral heterogeneity, stability, wall-clock time, memory, and reproducibility.
+
+A new `notes.html` page contains two edited research perspectives supplied by the author:
+
+- Beyond AdamW: Matrix-Aware Optimization and the Matrix-Function Bottleneck
+- ICML 2026 Reflections: Muon and the Return of Diverse Norms
+
+## Technical corrections
+
+- Canonical, Open Graph, sitemap, robots, and manifest paths now match the current GitHub Pages project deployment: `https://namkyunghun.github.io/kyunghunnam.github.io/`.
+- GitHub links now point to `https://github.com/namkyunghun` and the repository link is `https://github.com/namkyunghun/kyunghunnam.github.io`.
+- Social previews use a 1200×630 PNG, with SVG retained as the editable source.
+- The mobile menu, publication list, and core content remain usable when JavaScript is disabled.
+- Reveal and counter animations have `IntersectionObserver` fallbacks.
+- Theme listeners support older browser APIs, clipboard copy has a fallback, and mobile navigation traps focus while open.
+- The 404 page is marked `noindex`.
+- Internal navigation now includes Research Notes and keyboard shortcut `G` then `N`.
 
 ## Files
 
@@ -18,6 +34,7 @@ A static personal academic website for Kyunghun Nam, designed for GitHub Pages a
 index.html
 research.html
 publications.html
+notes.html
 contact.html
 404.html
 styles.css
@@ -25,41 +42,50 @@ common.js
 robots.txt
 sitemap.xml
 site.webmanifest
+.nojekyll
 README.md
+AUDIT.md
 assets/
   favicon.svg
+  favicon-192.png
+  favicon-512.png
+  apple-touch-icon.png
   og-card.svg
+  og-card.png
   papers/
     FOAM_ICML2026.pdf
 ```
 
 ## Deployment
 
-Upload the full directory contents to the root of your GitHub Pages repository:
+Copy all files in this directory to the root of the `main` branch of:
 
 ```text
-your-repo/
-├── index.html
-├── research.html
-├── publications.html
-├── contact.html
-├── 404.html
-├── styles.css
-├── common.js
-├── robots.txt
-├── sitemap.xml
-├── site.webmanifest
-└── assets/
-    ├── favicon.svg
-    ├── og-card.svg
-    └── papers/
-        └── FOAM_ICML2026.pdf
+https://github.com/namkyunghun/kyunghunnam.github.io
 ```
 
-No build step is required.
+GitHub Pages should serve the site from the repository root. No package installation or build command is required.
 
-## Recommended next manual additions
+## Local preview
 
-- Add an updated CV PDF once available and link it from the hero/contact sections.
-- Add ORCID, OpenReview, Semantic Scholar, and DBLP links when ready.
-- Consider adding a short downloadable research statement once the preconditioner-centered agenda is finalized.
+```bash
+python -m http.server 8000
+```
+
+Then open `http://localhost:8000/`.
+
+## Updating the deployment URL
+
+The current canonical base is:
+
+```text
+https://namkyunghun.github.io/kyunghunnam.github.io/
+```
+
+If the site moves to a user-domain repository or custom domain, update the absolute URLs in the HTML metadata, `robots.txt`, `sitemap.xml`, and the JSON-LD blocks.
+
+## Recommended manual additions
+
+- Add a current CV PDF and link it from the homepage and contact page.
+- Add ORCID, DBLP, Semantic Scholar, and OpenReview identifiers when available.
+- Replace or supplement the text-only brand with a professional portrait if desired.

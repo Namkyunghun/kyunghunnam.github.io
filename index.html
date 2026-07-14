@@ -3,39 +3,87 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Personal academic website of Kyunghun Nam, a Ph.D. student in artificial intelligence studying preconditioned optimization methods for deep learning, including AdamW, Shampoo, SOAP, curvature diagnostics, and scalable preconditioner computation.">
+  <meta name="description" content="Kyunghun Nam researches matrix-aware optimization, Transformer curvature, AdamW, Shampoo, and GPU-efficient matrix functions at KENTECH.">
   <meta name="author" content="Kyunghun Nam">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="theme-color" content="#f4f7fb">
   <meta name="color-scheme" content="light dark">
-  <meta property="og:title" content="Kyunghun Nam — Optimization Researcher in AI">
-  <meta property="og:description" content="Personal academic website of Kyunghun Nam, a Ph.D. student in artificial intelligence studying preconditioned optimization methods for deep learning, including AdamW, Shampoo, SOAP, curvature diagnostics, and scalable preconditioner computation.">
+  <meta property="og:site_name" content="Kyunghun Nam — Optimization for AI">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="Kyunghun Nam — Matrix-Aware Optimization Researcher">
+  <meta property="og:description" content="Kyunghun Nam researches matrix-aware optimization, Transformer curvature, AdamW, Shampoo, and GPU-efficient matrix functions at KENTECH.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://kyunghunnam.github.io/">
-  <meta property="og:image" content="https://kyunghunnam.github.io/assets/og-card.svg">
-  <meta property="og:image:alt" content="Kyunghun Nam — Optimization Researcher in AI">
+  <meta property="og:url" content="https://namkyunghun.github.io/kyunghunnam.github.io/">
+  <meta property="og:image" content="https://namkyunghun.github.io/kyunghunnam.github.io/assets/og-card.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Kyunghun Nam — matrix-aware optimization researcher">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Kyunghun Nam — Optimization Researcher in AI">
-  <meta name="twitter:description" content="Personal academic website of Kyunghun Nam, a Ph.D. student in artificial intelligence studying preconditioned optimization methods for deep learning, including AdamW, Shampoo, SOAP, curvature diagnostics, and scalable preconditioner computation.">
-  <meta name="twitter:image" content="https://kyunghunnam.github.io/assets/og-card.svg">
-  <meta name="twitter:image:alt" content="Kyunghun Nam — Optimization Researcher in AI">
-  <link rel="canonical" href="https://kyunghunnam.github.io/">
+  <meta name="twitter:title" content="Kyunghun Nam — Matrix-Aware Optimization Researcher">
+  <meta name="twitter:description" content="Kyunghun Nam researches matrix-aware optimization, Transformer curvature, AdamW, Shampoo, and GPU-efficient matrix functions at KENTECH.">
+  <meta name="twitter:image" content="https://namkyunghun.github.io/kyunghunnam.github.io/assets/og-card.png">
+  <meta name="twitter:image:alt" content="Kyunghun Nam — matrix-aware optimization researcher">
+  <link rel="canonical" href="https://namkyunghun.github.io/kyunghunnam.github.io/">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon-192.png" sizes="192x192" type="image/png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
   <script>
     (() => {
+      document.documentElement.classList.add('js');
       let stored = null;
       try { stored = localStorage.getItem('theme'); } catch {}
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
       document.documentElement.dataset.theme = stored || (prefersDark ? 'dark' : 'light');
     })();
   </script>
-  <title>Kyunghun Nam — Optimization Researcher in AI</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://namkyunghun.github.io/kyunghunnam.github.io/#website",
+      "url": "https://namkyunghun.github.io/kyunghunnam.github.io/",
+      "name": "Kyunghun Nam — Optimization for AI",
+      "description": "Academic website of Kyunghun Nam, a Ph.D. student researching matrix-aware optimization for deep learning.",
+      "inLanguage": "en"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://namkyunghun.github.io/kyunghunnam.github.io/#person",
+      "name": "Kyunghun Nam",
+      "url": "https://namkyunghun.github.io/kyunghunnam.github.io/",
+      "email": "mailto:baptist0214@gmail.com",
+      "jobTitle": "Ph.D. Student in Artificial Intelligence",
+      "affiliation": {
+        "@type": "CollegeOrUniversity",
+        "name": "Korea Institute of Energy Technology (KENTECH)"
+      },
+      "sameAs": [
+        "https://github.com/namkyunghun",
+        "https://scholar.google.com/citations?user=2K1cMuQAAAAJ&hl=en"
+      ],
+      "knowsAbout": [
+        "Matrix-aware optimization",
+        "AdamW",
+        "Shampoo",
+        "Transformer curvature",
+        "Hessian analysis",
+        "Gradient second moments",
+        "Matrix functions",
+        "Numerical linear algebra"
+      ]
+    }
+  ]
+}</script>
+  <title>Kyunghun Nam — Matrix-Aware Optimization Researcher</title>
 </head>
-
 <body class="page-home">
   <div class="progress-bar" aria-hidden="true"></div>
   <a href="#main" class="skip-link">Skip to content</a>
@@ -44,127 +92,66 @@
       <div class="container nav-inner">
         <a class="brand" href="index.html" aria-label="Kyunghun Nam home">
           <span class="brand-mark" aria-hidden="true">KN</span>
-          <span class="brand-copy">
-            <strong>Kyunghun Nam</strong>
-            <span>Optimization for AI</span>
-          </span>
+          <span class="brand-copy"><strong>Kyunghun Nam</strong><span>Optimization for AI</span></span>
         </a>
-
         <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
           <span class="sr-only">Toggle navigation</span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
         </button>
-
         <div class="nav-panel" id="site-menu">
-          <div class="nav-links">
-            <a href="index.html" class="is-current" aria-current="page">About</a>
-            <a href="research.html">Research</a>
-            <a href="publications.html">Publications</a>
-            <a href="contact.html">Contact</a>
-          </div>
+          <div class="nav-links"><a href="index.html" class="is-current" aria-current="page">About</a><a href="research.html">Research</a><a href="publications.html">Publications</a><a href="notes.html">Notes</a><a href="contact.html">Contact</a></div>
           <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch theme">
-            <span class="theme-toggle__icon" aria-hidden="true">◐</span>
-            <span class="theme-toggle__label">Theme</span>
+            <span class="theme-toggle__icon" aria-hidden="true">◐</span><span class="theme-toggle__label">Theme</span>
           </button>
         </div>
       </div>
     </nav>
-
     <section class="hero hero-home">
       <div class="container hero-grid">
         <div class="hero-copy" data-reveal>
-          <p class="eyebrow">Preconditioned optimization for deep learning</p>
+          <p class="eyebrow">Matrix-aware optimization for modern deep learning</p>
           <h1 class="hero-title">Kyunghun Nam</h1>
-          <p class="hero-description">
-            Ph.D. student in artificial intelligence at KENTECH, studying what makes a good optimizer. My current focus is preconditioned optimization: designing, analyzing, and implementing gradient transformations that make deep learning training more stable and efficient.
-          </p>
+          <p class="hero-description">Ph.D. student in artificial intelligence at KENTECH. I study blockwise Hessian and stochastic-gradient second-moment structure in modern Transformers, how AdamW and Shampoo transform that geometry, and how matrix functions can be computed efficiently on GPUs without destabilizing training.</p>
           <div class="hero-actions">
             <a class="button" href="publications.html#foam">ICML 2026 paper</a>
             <a class="button secondary" href="research.html">Research agenda</a>
-            <a class="button ghost" href="contact.html">Contact</a>
+            <a class="button ghost" href="notes.html">Research notes</a>
           </div>
-          <ul class="chip-list" aria-label="At a glance">
-            <li class="chip">KENTECH</li>
-            <li class="chip">Ph.D. Student</li>
-            <li class="chip">Good Optimizer Question</li>
-            <li class="chip">Preconditioned Optimization</li>
-            <li class="chip">AdamW · Shampoo · SOAP</li>
+          <ul class="chip-list" aria-label="Research focus">
+            <li class="chip">KENTECH · Ph.D. Student</li>
+            <li class="chip">AdamW · Shampoo</li>
+            <li class="chip">Transformer curvature</li>
+            <li class="chip">Gradient second moments</li>
+            <li class="chip">Matrix functions</li>
           </ul>
         </div>
-
         <aside class="hero-panel card" data-reveal>
           <p class="panel-kicker">Current highlight</p>
-          <h2 class="panel-title">FOAM accepted to ICML 2026</h2>
-          <p class="panel-text">
-            FOAM studies Shampoo through inverse-preconditioner error and treats damping and eigendecomposition frequency as control variables for preserving preconditioner quality under computational constraints.
-          </p>
+          <h2 class="panel-title">FOAM at ICML 2026</h2>
+          <p class="panel-text">FOAM analyzes staleness in Shampoo and adaptively controls damping and eigendecomposition refresh frequency using a proxy for inverse-preconditioner error.</p>
           <dl class="detail-list">
-            <div>
-              <dt>Paper</dt>
-              <dd><a href="publications.html#foam">Frequency and Operator Error-Based Adaptive Damping Method for Reducing Staleness-Oriented Error for Shampoo</a></dd>
-            </div>
-            <div>
-              <dt>Venue</dt>
-              <dd>International Conference on Machine Learning, 2026</dd>
-            </div>
-            <div>
-              <dt>Code</dt>
-              <dd><a href="https://github.com/REAL-KENTECH/FOAM.git" target="_blank" rel="noopener noreferrer">REAL-KENTECH/FOAM ↗</a></dd>
-            </div>
+            <div><dt>Paper</dt><dd><a href="publications.html#foam">Frequency and Operator Error-Based Adaptive Damping Method for Reducing Staleness-Oriented Error for Shampoo</a></dd></div>
+            <div><dt>Venue</dt><dd>ICML 2026 · PMLR 306 · Seoul</dd></div>
+            <div><dt>Links</dt><dd><a href="https://arxiv.org/abs/2606.02365" target="_blank" rel="noopener noreferrer">arXiv ↗</a> · <a href="https://github.com/REAL-KENTECH/FOAM" target="_blank" rel="noopener noreferrer">Code ↗</a></dd></div>
           </dl>
         </aside>
       </div>
-
       <div class="container hero-stats">
-        <article class="stat-card" data-reveal>
-          <span class="stat-value" data-counter="2">2</span>
-          <span class="stat-label">publications listed</span>
-        </article>
-        <article class="stat-card" data-reveal>
-          <span class="stat-value" data-counter="1">1</span>
-          <span class="stat-label">ICML accepted paper</span>
-        </article>
-        <article class="stat-card" data-reveal>
-          <span class="stat-value" data-counter="2025">2025</span>
-          <span class="stat-label">Ph.D. start year</span>
-        </article>
+        <article class="stat-card" data-reveal><span class="stat-value" data-counter="2">2</span><span class="stat-label">peer-reviewed publications listed</span></article>
+        <article class="stat-card" data-reveal><span class="stat-value" data-counter="1">1</span><span class="stat-label">ICML 2026 paper</span></article>
+        <article class="stat-card" data-reveal><span class="stat-value" data-counter="2025">2025</span><span class="stat-label">Ph.D. start year</span></article>
       </div>
     </section>
   </header>
-
   <main id="main">
     <section class="section">
       <div class="container">
-        <div class="section-header" data-reveal>
-          <p class="section-eyebrow">News &amp; Updates</p>
-          <h2 class="section-title">Recent research activity.</h2>
-        </div>
-
+        <div class="section-header" data-reveal><p class="section-eyebrow">News &amp; Updates</p><h2 class="section-title">Recent research activity.</h2></div>
         <ol class="news-list" data-reveal>
-          <li class="news-item news-item--featured">
-            <span class="news-date">2026</span>
-            <span class="news-content">
-              <span class="news-badge news-badge--acceptance">Accepted</span>
-              <strong>FOAM</strong> accepted to <strong>ICML 2026</strong>. The work proposes adaptive damping and refresh control for Shampoo under stale preconditioners.
-              <a href="publications.html#foam">View publication</a>
-            </span>
-          </li>
-          <li class="news-item">
-            <span class="news-date">09.2025</span>
-            <span class="news-content">
-              <span class="news-badge news-badge--new">New</span>
-              Started Ph.D. studies at KENTECH under the supervision of Prof. Sumyeong Ahn.
-            </span>
-          </li>
-          <li class="news-item">
-            <span class="news-date">2025</span>
-            <span class="news-content">
-              <span class="news-badge news-badge--paper">Paper</span>
-              <strong>Dimension-Independent Convergence Rate for AdaGrad with Heavy-Ball Momentum</strong> published in <em>Mathematics</em>.
-            </span>
-          </li>
+          <li class="news-item news-item--featured"><span class="news-date">07.2026</span><span class="news-content"><span class="news-badge news-badge--acceptance">ICML</span><strong>FOAM</strong> was accepted to ICML 2026 in Seoul. <a href="publications.html#foam">View publication</a></span></li>
+          <li class="news-item"><span class="news-date">07.2026</span><span class="news-content"><span class="news-badge news-badge--talk">Note</span>Published research perspectives on the matrix-function bottleneck and the renewed interest in Muon and non-Euclidean norms. <a href="notes.html">Read notes</a></span></li>
+          <li class="news-item"><span class="news-date">09.2025</span><span class="news-content"><span class="news-badge news-badge--new">New</span>Started Ph.D. studies at KENTECH under the supervision of Prof. Sumyeong Ahn.</span></li>
+          <li class="news-item"><span class="news-date">02.2025</span><span class="news-content"><span class="news-badge news-badge--paper">Paper</span><strong>Dimension-Independent Convergence Rate for AdaGrad with Heavy-Ball Momentum</strong> published in <em>Mathematics</em>.</span></li>
         </ol>
       </div>
     </section>
@@ -172,143 +159,62 @@
     <section class="section section-muted">
       <div class="container">
         <div class="section-header" data-reveal>
-          <p class="section-eyebrow">Overview</p>
-          <h2 class="section-title">A research profile centered on one question: what makes a good optimizer?</h2>
-          <p class="section-subtitle">
-            I approach this question through preconditioning: how curvature, covariance, noise geometry, and loss-landscape structure should transform gradients in modern deep learning.
-          </p>
+          <p class="section-eyebrow">Research program</p>
+          <h2 class="section-title">From optimizer geometry to efficient numerical kernels.</h2>
+          <p class="section-subtitle">The central question is not only which update rule to use, but which structure to capture, how to compute it, and whether the resulting method preserves useful training dynamics.</p>
         </div>
-
         <div class="grid grid-3">
-          <article class="card feature-card" data-reveal>
-            <h3>Research vision</h3>
-            <p>Understand optimizer quality through the design of preconditioners that reshape difficult training geometry into more stable and efficient update directions.</p>
-            <a class="text-link" href="research.html">Read research statement</a>
-          </article>
-
-          <article class="card feature-card" data-reveal>
-            <h3>Selected work</h3>
-            <p>Recent work connects stale Shampoo, adaptive damping, AdaGrad-style scaling, and numerical preconditioner design to the broader goal of building better optimizers.</p>
-            <a class="text-link" href="publications.html">Browse publications</a>
-          </article>
-
-          <article class="card feature-card" data-reveal>
-            <h3>Collaboration</h3>
-            <p>I am especially interested in preconditioned optimizers, Hessian/Fisher/covariance/Gauss–Newton analysis, numerical linear algebra, and loss-landscape diagnostics.</p>
-            <a class="text-link" href="contact.html">Start a conversation</a>
-          </article>
+          <article class="feature-card card" data-reveal><h3>Exact structural analysis</h3><p>Derive explicit block-matrix formulas for Hessian and stochastic-gradient second moments in modern decoder-only Transformers.</p><a class="text-link" href="research.html#exact-structure">Current theory project</a></article>
+          <article class="feature-card card" data-reveal><h3>Preconditioned spectra</h3><p>Study how AdamW and Shampoo transform blockwise curvature, noise geometry, condition numbers, and cross-block heterogeneity.</p><a class="text-link" href="research.html#preconditioned-spectra">Analysis agenda</a></article>
+          <article class="feature-card card" data-reveal><h3>Matrix-function computation</h3><p>Design inverse-root and eigendecomposition routines that are accurate, stable, refresh-aware, and efficient on modern accelerators.</p><a class="text-link" href="research.html#matrix-functions">Numerical agenda</a></article>
         </div>
       </div>
     </section>
 
     <section class="section">
       <div class="container">
-        <div class="section-header" data-reveal>
-          <p class="section-eyebrow">Academic journey</p>
-          <h2 class="section-title">Graduate training centered on optimization and theory-driven AI.</h2>
-        </div>
-
-        <div class="timeline">
-          <article class="card timeline-item" data-reveal>
-            <div class="timeline-year">2025 — Present</div>
-            <div class="timeline-body">
-              <h3>Ph.D. in Artificial Intelligence</h3>
-              <p>Korea Institute of Energy Technology, supervised by <a href="https://real.kentech.ac.kr/" target="_blank" rel="noopener noreferrer">Prof. Sumyeong Ahn</a>.</p>
-              <p>Focus: preconditioned optimization for neural network training, including AdamW/Shampoo/SOAP-style methods, curvature diagnostics, and scalable matrix computation.</p>
-            </div>
-          </article>
-
-          <article class="card timeline-item" data-reveal>
-            <div class="timeline-year">Completed</div>
-            <div class="timeline-body">
-              <h3>M.S. in Artificial Intelligence</h3>
-              <p>Supervised by <a href="https://sites.google.com/site/sejunparksite/" target="_blank" rel="noopener noreferrer">Prof. Sejun Park</a>.</p>
-              <p>Research area: optimization algorithms for deep learning with theoretical and practical impact.</p>
-            </div>
-          </article>
+        <div class="section-header" data-reveal><p class="section-eyebrow">Academic journey</p><h2 class="section-title">Optimization theory connected to large-scale training.</h2></div>
+        <div class="timeline timeline--stack">
+          <article class="timeline-item card" data-reveal><div class="timeline-year">2025 — Present</div><div class="timeline-body"><h3>Ph.D. in Artificial Intelligence</h3><p>Korea Institute of Energy Technology (KENTECH), supervised by <a href="https://real.kentech.ac.kr/" target="_blank" rel="noopener noreferrer">Prof. Sumyeong Ahn</a>.</p><p>Focus: matrix-aware optimization, Transformer curvature, preconditioned spectra, and GPU-efficient matrix functions.</p></div></article>
+          <article class="timeline-item card" data-reveal><div class="timeline-year">Completed</div><div class="timeline-body"><h3>M.S. in Artificial Intelligence</h3><p>Supervised by <a href="https://sites.google.com/site/sejunparksite/" target="_blank" rel="noopener noreferrer">Prof. Sejun Park</a>.</p><p>Research: convergence theory for stochastic and adaptive optimization methods.</p></div></article>
         </div>
       </div>
     </section>
 
     <section class="section section-muted">
       <div class="container">
-        <div class="section-header" data-reveal>
-          <p class="section-eyebrow">Focus areas</p>
-          <h2 class="section-title">A unified research map around preconditioner design.</h2>
-        </div>
-
+        <div class="section-header" data-reveal><p class="section-eyebrow">Research map</p><h2 class="section-title">Four layers of the optimizer problem.</h2></div>
         <div class="grid grid-4">
-          <article class="card mini-card" data-reveal>
-            <h3>Preconditioned optimizers</h3>
-            <p>AdamW, Shampoo, SOAP, and related methods that transform gradients using diagonal, Kronecker, or spectral structure.</p>
-          </article>
-          <article class="card mini-card" data-reveal>
-            <h3>Curvature and covariance</h3>
-            <p>Hessian, Fisher, Gauss–Newton, gradient covariance, and empirical second-moment analyses for optimizer design.</p>
-          </article>
-          <article class="card mini-card" data-reveal>
-            <h3>Efficient matrix computation</h3>
-            <p>Inverse roots, eigendecomposition frequency, stale reuse, damping, and low-cost numerical routines for scalable preconditioning.</p>
-          </article>
-          <article class="card mini-card" data-reveal>
-            <h3>Loss-landscape diagnostics</h3>
-            <p>Ill-conditioning, anisotropy, eigenspace drift, and training barriers that motivate targeted preconditioner design.</p>
-          </article>
+          <article class="pillar-card card" data-reveal><h3>Model structure</h3><p>Causal attention, Pre-RMSNorm, RoPE, GQA, SwiGLU, cross-entropy, and residual scaling in modern Transformers.</p></article>
+          <article class="pillar-card card" data-reveal><h3>Second-order objects</h3><p>Block Hessians, gradient outer products, stochastic-gradient second moments, and their mini-batch decompositions.</p></article>
+          <article class="pillar-card card" data-reveal><h3>Preconditioners</h3><p>AdamW and Shampoo as distinct transformations of parameter-block geometry and stochastic update statistics.</p></article>
+          <article class="pillar-card card" data-reveal><h3>Matrix functions</h3><p>Inverse roots, EVD refresh, damping, staleness, polynomial iterations, and GPU utilization.</p></article>
         </div>
       </div>
     </section>
 
     <section class="section">
       <div class="container">
-        <div class="cta-banner card" data-reveal>
-          <div>
-            <p class="section-eyebrow">Current paper</p>
-            <h2 class="cta-title">Read the ICML 2026 FOAM paper.</h2>
-            <p class="cta-text">The PDF is included locally in this source package and linked from the publication page.</p>
-          </div>
-          <div class="cta-actions">
-            <a class="button" href="assets/papers/FOAM_ICML2026.pdf" target="_blank" rel="noopener noreferrer">Open PDF</a>
-            <a class="button secondary" href="https://github.com/REAL-KENTECH/FOAM.git" target="_blank" rel="noopener noreferrer">View code</a>
-          </div>
+        <div class="section-header" data-reveal><p class="section-eyebrow">Research perspectives</p><h2 class="section-title">Notes from the matrix-aware optimization transition.</h2></div>
+        <div class="grid grid-2">
+          <article class="project-card project-card--featured card" data-reveal><p class="panel-kicker">Perspective</p><h3>Beyond AdamW: the matrix-function bottleneck</h3><p>Why more structural optimizers demand better inverse-root, eigendecomposition, and orthogonalization kernels—and why numerical speed cannot be separated from training dynamics.</p><a class="text-link" href="notes.html#beyond-adamw">Read the note</a></article>
+          <article class="project-card card" data-reveal><p class="panel-kicker">Conference reflection</p><h3>Muon, spectral descent, and diverse norms</h3><p>Two observations from ICML 2026: strong momentum around Muon and a broader return to norm-aware views of steepest descent.</p><a class="text-link" href="notes.html#icml-2026">Read the note</a></article>
         </div>
       </div>
     </section>
-  </main>
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Kyunghun Nam",
-    "url": "https://kyunghunnam.github.io/",
-    "email": "mailto:baptist0214@gmail.com",
-    "jobTitle": "Ph.D. Student in Artificial Intelligence",
-    "affiliation": {
-      "@type": "CollegeOrUniversity",
-      "name": "Korea Institute of Energy Technology"
-    },
-    "knowsAbout": [
-      "Mathematical optimization",
-      "Preconditioned optimization",
-      "AdamW, Shampoo, and SOAP optimizers",
-      "Hessian, Fisher, covariance, and Gauss-Newton analysis",
-      "Numerical linear algebra for scalable preconditioning",
-      "Loss landscape analysis"
-    ],
-    "sameAs": [
-      "https://scholar.google.com/citations?user=2K1cMuQAAAAJ&hl=ko",
-      "https://github.com/kyunghunnam",
-      "https://github.com/REAL-KENTECH/FOAM.git"
-    ]
-  }
-  </script>
+    <section class="section section-muted">
+      <div class="container"><div class="cta-banner card" data-reveal><div><p class="section-eyebrow">Current paper</p><h2 class="cta-title">FOAM: adaptive control of damping and preconditioner refresh in Shampoo.</h2><p class="cta-text">Read the paper, inspect the code, or see how it fits into the broader matrix-function research agenda.</p></div><div class="cta-actions"><a class="button" href="assets/papers/FOAM_ICML2026.pdf" target="_blank" rel="noopener noreferrer">Open local PDF</a><a class="button secondary" href="https://github.com/REAL-KENTECH/FOAM" target="_blank" rel="noopener noreferrer">View code ↗</a></div></div></div>
+    </section>
+  </main>
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>&copy; <span class="current-year">2026</span> Kyunghun Nam. Built for clarity, accessibility, and research collaboration.</p>
+      <p>&copy; <span class="current-year">2026</span> Kyunghun Nam. Research in matrix-aware optimization and numerical linear algebra.</p>
       <div class="footer-links">
         <a href="mailto:baptist0214@gmail.com">Email</a>
-        <a href="https://scholar.google.com/citations?user=2K1cMuQAAAAJ&hl=ko" target="_blank" rel="noopener noreferrer">Google Scholar</a>
-        <a href="https://github.com/kyunghunnam" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://scholar.google.com/citations?user=2K1cMuQAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+        <a href="https://github.com/namkyunghun" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="notes.html">Research Notes</a>
         <a href="assets/papers/FOAM_ICML2026.pdf" target="_blank" rel="noopener noreferrer">FOAM PDF</a>
         <span class="footer-shortcuts" aria-label="Keyboard shortcuts"><kbd>?</kbd> shortcuts</span>
       </div>
