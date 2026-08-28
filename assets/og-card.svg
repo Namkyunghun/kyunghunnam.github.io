@@ -1,19 +1,69 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
-  <title id="title">Kyunghun Nam social card</title>
-  <desc id="desc">Kyunghun Nam, matrix-aware optimization researcher.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Kyunghun Nam — Matrix-Aware Optimization</title>
+  <desc id="desc">Theory, error analysis, and design of matrix-aware optimizers including Shampoo, SOAP, and Muon.</desc>
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0f172a"/><stop offset="55%" stop-color="#13233d"/><stop offset="100%" stop-color="#1e1b4b"/></linearGradient>
-    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#60a5fa"/><stop offset="100%" stop-color="#a78bfa"/></linearGradient>
+    <pattern id="grid" width="42" height="42" patternUnits="userSpaceOnUse">
+      <path d="M 42 0 L 0 0 0 42" fill="none" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1"/>
+    </pattern>
+    <linearGradient id="glow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7e9cff" stop-opacity="0.24"/>
+      <stop offset="1" stop-color="#7e9cff" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="soft" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="38"/>
+    </filter>
   </defs>
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="1050" cy="120" r="180" fill="#60a5fa" fill-opacity="0.12"/>
-  <circle cx="180" cy="520" r="220" fill="#a78bfa" fill-opacity="0.10"/>
-  <rect x="82" y="82" width="126" height="126" rx="32" fill="url(#accent)"/>
-  <text x="145" y="158" text-anchor="middle" fill="#ffffff" font-size="54" font-family="Inter, Arial, sans-serif" font-weight="800">KN</text>
-  <text x="82" y="290" fill="#93c5fd" font-size="25" font-family="Inter, Arial, sans-serif" font-weight="700" letter-spacing="5">MATRIX-AWARE OPTIMIZATION</text>
-  <text x="82" y="376" fill="#ffffff" font-size="72" font-family="Inter, Arial, sans-serif" font-weight="800">Kyunghun Nam</text>
-  <text x="82" y="444" fill="#dbeafe" font-size="32" font-family="Inter, Arial, sans-serif">Transformer curvature · AdamW &amp; Shampoo</text>
-  <text x="82" y="490" fill="#dbeafe" font-size="32" font-family="Inter, Arial, sans-serif">GPU-efficient matrix functions</text>
-  <rect x="82" y="536" width="372" height="46" rx="23" fill="#60a5fa" fill-opacity="0.16" stroke="#ffffff" stroke-opacity="0.12"/>
-  <text x="268" y="566" text-anchor="middle" fill="#ffffff" font-size="22" font-family="Inter, Arial, sans-serif" font-weight="700">KENTECH · Optimization for AI</text>
+
+  <rect width="1200" height="630" fill="#101827"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <circle cx="1030" cy="82" r="250" fill="url(#glow)" filter="url(#soft)"/>
+  <line x1="0" y1="565" x2="1200" y2="565" stroke="#ffffff" stroke-opacity="0.12"/>
+
+  <g transform="translate(76 68)" data-brand="matrix-mark">
+    <rect width="66" height="66" rx="12" fill="#111d32" stroke="#ffffff" stroke-opacity="0.16"/>
+    <rect x="14" y="14" width="16" height="16" rx="2.5" fill="#7e9cff"/>
+    <rect x="36" y="14" width="16" height="16" rx="2.5" fill="#7e9cff" fill-opacity="0.34"/>
+    <rect x="14" y="36" width="16" height="16" rx="2.5" fill="#7e9cff" fill-opacity="0.34"/>
+    <rect x="36" y="36" width="16" height="16" rx="2.5" fill="#f8fafc"/>
+  </g>
+
+  <text x="76" y="190" fill="#9bb0ff" font-family="JetBrains Mono, monospace" font-size="18" font-weight="600" letter-spacing="3.6">KYUNGHUN NAM</text>
+  <text x="76" y="266" fill="#f8fafc" font-family="Inter, Arial, sans-serif" font-size="58" font-weight="760" letter-spacing="-2.2">Matrix-Aware</text>
+  <text x="76" y="326" fill="#f8fafc" font-family="Inter, Arial, sans-serif" font-size="58" font-weight="760" letter-spacing="-2.2">Optimization</text>
+  <text x="76" y="382" fill="#b9c3d4" font-family="Inter, Arial, sans-serif" font-size="23">Theory and design of Shampoo, SOAP, Muon, and beyond</text>
+
+  <g transform="translate(76 435)">
+    <rect width="144" height="46" rx="5" fill="#7e9cff" fill-opacity="0.12" stroke="#7e9cff" stroke-opacity="0.42"/>
+    <text x="72" y="29" text-anchor="middle" fill="#cbd7ff" font-family="JetBrains Mono, monospace" font-size="14" font-weight="600">Theory</text>
+    <line x1="153" y1="23" x2="191" y2="23" stroke="#7e9cff" stroke-opacity="0.8"/>
+    <path d="M187 19 L192 23 L187 27" fill="none" stroke="#7e9cff" stroke-opacity="0.8"/>
+    <rect x="201" width="144" height="46" rx="5" fill="#7e9cff" fill-opacity="0.12" stroke="#7e9cff" stroke-opacity="0.42"/>
+    <text x="273" y="29" text-anchor="middle" fill="#cbd7ff" font-family="JetBrains Mono, monospace" font-size="14" font-weight="600">Error</text>
+    <line x1="354" y1="23" x2="392" y2="23" stroke="#7e9cff" stroke-opacity="0.8"/>
+    <path d="M388 19 L393 23 L388 27" fill="none" stroke="#7e9cff" stroke-opacity="0.8"/>
+    <rect x="402" width="144" height="46" rx="5" fill="#7e9cff" fill-opacity="0.12" stroke="#7e9cff" stroke-opacity="0.42"/>
+    <text x="474" y="29" text-anchor="middle" fill="#cbd7ff" font-family="JetBrains Mono, monospace" font-size="14" font-weight="600">Design</text>
+  </g>
+
+  <g transform="translate(794 104)">
+    <text x="0" y="0" fill="#9bb0ff" font-family="JetBrains Mono, monospace" font-size="14" font-weight="600" letter-spacing="2">MATRIX-VALUED GRADIENT</text>
+    <text x="124" y="42" fill="#d8e1f2" font-family="JetBrains Mono, monospace" font-size="18">Gₜ ∈ ℝᵐˣⁿ</text>
+    <g transform="translate(92 70)">
+      <rect width="178" height="178" fill="#ffffff" fill-opacity="0.018" stroke="#ffffff" stroke-opacity="0.15"/>
+      <g fill="#7e9cff">
+        <rect x="16" y="16" width="28" height="28" opacity="0.75"/><rect x="55" y="16" width="28" height="28" opacity="0.18"/><rect x="94" y="16" width="28" height="28" opacity="0.34"/><rect x="133" y="16" width="28" height="28" opacity="0.62"/>
+        <rect x="16" y="55" width="28" height="28" opacity="0.22"/><rect x="55" y="55" width="28" height="28" opacity="0.88"/><rect x="94" y="55" width="28" height="28" opacity="0.24"/><rect x="133" y="55" width="28" height="28" opacity="0.38"/>
+        <rect x="16" y="94" width="28" height="28" opacity="0.45"/><rect x="55" y="94" width="28" height="28" opacity="0.18"/><rect x="94" y="94" width="28" height="28" opacity="0.82"/><rect x="133" y="94" width="28" height="28" opacity="0.28"/>
+        <rect x="16" y="133" width="28" height="28" opacity="0.18"/><rect x="55" y="133" width="28" height="28" opacity="0.55"/><rect x="94" y="133" width="28" height="28" opacity="0.25"/><rect x="133" y="133" width="28" height="28" fill="#f8fafc" opacity="0.94"/>
+      </g>
+    </g>
+    <line x1="181" y1="258" x2="181" y2="306" stroke="#7e9cff" stroke-opacity="0.8"/>
+    <path d="M176 300 L181 307 L186 300" fill="none" stroke="#7e9cff" stroke-opacity="0.8"/>
+    <rect x="40" y="319" width="282" height="74" rx="5" fill="#7e9cff" fill-opacity="0.1" stroke="#7e9cff" stroke-opacity="0.38"/>
+    <text x="181" y="349" text-anchor="middle" fill="#9bb0ff" font-family="JetBrains Mono, monospace" font-size="12" letter-spacing="1.5">RELIABLE UPDATE</text>
+    <text x="181" y="375" text-anchor="middle" fill="#f8fafc" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="650">operator-aware decisions</text>
+  </g>
+
+  <text x="76" y="602" fill="#7f8ca1" font-family="JetBrains Mono, monospace" font-size="14">KENTECH · ICML 2026 FOAM</text>
+  <text x="1124" y="602" text-anchor="end" fill="#7f8ca1" font-family="JetBrains Mono, monospace" font-size="14">namkyunghun.github.io</text>
 </svg>

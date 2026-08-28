@@ -1,14 +1,14 @@
 {
   "id": "./",
-  "name": "Kyunghun Nam \u2014 Optimization for AI",
+  "name": "Kyunghun Nam — Matrix-Aware Optimization",
   "short_name": "Kyunghun Nam",
-  "description": "Academic website on matrix-aware optimization, Transformer curvature, and numerical matrix functions.",
+  "description": "Academic website on the theory and design of matrix-aware optimizers, including Shampoo, SOAP, and Muon.",
   "lang": "en",
   "start_url": "./",
   "scope": "./",
   "display": "minimal-ui",
-  "background_color": "#f4f7fb",
-  "theme_color": "#2563eb",
+  "background_color": "#f5f5f2",
+  "theme_color": "#3457c8",
   "icons": [
     {
       "src": "assets/favicon.svg",
