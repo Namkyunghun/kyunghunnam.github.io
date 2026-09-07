@@ -14,7 +14,7 @@ from pathlib import Path
 from urllib.parse import urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
-BASE_URL = "https://namkyunghun.github.io/kyunghunnam.github.io/"
+BASE_URL = json.loads((ROOT / "site.config.json").read_text(encoding="utf-8"))["url"]
 FOAM_TITLE = (
     "FOAM: Frequency and Operator Error-Based Adaptive Damping Method "
     "for Reducing Staleness-Oriented Error for Shampoo"
@@ -110,7 +110,7 @@ class SiteContentTests(unittest.TestCase):
             self.doc.captured.get("h1"),
             ["Theory and Design of Matrix-Aware Optimizers"],
         )
-        self.assertIn("MATRIX-AWARE OPTIMIZATION", self.doc.text)
+        self.assertIn("matrix-aware optimization", self.doc.text.lower())
         self.assertIn(
             "Understand the operator. Quantify the error. Design better optimizers.",
             self.doc.text,
@@ -316,7 +316,7 @@ class SiteMetadataTests(unittest.TestCase):
     def test_404_page_is_noindex_and_returns_to_home(self) -> None:
         doc = load_html("404.html")
         self.assertEqual(doc.meta(name="robots"), "noindex,follow")
-        self.assertIn("index.html", doc.attr_values("a", "href"))
+        self.assertIn(urlsplit(BASE_URL).path + "index.html", doc.attr_values("a", "href"))
         self.assertIn("Matrix-Aware Optimization", doc.text)
 
     def test_documentation_describes_single_page_deployment_and_validation(self) -> None:

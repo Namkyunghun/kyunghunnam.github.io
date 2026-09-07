@@ -33,95 +33,115 @@
   <link rel="icon" href="assets/favicon-192.png" sizes="192x192" type="image/png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
   <script>
+    // Apply only a valid saved choice before paint. Content never depends on JS.
     (() => {
-      document.documentElement.classList.add('js');
-      let storedTheme = null;
-      try { storedTheme = localStorage.getItem('theme'); } catch {}
-      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-      document.documentElement.dataset.theme = storedTheme || (prefersDark ? 'dark' : 'light');
+      let saved = null;
+      try { saved = localStorage.getItem('theme'); } catch { /* Storage is optional. */ }
+      const explicit = saved === 'light' || saved === 'dark';
+      const dark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.dataset.theme = explicit ? saved : (dark ? 'dark' : 'light');
     })();
   </script>
   <link rel="stylesheet" href="styles.css">
 
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebSite",
-        "@id": "https://namkyunghun.github.io/kyunghunnam.github.io/#website",
-        "url": "https://namkyunghun.github.io/kyunghunnam.github.io/",
-        "name": "Kyunghun Nam — Matrix-Aware Optimization",
-        "description": "Academic website of Kyunghun Nam, focused on the theory and design of matrix-aware optimizers.",
-        "inLanguage": "en"
-      },
-      {
-        "@type": "Person",
-        "@id": "https://namkyunghun.github.io/kyunghunnam.github.io/#person",
-        "name": "Kyunghun Nam",
-        "url": "https://namkyunghun.github.io/kyunghunnam.github.io/",
-        "email": "mailto:baptist0214@gmail.com",
-        "jobTitle": "Ph.D. Student in Artificial Intelligence",
-        "affiliation": {
-          "@type": "CollegeOrUniversity",
-          "name": "Korea Institute of Energy Technology (KENTECH)"
-        },
-        "sameAs": [
-          "https://scholar.google.com/citations?user=2K1cMuQAAAAJ&hl=en",
-          "https://github.com/namkyunghun",
-          "https://openreview.net/profile?id=~Kyunghun_Nam1"
-        ],
-        "knowsAbout": [
-          "Matrix-aware optimization",
-          "Shampoo",
-          "SOAP",
-          "Muon",
-          "Optimization theory",
-          "Matrix analysis",
-          "Numerical linear algebra",
-          "Matrix functions",
-          "Large-scale deep learning"
-        ]
-      },
-      {
-        "@type": "ScholarlyArticle",
-        "@id": "https://arxiv.org/abs/2606.02365",
-        "headline": "FOAM: Frequency and Operator Error-Based Adaptive Damping Method for Reducing Staleness-Oriented Error for Shampoo",
-        "author": [
-          {"@type": "Person", "name": "Kyunghun Nam"},
-          {"@type": "Person", "name": "Sumyeong Ahn"}
-        ],
-        "datePublished": "2026-06-01",
-        "isPartOf": {
-          "@type": "PublicationEvent",
-          "name": "The 43rd International Conference on Machine Learning (ICML 2026)"
-        },
-        "url": "https://arxiv.org/abs/2606.02365",
-        "sameAs": [
-          "https://openreview.net/forum?id=ZwFJbTzJP9",
-          "https://github.com/REAL-KENTECH/FOAM"
-        ],
-        "about": [
-          "Shampoo optimizer",
-          "stale preconditioners",
-          "adaptive damping",
-          "eigendecomposition frequency",
-          "operator error"
-        ]
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://namkyunghun.github.io/kyunghunnam.github.io/#website",
+      "url": "https://namkyunghun.github.io/kyunghunnam.github.io/",
+      "name": "Kyunghun Nam — Matrix-Aware Optimization",
+      "description": "Academic website of Kyunghun Nam, focused on the theory and design of matrix-aware optimizers.",
+      "inLanguage": "en",
+      "publisher": {
+        "@id": "https://namkyunghun.github.io/kyunghunnam.github.io/#person"
       }
-    ]
-  }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://namkyunghun.github.io/kyunghunnam.github.io/#person",
+      "name": "Kyunghun Nam",
+      "url": "https://namkyunghun.github.io/kyunghunnam.github.io/",
+      "email": "mailto:baptist0214@gmail.com",
+      "jobTitle": "Ph.D. Student in Artificial Intelligence",
+      "affiliation": {
+        "@type": "CollegeOrUniversity",
+        "name": "Korea Institute of Energy Technology (KENTECH)"
+      },
+      "sameAs": [
+        "https://scholar.google.com/citations?user=2K1cMuQAAAAJ&hl=en",
+        "https://github.com/namkyunghun",
+        "https://openreview.net/profile?id=~Kyunghun_Nam1"
+      ],
+      "knowsAbout": [
+        "Matrix-aware optimization",
+        "Shampoo",
+        "SOAP",
+        "Muon",
+        "Optimization theory",
+        "Matrix analysis",
+        "Numerical linear algebra",
+        "Matrix functions",
+        "Large-scale deep learning"
+      ]
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://arxiv.org/abs/2606.02365",
+      "headline": "FOAM: Frequency and Operator Error-Based Adaptive Damping Method for Reducing Staleness-Oriented Error for Shampoo",
+      "author": [
+        {
+          "@type": "Person",
+          "name": "Kyunghun Nam"
+        },
+        {
+          "@type": "Person",
+          "name": "Sumyeong Ahn"
+        }
+      ],
+      "datePublished": "2026-06-01",
+      "isPartOf": {
+        "@type": "PublicationVolume",
+        "name": "Proceedings of the 43rd International Conference on Machine Learning",
+        "volumeNumber": "306",
+        "isPartOf": {
+          "@type": "Periodical",
+          "name": "Proceedings of Machine Learning Research"
+        }
+      },
+      "url": "https://arxiv.org/abs/2606.02365",
+      "sameAs": [
+        "https://openreview.net/forum?id=ZwFJbTzJP9",
+        "https://github.com/REAL-KENTECH/FOAM"
+      ],
+      "about": [
+        "Shampoo optimizer",
+        "stale preconditioners",
+        "adaptive damping",
+        "eigendecomposition frequency",
+        "operator error"
+      ],
+      "encoding": {
+        "@type": "MediaObject",
+        "contentUrl": "https://namkyunghun.github.io/kyunghunnam.github.io/assets/papers/FOAM_ICML2026.pdf",
+        "encodingFormat": "application/pdf"
+      }
+    }
+  ]
+}
   </script>
+
+  <link rel="alternate" type="application/x-bibtex" href="assets/papers/foam.bib" title="FOAM BibTeX citation">
 
   <title>Kyunghun Nam | Matrix-Aware Optimization</title>
 </head>
 <body id="top">
   <a class="skip-link" href="#main">Skip to content</a>
+  <span class="sr-only" id="external-link-note">Opens in a new tab.</span>
 
   <header class="site-header">
     <nav class="site-nav" aria-label="Primary navigation">
@@ -136,7 +156,7 @@
           </span>
         </a>
 
-        <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-menu">
+        <button class="nav-toggle" type="button" data-nav-toggle hidden aria-expanded="false" aria-controls="site-menu">
           <span class="sr-only">Toggle navigation</span>
           <span class="nav-toggle-line nav-toggle-line--top" aria-hidden="true"></span>
           <span class="nav-toggle-line nav-toggle-line--bottom" aria-hidden="true"></span>
@@ -148,32 +168,34 @@
             <a href="#foam">FOAM</a>
             <a href="#questions">Questions</a>
             <a href="#about">About</a>
-            <a class="nav-external" href="https://scholar.google.com/citations?user=2K1cMuQAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Scholar <span aria-hidden="true">↗</span></a>
+            <a class="nav-external" href="https://scholar.google.com/citations?user=2K1cMuQAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-describedby="external-link-note">Scholar <span aria-hidden="true">↗</span></a>
           </div>
-          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark theme">
+          <button class="theme-toggle" type="button" data-theme-toggle hidden aria-label="Switch to dark theme">
             <span class="theme-toggle-icon" aria-hidden="true"></span>
             <span class="theme-toggle-label">Theme</span>
           </button>
         </div>
       </div>
     </nav>
+  </header>
 
-    <div class="hero">
+  <main id="main" tabindex="-1">
+    <section class="hero" aria-labelledby="hero-title">
       <div class="container hero-grid">
-        <div class="hero-copy" data-reveal>
-          <p class="eyebrow">MATRIX-AWARE OPTIMIZATION</p>
-          <h1>Theory and Design of Matrix-Aware Optimizers</h1>
+        <div class="hero-copy">
+          <p class="eyebrow">KYUNGHUN NAM <span aria-hidden="true">/</span> OPTIMIZATION RESEARCH</p>
+          <h1 id="hero-title"><span class="hero-title-prefix">Theory and Design of</span> <span><span class="nowrap">Matrix-Aware</span> Optimizers</span></h1>
           <p class="hero-lead">I analyze matrix-structured optimizers—including Shampoo, SOAP, and Muon—to understand their geometry, convergence, stability, and numerical error. I use these insights to design faster and more reliable optimization methods for large-scale deep learning.</p>
-          <p class="hero-affiliation">Ph.D. Student at KENTECH <span aria-hidden="true">·</span> Advised by <a href="https://real.kentech.ac.kr/" target="_blank" rel="noopener noreferrer">Prof. Sumyeong Ahn</a></p>
+          <p class="hero-affiliation">Ph.D. Student at KENTECH <span aria-hidden="true">·</span> Advised by <a href="https://real.kentech.ac.kr/" target="_blank" rel="noopener noreferrer" aria-describedby="external-link-note">Prof. Sumyeong Ahn</a></p>
           <div class="hero-actions">
-            <a class="button button-primary" href="assets/papers/FOAM_ICML2026.pdf" target="_blank" rel="noopener noreferrer">Read FOAM</a>
-            <a class="button button-secondary" href="https://github.com/REAL-KENTECH/FOAM" target="_blank" rel="noopener noreferrer">View code <span aria-hidden="true">↗</span></a>
-            <a class="text-action" href="https://scholar.google.com/citations?user=2K1cMuQAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar <span aria-hidden="true">↗</span></a>
+            <a class="button button-primary" href="assets/papers/FOAM_ICML2026.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="external-link-note">Read FOAM <span class="button-meta">PDF ↗</span></a>
+            <a class="button button-secondary" href="https://github.com/REAL-KENTECH/FOAM" target="_blank" rel="noopener noreferrer" aria-describedby="external-link-note">View code <span aria-hidden="true">↗</span></a>
+            <a class="text-action" href="https://scholar.google.com/citations?user=2K1cMuQAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-describedby="external-link-note">Google Scholar <span aria-hidden="true">↗</span></a>
           </div>
           <p class="research-maxim"><span aria-hidden="true">01</span> Understand the operator. Quantify the error. Design better optimizers.</p>
         </div>
 
-        <div class="hero-operator" aria-label="Research program from matrix-valued gradients to optimizer design" data-reveal>
+        <div class="hero-operator" role="img" aria-label="Research program: a matrix-valued gradient passes through theory, error analysis, and design to produce reliable matrix-aware updates.">
           <div class="operator-topline">
             <span>INPUT</span>
             <code>G<sub>t</sub> ∈ ℝ<sup>m×n</sup></code>
@@ -211,15 +233,12 @@
           </div>
         </div>
       </div>
-    </div>
-  </header>
-
-  <main id="main">
-    <section class="section research-section" id="research">
+    </section>
+    <section class="section research-section" id="research" tabindex="-1" aria-labelledby="research-title">
       <div class="container">
         <div class="section-intro" data-reveal>
           <p class="section-label">RESEARCH THESIS</p>
-          <h2>Matrix structure is useful only when its optimization gains survive computation.</h2>
+          <h2 id="research-title">Matrix structure is useful only when its optimization gains survive computation.</h2>
           <p>My research asks a central question: <strong>How can matrix structure in neural-network parameters and gradients be converted into optimization gains that survive approximation, finite precision, and large-scale implementation?</strong></p>
         </div>
 
@@ -305,7 +324,7 @@
       </div>
     </section>
 
-    <section class="section foam-section" id="foam">
+    <section class="section foam-section" id="foam" tabindex="-1" aria-labelledby="foam-title">
       <div class="container">
         <article class="foam-paper" data-publication="foam">
           <div class="foam-layout">
@@ -316,15 +335,15 @@
                 <span>PMLR 306</span>
               </div>
               <p class="foam-wordmark" aria-hidden="true">FOAM</p>
-              <h2>FOAM: Frequency and Operator Error-Based Adaptive Damping Method for Reducing Staleness-Oriented Error for Shampoo</h2>
+              <h2 id="foam-title">FOAM: Frequency and Operator Error-Based Adaptive Damping Method for Reducing Staleness-Oriented Error for Shampoo</h2>
               <p class="paper-authors"><strong>Kyunghun Nam</strong> and Sumyeong Ahn</p>
               <p class="paper-tldr"><span>TL;DR</span> Stale preconditioners make Shampoo cheaper but introduce optimization and numerical errors. FOAM estimates the relevant operator error and jointly adapts damping and eigendecomposition frequency.</p>
 
               <div class="paper-links" aria-label="FOAM resources">
-                <a class="button button-primary" href="assets/papers/FOAM_ICML2026.pdf" target="_blank" rel="noopener noreferrer">Paper</a>
-                <a class="button button-secondary" href="https://arxiv.org/abs/2606.02365" target="_blank" rel="noopener noreferrer">arXiv <span aria-hidden="true">↗</span></a>
-                <a class="button button-secondary" href="https://openreview.net/forum?id=ZwFJbTzJP9" target="_blank" rel="noopener noreferrer">OpenReview <span aria-hidden="true">↗</span></a>
-                <a class="button button-secondary" href="https://github.com/REAL-KENTECH/FOAM" target="_blank" rel="noopener noreferrer">Code <span aria-hidden="true">↗</span></a>
+                <a class="button button-primary" href="assets/papers/FOAM_ICML2026.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="external-link-note">Paper <span class="button-meta">PDF ↗</span></a>
+                <a class="button button-secondary" href="https://arxiv.org/abs/2606.02365" target="_blank" rel="noopener noreferrer" aria-describedby="external-link-note">arXiv <span aria-hidden="true">↗</span></a>
+                <a class="button button-secondary" href="https://openreview.net/forum?id=ZwFJbTzJP9" target="_blank" rel="noopener noreferrer" aria-describedby="external-link-note">OpenReview <span aria-hidden="true">↗</span></a>
+                <a class="button button-secondary" href="https://github.com/REAL-KENTECH/FOAM" target="_blank" rel="noopener noreferrer" aria-describedby="external-link-note">Code <span aria-hidden="true">↗</span></a>
               </div>
             </div>
 
@@ -372,7 +391,7 @@
           <details class="bibtex-panel" data-reveal>
             <summary>BibTeX</summary>
             <div class="bibtex-content">
-              <pre id="foam-bibtex"><code>@inproceedings{nam2026foam,
+              <pre id="foam-bibtex" tabindex="0" aria-label="FOAM BibTeX citation"><code>@inproceedings{nam2026foam,
   title     = {FOAM: Frequency and Operator Error-Based Adaptive Damping Method for Reducing Staleness-Oriented Error for Shampoo},
   author    = {Nam, Kyunghun and Ahn, Sumyeong},
   booktitle = {Proceedings of the 43rd International Conference on Machine Learning},
@@ -380,19 +399,22 @@
   volume    = {306},
   year      = {2026}
 }</code></pre>
-              <button class="copy-button" type="button" data-copy-bibtex data-copy-target="foam-bibtex">Copy BibTeX</button>
-              <span class="copy-status" data-copy-status role="status" aria-live="polite"></span>
+              <div class="citation-actions">
+              <button class="copy-button" type="button" hidden data-copy-bibtex data-copy-target="foam-bibtex">Copy BibTeX</button>
+              <a class="citation-download" href="assets/papers/foam.bib" download="nam2026foam.bib">Download .bib <span aria-hidden="true">↓</span></a>
+              </div>
+              <span class="copy-status" data-copy-status role="status" aria-live="polite" aria-atomic="true"></span>
             </div>
           </details>
         </article>
       </div>
     </section>
 
-    <section class="section questions-section" id="questions">
+    <section class="section questions-section" id="questions" tabindex="-1" aria-labelledby="questions-title">
       <div class="container">
         <div class="section-intro compact" data-reveal>
           <p class="section-label">CURRENT QUESTIONS</p>
-          <h2>Problems that connect operator theory to optimizer design.</h2>
+          <h2 id="questions-title">Problems that connect operator theory to optimizer design.</h2>
         </div>
 
         <div class="questions-grid">
@@ -425,12 +447,12 @@
       </div>
     </section>
 
-    <section class="section about-section" id="about">
+    <section class="section about-section" id="about" tabindex="-1" aria-labelledby="about-title">
       <div class="container about-grid">
         <div class="about-copy" data-reveal>
           <p class="section-label">ABOUT</p>
-          <h2>Optimization theory, matrix analysis, and numerical algorithms.</h2>
-          <p>I am a Ph.D. student in Artificial Intelligence at the Korea Institute of Energy Technology (KENTECH), advised by <a href="https://real.kentech.ac.kr/" target="_blank" rel="noopener noreferrer">Prof. Sumyeong Ahn</a>. My research lies at the intersection of optimization theory, matrix analysis, numerical linear algebra, and large-scale deep learning.</p>
+          <h2 id="about-title">Optimization theory, matrix analysis, and numerical algorithms.</h2>
+          <p>I am a Ph.D. student in Artificial Intelligence at the Korea Institute of Energy Technology (KENTECH), advised by <a href="https://real.kentech.ac.kr/" target="_blank" rel="noopener noreferrer" aria-describedby="external-link-note">Prof. Sumyeong Ahn</a>. My research lies at the intersection of optimization theory, matrix analysis, numerical linear algebra, and large-scale deep learning.</p>
           <p>I am particularly interested in identifying which aspects of matrix-aware optimizers are structural, which are artifacts of approximation or implementation, and how that distinction can guide new methods.</p>
         </div>
 
@@ -448,9 +470,9 @@
             <a href="mailto:baptist0214@gmail.com">baptist0214@gmail.com</a>
           </div>
           <div class="profile-links">
-            <a href="https://scholar.google.com/citations?user=2K1cMuQAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar <span aria-hidden="true">↗</span></a>
-            <a href="https://github.com/namkyunghun" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
-            <a href="https://openreview.net/profile?id=~Kyunghun_Nam1" target="_blank" rel="noopener noreferrer">OpenReview <span aria-hidden="true">↗</span></a>
+            <a href="https://scholar.google.com/citations?user=2K1cMuQAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-describedby="external-link-note">Google Scholar <span aria-hidden="true">↗</span></a>
+            <a href="https://github.com/namkyunghun" target="_blank" rel="noopener noreferrer" aria-describedby="external-link-note">GitHub <span aria-hidden="true">↗</span></a>
+            <a href="https://openreview.net/profile?id=~Kyunghun_Nam1" target="_blank" rel="noopener noreferrer" aria-describedby="external-link-note">OpenReview <span aria-hidden="true">↗</span></a>
           </div>
         </aside>
       </div>
@@ -461,7 +483,7 @@
     <div class="container footer-inner">
       <p>© <span class="current-year">2026</span> Kyunghun Nam</p>
       <p>Understand the operator <span aria-hidden="true">·</span> Quantify the error <span aria-hidden="true">·</span> Design better optimizers</p>
-      <a href="#top">Back to top <span aria-hidden="true">↑</span></a>
+      <div class="footer-actions"><button class="theme-reset" type="button" data-theme-reset hidden>Use system theme</button><a href="#top">Back to top <span aria-hidden="true">↑</span></a></div>
     </div>
   </footer>
 

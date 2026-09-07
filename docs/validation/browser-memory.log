@@ -1,0 +1,34 @@
+Browser mode: memory
+test_anchor_navigation_moves_focus_to_section (__main__.BrowserTests.test_anchor_navigation_moves_focus_to_section) ... ok
+test_clicked_section_is_below_nav_and_marked_current (__main__.BrowserTests.test_clicked_section_is_below_nav_and_marked_current) ... ok
+test_clipboard_denial_uses_legacy_fallback (__main__.BrowserTests.test_clipboard_denial_uses_legacy_fallback) ... ok
+test_dark_primary_button_text_contrast (__main__.BrowserTests.test_dark_primary_button_text_contrast) ... ok
+test_double_text_size_has_no_horizontal_overflow (__main__.BrowserTests.test_double_text_size_has_no_horizontal_overflow) ... ok
+test_failed_common_script_keeps_mobile_links_visible (__main__.BrowserTests.test_failed_common_script_keeps_mobile_links_visible) ... ok
+test_failed_observer_does_not_disable_citation (__main__.BrowserTests.test_failed_observer_does_not_disable_citation) ... ok
+test_invalid_saved_theme_follows_dark_system (__main__.BrowserTests.test_invalid_saved_theme_follows_dark_system) ... ok
+test_main_contains_the_primary_heading (__main__.BrowserTests.test_main_contains_the_primary_heading) ... ok
+test_mobile_escape_returns_focus_to_toggle (__main__.BrowserTests.test_mobile_escape_returns_focus_to_toggle) ... ok
+test_mobile_tab_can_leave_disclosure (__main__.BrowserTests.test_mobile_tab_can_leave_disclosure) ... ok
+test_modern_clipboard_receives_exact_citation (__main__.BrowserTests.test_modern_clipboard_receives_exact_citation) ... ok
+test_navigation_stays_visible_below_hero (__main__.BrowserTests.test_navigation_stays_visible_below_hero) ... ok
+test_no_horizontal_overflow_with_open_bibtex (__main__.BrowserTests.test_no_horizontal_overflow_with_open_bibtex) ... ok
+test_no_javascript_supports_navigation_and_native_citation (__main__.BrowserTests.test_no_javascript_supports_navigation_and_native_citation) ... ok
+test_primary_action_is_within_desktop_first_screen (__main__.BrowserTests.test_primary_action_is_within_desktop_first_screen) ... ok
+test_print_overrides_saved_dark_theme (__main__.BrowserTests.test_print_overrides_saved_dark_theme) ... ok
+test_resize_clears_mobile_menu_state (__main__.BrowserTests.test_resize_clears_mobile_menu_state) ... ok
+test_reveal_observer_cannot_hide_content (__main__.BrowserTests.test_reveal_observer_cannot_hide_content) ... ok
+test_runtime_has_no_uncaught_errors (__main__.BrowserTests.test_runtime_has_no_uncaught_errors) ... ok
+test_section_navigation_announces_current_location (__main__.BrowserTests.test_section_navigation_announces_current_location) ... ok
+test_skip_link_moves_keyboard_focus_into_main (__main__.BrowserTests.test_skip_link_moves_keyboard_focus_into_main) ... ok
+test_storage_denial_retains_current_session_choice (__main__.BrowserTests.test_storage_denial_retains_current_session_choice) ... ok
+test_theme_change_synchronizes_across_tabs (__main__.BrowserTests.test_theme_change_synchronizes_across_tabs) ... ok
+test_theme_control_has_touch_target (__main__.BrowserTests.test_theme_control_has_touch_target) ... ok
+test_theme_reset_returns_to_system (__main__.BrowserTests.test_theme_reset_returns_to_system) ... ok
+test_total_clipboard_failure_selects_visible_citation (__main__.BrowserTests.test_total_clipboard_failure_selects_visible_citation) ... ok
+test_unavailable_match_media_does_not_break_enhancements (__main__.BrowserTests.test_unavailable_match_media_does_not_break_enhancements) ... ok
+
+----------------------------------------------------------------------
+Ran 28 tests in 10.123s
+
+OK

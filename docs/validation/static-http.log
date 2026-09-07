@@ -1,0 +1,46 @@
+test_favicon_uses_matrix_mark_and_expected_sizes (test_site.SiteAssetTests.test_favicon_uses_matrix_mark_and_expected_sizes) ... ok
+test_local_foam_pdf_is_preserved (test_site.SiteAssetTests.test_local_foam_pdf_is_preserved) ... ok
+test_social_card_png_is_1200_by_630 (test_site.SiteAssetTests.test_social_card_png_is_1200_by_630) ... ok
+test_social_card_svg_matches_new_positioning (test_site.SiteAssetTests.test_social_card_svg_matches_new_positioning) ... ok
+test_html_uses_only_minimal_interaction_hooks (test_site.SiteBehaviorTests.test_html_uses_only_minimal_interaction_hooks) ... ok
+test_javascript_contains_required_progressive_enhancements (test_site.SiteBehaviorTests.test_javascript_contains_required_progressive_enhancements) ... ok
+test_mobile_menu_icon_uses_explicit_top_and_bottom_lines (test_site.SiteBehaviorTests.test_mobile_menu_icon_uses_explicit_top_and_bottom_lines) ... ok
+test_reveal_animation_is_progressive_enhancement (test_site.SiteBehaviorTests.test_reveal_animation_is_progressive_enhancement) ... ok
+test_stylesheet_has_new_components_and_not_obsolete_dashboard_components (test_site.SiteBehaviorTests.test_stylesheet_has_new_components_and_not_obsolete_dashboard_components) ... ok
+test_foam_is_the_only_publication (test_site.SiteContentTests.test_foam_is_the_only_publication) ... ok
+test_foam_links_and_bibtex_are_present (test_site.SiteContentTests.test_foam_links_and_bibtex_are_present) ... ok
+test_internal_fragments_and_files_resolve (test_site.SiteContentTests.test_internal_fragments_and_files_resolve) ... ok
+test_json_ld_contains_one_person_and_one_foam_article (test_site.SiteContentTests.test_json_ld_contains_one_person_and_one_foam_article) ... ok
+test_navigation_targets_single_page_sections (test_site.SiteContentTests.test_navigation_targets_single_page_sections) ... ok
+test_optimizer_map_distinguishes_shampoo_soap_and_muon (test_site.SiteContentTests.test_optimizer_map_distinguishes_shampoo_soap_and_muon) ... ok
+test_title_description_and_primary_heading_define_research_identity (test_site.SiteContentTests.test_title_description_and_primary_heading_define_research_identity) ... ok
+test_404_page_is_noindex_and_returns_to_home (test_site.SiteMetadataTests.test_404_page_is_noindex_and_returns_to_home) ... ok
+test_documentation_describes_single_page_deployment_and_validation (test_site.SiteMetadataTests.test_documentation_describes_single_page_deployment_and_validation) ... ok
+test_legacy_pages_redirect_to_single_page_sections (test_site.SiteMetadataTests.test_legacy_pages_redirect_to_single_page_sections) ... ok
+test_robots_and_manifest_match_current_deployment (test_site.SiteMetadataTests.test_robots_and_manifest_match_current_deployment) ... ok
+test_sitemap_contains_only_the_homepage (test_site.SiteMetadataTests.test_sitemap_contains_only_the_homepage) ... ok
+test_404_resources_resolve_from_nested_unknown_path (test_site_integrity.IntegrityTests.test_404_resources_resolve_from_nested_unknown_path) ... ok
+test_downloadable_bibtex_matches_visible_citation (test_site_integrity.IntegrityTests.test_downloadable_bibtex_matches_visible_citation) ... ok
+test_external_links_announce_new_context (test_site_integrity.IntegrityTests.test_external_links_announce_new_context) ... ok
+test_ids_are_unique_and_aria_targets_exist (test_site_integrity.IntegrityTests.test_ids_are_unique_and_aria_targets_exist) ... ok
+test_main_contains_heading_and_sections_are_named (test_site_integrity.IntegrityTests.test_main_contains_heading_and_sections_are_named) ... ok
+test_no_remote_runtime_dependencies (test_site_integrity.IntegrityTests.test_no_remote_runtime_dependencies) ... ok
+test_original_pdf_is_byte_for_byte_unchanged (test_site_integrity.IntegrityTests.test_original_pdf_is_byte_for_byte_unchanged) ... ok
+test_scholarly_article_is_part_of_a_publication_volume (test_site_integrity.IntegrityTests.test_scholarly_article_is_part_of_a_publication_volume) ... ok
+test_scripting_controls_start_hidden (test_site_integrity.IntegrityTests.test_scripting_controls_start_hidden) ... ok
+test_static_publish_and_preview_tools_exist (test_site_integrity.IntegrityTests.test_static_publish_and_preview_tools_exist) ... ok
+test_download_content_types (test_site_tools.HTTPTests.test_download_content_types) ... ok
+test_every_public_asset_at_root_and_project_prefix (test_site_tools.HTTPTests.test_every_public_asset_at_root_and_project_prefix) ... ok
+test_head_has_no_body_and_correct_length (test_site_tools.HTTPTests.test_head_has_no_body_and_correct_length) ... ok
+test_nested_unknown_route_is_real_404 (test_site_tools.HTTPTests.test_nested_unknown_route_is_real_404) ... ok
+test_private_and_traversal_routes_are_not_served (test_site_tools.HTTPTests.test_private_and_traversal_routes_are_not_served) ... ok
+test_configuration_checker_detects_mismatch (test_site_tools.ToolTests.test_configuration_checker_detects_mismatch) ... ok
+test_invalid_url_cannot_modify_files (test_site_tools.ToolTests.test_invalid_url_cannot_modify_files) ... ok
+test_publish_zip_has_no_source_or_private_material (test_site_tools.ToolTests.test_publish_zip_has_no_source_or_private_material) ... ok
+test_root_domain_migration_uses_root_base (test_site_tools.ToolTests.test_root_domain_migration_uses_root_base) ... ok
+test_url_change_synchronizes_and_passes_checks (test_site_tools.ToolTests.test_url_change_synchronizes_and_passes_checks) ... ok
+
+----------------------------------------------------------------------
+Ran 41 tests in 0.645s
+
+OK

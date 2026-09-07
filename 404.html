@@ -7,45 +7,44 @@
   <meta name="robots" content="noindex,follow">
   <meta name="theme-color" content="#f5f5f2">
   <meta name="color-scheme" content="light dark">
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="manifest" href="site.webmanifest">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="/kyunghunnam.github.io/assets/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="/kyunghunnam.github.io/site.webmanifest">
   <script>
+    // Apply only a valid saved choice before paint. Content never depends on JS.
     (() => {
-      document.documentElement.classList.add('js');
-      let storedTheme = null;
-      try { storedTheme = localStorage.getItem('theme'); } catch {}
-      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-      document.documentElement.dataset.theme = storedTheme || (prefersDark ? 'dark' : 'light');
+      let saved = null;
+      try { saved = localStorage.getItem('theme'); } catch { /* Storage is optional. */ }
+      const explicit = saved === 'light' || saved === 'dark';
+      const dark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.dataset.theme = explicit ? saved : (dark ? 'dark' : 'light');
     })();
   </script>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="/kyunghunnam.github.io/styles.css">
   <title>Page Not Found | Kyunghun Nam</title>
 </head>
 <body id="top">
   <a class="skip-link" href="#main">Skip to content</a>
+  <span class="sr-only" id="external-link-note">Opens in a new tab.</span>
   <nav class="site-nav" aria-label="Primary navigation">
     <div class="container nav-inner">
-      <a class="brand" href="index.html" aria-label="Kyunghun Nam home">
+      <a class="brand" href="/kyunghunnam.github.io/index.html" aria-label="Kyunghun Nam home">
         <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
         <span class="brand-copy"><strong>Kyunghun Nam</strong><span>Matrix-Aware Optimization</span></span>
       </a>
-      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark theme">
+      <button class="theme-toggle" type="button" data-theme-toggle hidden aria-label="Switch to dark theme">
         <span class="theme-toggle-icon" aria-hidden="true"></span>
         <span class="theme-toggle-label">Theme</span>
       </button>
     </div>
   </nav>
-  <main class="error-page" id="main">
+  <main class="error-page" id="main" tabindex="-1">
     <div class="container error-shell">
       <p class="section-label">404 · MATRIX-AWARE OPTIMIZATION</p>
-      <h1>The requested operator is not defined here.</h1>
-      <p>The page may have moved during the site redesign. Return to the homepage to explore the research program, FOAM, and current questions.</p>
-      <a class="button button-primary" href="index.html">Return home</a>
+      <h1>This page is outside the domain.</h1>
+      <p>The address may be incomplete, or the page may have moved. You can return home or go directly to the research and publication sections.</p>
+      <div class="error-actions"><a class="button button-primary" href="/kyunghunnam.github.io/index.html">Return home</a><a class="button button-secondary" href="/kyunghunnam.github.io/index.html#foam">FOAM publication</a></div>
     </div>
   </main>
-  <script src="common.js" defer></script>
+  <script src="/kyunghunnam.github.io/common.js" defer></script>
 </body>
 </html>
